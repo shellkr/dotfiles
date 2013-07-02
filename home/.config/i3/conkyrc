@@ -9,7 +9,7 @@ use_xft yes
 double_buffer no
  
 ## Update interval in seconds
-update_interval 2.0
+update_interval 3.0
 
 ## This is the number of times Conky will update before quitting.
 ## Set to zero to run forever
@@ -42,9 +42,10 @@ TEXT
 	  "color" : "\#777777"
 	},
 	{ 
-	  "full_text" : "CPU ${cpu}%",
+	  "full_text" : "CPseaU ${cpu}%",
 	  "color" : ${if_match ${cpu}>75}"\#e74f4f4"${else}"\#777777"${endif},
-	  "align" : "right"
+	  "min_width": 40,
+	  "align" : "center"
 	},
 	{
 	  "full_text" : "RAM${mem}",
@@ -75,8 +76,8 @@ TEXT
 	  "align" : "right"
 	},
 	{ 
-	  "full_text" : "Gmail ${execi 60 pass_word=$(pass i3/imap) perl $HOME/.config/i3/imap.pl}", 
-	  "color" : ${if_match ${execi 60 pass_word=$(pass i3/imap) perl $HOME/.config/i3/imap.pl}>1}"\#e74f4f4"${else}"\#777777"${endif},
+	  "full_text" : "Gmail ${execi 60 pass_word="$(pass i3/imap)" perl $HOME/.config/i3/imap.pl}", 
+	  "color" : ${if_match ${execi 60 pass_word="$(pass i3/imap)" perl $HOME/.config/i3/imap.pl}>1}"\#e74f4f4"${else}"\#777777"${endif},
       "min_width": 45,
 	  "align" : "left"
 	},
