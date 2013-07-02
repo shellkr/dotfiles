@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+## Where the files are located
+file_dir="$HOME/.cache/rtorrent/incomplete/"
+
+sleep 2
+
+## Move documents to ~/Documents
+if [ $(grep -iE '*.[Dd][Oo][Cc]|[Pp][Dd][Ff]|[Oo][Dd][Tt]|[Tt][Xx][Tt]' <<<"$1") ]; then
+	mv -u $1 ~/Documents
+	ln -s ~/Documents/$(basename $1) $1
+	exit 0
+elif [ $(grep -iE '*.[Aa][Vv][Ii]|[Mm][Pp]4|[Mm][Kk][Vv]|[Mm][Pp][Gg]|[Mm][Pp][Ee][Gg]|[Ff][Ll][Vv]' <<<"$1") ]; then
+	mv -u $1 ~/Videos
+	ln -s ~/Videos/$(basename $1) $1
+	exit 0
+else
+	mv -u $1 ~/Downloads;ln -s ~/Downloads/$(basename $1) $1
+	exit 0
+fi

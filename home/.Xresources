@@ -1,0 +1,56 @@
+URxvt*font: xft:PragmataPro:size=9:antialias=true
+
+URxvt*font: xft:PragmataPro:size=8:antialias=true
+URxvt*boldFont: xft:PragmataPro:size=8:antialias=true
+URxvt*italicFont: xft:PragmataPro:size=8:antialias=true
+URxvt*boldItalicFont: xft:PragmataPro:size=8:antialias=true
+
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/c800
+URxvt*foreground: [100]#ffffff
+URxvt*saveLines: 10000
+
+!! scrollbar style - rxvt (default), plain (most compact), next, or xterm
+URxvt.scrollBar: false
+URxvt*scrollstyle: plain
+URxvt*scrollWithBuffer: true
+URxvt*scrollBar_right: false
+
+URxvt*perl-ext: default,url-select,keyboard-select,clipboard,vtwheel
+URxvt*url-select.launcher: /usr/bin/firefox -new-tab
+URxvt*clipboard.autocopy: true
+URxvt*selection.pattern-0: ([[:word:]]+)
+
+URxvt*keysym.A-c: perl:clipboard:copy
+URxvt*keysym.A-v: perl:clipboard:paste
+URxvt*keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt*keysym.M-Escape: perl:keyboard-select:activate
+URxvt*keysym.M-s: perl:keyboard-select:search
+URxvt*keysym.M-u: perl:url-select:select_next
+
+!black
+*color0: #191919
+*color8: #484848
+!red
+*color1: #EB3D51
+*color9: #BE6262
+!green
+*color2:  #66B61A
+*color10: #4B8A10
+!yellow
+*color3:  #D98E1D
+*color11: #E5D95E
+! Blue
+*color4:      #204a87
+*color12:     #3465a4
+!magenta
+*color5:  #FF00DA
+*color13: #AB005B
+! Cyan 
+*color6:                  #8C54FE
+*color14:                 #9E6FFE
+!white
+*color7:  #EAEAEA
+*color15: #BBBBBB
+
+Xcursor*theme: Pulse-Glass

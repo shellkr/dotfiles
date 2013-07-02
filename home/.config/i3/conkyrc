@@ -1,0 +1,88 @@
+## i3barConky
+out_to_x no
+own_window no
+out_to_console yes
+background no
+use_xft yes
+
+##avoid flicker
+double_buffer no
+ 
+## Update interval in seconds
+update_interval 2.0
+
+## This is the number of times Conky will update before quitting.
+## Set to zero to run forever
+total_run_times 0
+ 
+## borders
+draw_borders no
+#border_inner_margin 2
+#border_margin 3
+ 
+## shades
+draw_shades yes
+ 
+## Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+ 
+## to prevent window from moving
+use_spacer left
+
+## number of cpu samples to average
+## set to 1 to disable averaging
+cpu_avg_samples 2
+short_units yes
+
+## Stuff after 'TEXT' will be formatted on screen
+TEXT
+[
+	{ 
+	  "full_text" : "${execi 60 curl -p icanhazip.com}", 
+	  "color" : "\#777777"
+	},
+	{ 
+	  "full_text" : "CPU ${cpu}%",
+	  "color" : ${if_match ${cpu}>75}"\#e74f4f4"${else}"\#777777"${endif},
+	  "align" : "right"
+	},
+	{
+	  "full_text" : "RAM${mem}",
+	  "color" : "\#777777",
+	  "separator" : false
+	},	
+	{ 
+	  "full_text" : "(${memmax})",
+	  "separator" : false, 
+	  "separator_block_width" : 3,
+	  "color" : "\#777777",
+	  "min_width": 380,
+	  "align" : "left"
+
+	},
+	{ 
+	  "full_text" : "${time %A den %d %B, }${time %H:%M}", 
+	  "separator" : false, 
+	  "separator_block_width" : 3, 
+	  "color" : "\#cc8800", 
+	  "min_width": 600,
+	  "align" : "center"
+	},
+	{ 
+	  "full_text" : "${execi 600 $HOME/.config/i3/./weather.sh}",
+      "color" : "\#777777",
+	  "min_width": 520,
+	  "align" : "right"
+	},
+	{ 
+	  "full_text" : "Gmail ${execi 60 pass_word=$(pass i3/imap) perl $HOME/.config/i3/imap.pl}", 
+	  "color" : ${if_match ${execi 60 pass_word=$(pass i3/imap) perl $HOME/.config/i3/imap.pl}>1}"\#e74f4f4"${else}"\#777777"${endif},
+      "min_width": 45,
+	  "align" : "left"
+	},
+	{ 
+	  "full_text" : "Vol ${exec amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]' | uniq }",
+          "color" : "\#777777"
+        }
+],
+

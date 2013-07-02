@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sleep 1
+
+rm -drf ~/{.cache/rtorrent/incomplete,Downloads,Documents,Videos}/${1}
+rm -drf ~/.cache/rtorrent/{session,incomplete}/*${2}*
+#rm -drf .cache/rtorrent/session/$(basename $2 | sed 's/.meta/.torrent/')
