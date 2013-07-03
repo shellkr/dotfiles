@@ -9,7 +9,7 @@ use_xft yes
 double_buffer no
  
 ## Update interval in seconds
-update_interval 3.0
+update_interval 2
 
 ## This is the number of times Conky will update before quitting.
 ## Set to zero to run forever
@@ -76,10 +76,20 @@ TEXT
 	  "align" : "right"
 	},
 	{ 
-	  "full_text" : "Gmail ${execi 60 pass_word=\"$(pass i3/imap)\" perl $HOME/.config/i3/imap.pl}", 
-	  "color" : ${if_match ${execi 60 pass_word=\"$(pass i3/imap)\" perl $HOME/.config/i3/imap.pl}>1}"\#e74f4f4"${else}"\#777777"${endif},
-      "min_width": 45,
-	  "align" : "left"
+#	  "full_text" : "Gmail ${execi 60 pass_word=$(pass i3/imap) perl $HOME/.config/i3/imap.pl 2&> /dev/null}", 
+	  "full_text" : "Gmail",
+      "color" : "\#777777",
+	  "separator" : false 
+	},
+	{
+	  "full_text" : "${execi 30 wget -q -O - --auth-no-challenge --user=revoltism@gmail.com \
+		--password=$(pass i3/imap) 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")'}", 
+#	  "color" : ${if_match 0>1}"\#e74f4f4"${else}"\#777777"${endif},
+	  "color" : ${if_match ${execi 30 wget -q -O - --auth-no-challenge --user=revoltism@gmail.com \
+		--password=$(pass i3/imap) 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")'}<0} \
+		"\#e74f4f4"${else}"\#777777"${endif},
+      "min_width": 2,
+	  "align" : "center"
 	},
 	{ 
 	  "full_text" : "Vol ${exec amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]' | uniq }",
