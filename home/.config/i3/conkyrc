@@ -42,7 +42,7 @@ TEXT
 	  "color" : "\#777777"
 	},
 	{ 
-	  "full_text" : "CPseaU ${cpu}%",
+	  "full_text" : "CPU ${cpu}%",
 	  "color" : ${if_match ${cpu}>75}"\#e74f4f4"${else}"\#777777"${endif},
 	  "min_width": 40,
 	  "align" : "center"
@@ -70,14 +70,14 @@ TEXT
 	  "align" : "center"
 	},
 	{ 
-	  "full_text" : "${execi 600 $HOME/.config/i3/./weather.sh}",
+	  "full_text" : "${execi 900 $HOME/.config/i3/./weather.sh}",
       "color" : "\#777777",
 	  "min_width": 520,
 	  "align" : "right"
 	},
 	{ 
-	  "full_text" : "Gmail ${execi 60 pass_word="$(pass i3/imap)" perl $HOME/.config/i3/imap.pl}", 
-	  "color" : ${if_match ${execi 60 pass_word="$(pass i3/imap)" perl $HOME/.config/i3/imap.pl}>1}"\#e74f4f4"${else}"\#777777"${endif},
+	  "full_text" : "Gmail ${execi 60 pass_word=\"$(pass i3/imap)\" perl $HOME/.config/i3/imap.pl}", 
+	  "color" : ${if_match ${execi 60 pass_word=\"$(pass i3/imap)\" perl $HOME/.config/i3/imap.pl}>1}"\#e74f4f4"${else}"\#777777"${endif},
       "min_width": 45,
 	  "align" : "left"
 	},
