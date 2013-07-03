@@ -15,6 +15,9 @@ update_interval 2
 ## Set to zero to run forever
 total_run_times 0
  
+## How strict should if_up be when testing an interface for being up?
+if_up_strictness address
+
 ## borders
 draw_borders no
 #border_inner_margin 2
@@ -39,7 +42,7 @@ TEXT
 [
 	{ 
 	  "full_text" : "${execi 60 curl -p icanhazip.com}", 
-	  "color" : "\#777777"
+	  "color" : ${if_up enp2s0}"\#777777"${else}"\#e74f4f4"${endif}
 	},
 	{ 
 	  "full_text" : "CPU ${cpu}%",
@@ -71,24 +74,23 @@ TEXT
 	},
 	{ 
 	  "full_text" : "${execi 900 $HOME/.config/i3/./weather.sh}",
-      "color" : "\#777777",
+	  "color" : "\#777777",
 	  "min_width": 520,
 	  "align" : "right"
 	},
 	{ 
-#	  "full_text" : "Gmail ${execi 60 pass_word=$(pass i3/imap) perl $HOME/.config/i3/imap.pl 2&> /dev/null}", 
 	  "full_text" : "Gmail",
-      "color" : "\#777777",
-	  "separator" : false 
+	  "color" : "\#777777",
+	  "separator" : false, 
+	  "separator_block_width" : 2 
 	},
 	{
 	  "full_text" : "${execi 30 wget -q -O - --auth-no-challenge --user=revoltism@gmail.com \
 		--password=$(pass i3/imap) 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")'}", 
-#	  "color" : ${if_match 0>1}"\#e74f4f4"${else}"\#777777"${endif},
 	  "color" : ${if_match ${execi 30 wget -q -O - --auth-no-challenge --user=revoltism@gmail.com \
-		--password=$(pass i3/imap) 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")'}<0} \
+		--password=$(pass i3/imap) 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")'}>0} \
 		"\#e74f4f4"${else}"\#777777"${endif},
-      "min_width": 2,
+      "min_width": 10,
 	  "align" : "center"
 	},
 	{ 
