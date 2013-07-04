@@ -9,4 +9,4 @@ wurl="http://www.yr.no/place/Sweden/Norrbotten/Ala_Lombolo/forecast.xml"
 winfo=$(curl -s $wurl | egrep '(temperature|symbol)' | \
 awk -F'="|"' '{printf $4","}' | cut -d "," -f 1-4)
 
-awk -F"," '{print $2"°C",$1" | "$4"°C",$3}' <<<$winfo
+awk -F"," '{print $2"°C",$1" \\u01c1 "$4"°C",$3}' <<<$winfo
