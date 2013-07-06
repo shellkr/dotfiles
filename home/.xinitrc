@@ -11,9 +11,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 
-#gpg-agent --server
+#gpg-agent --server &
+eval $(gpg-agent --daemon --default-cache-ttl 1800) &
 compton --config ~/.config/i3/compton.conf -b &
 numlockx &
 /home/daniel/.config/i3/./wallpaper_ch &
 /home/daniel/.config/i3/./hot_edge.sh &
-exec i3 -V >> ~/.cache/i3log 2>&1 
+exec i3 #-V >> ~/.cache/i3log 2>&1 

@@ -6,7 +6,7 @@ background no
 use_xft yes
 
 ##avoid flicker
-double_buffer no
+double_buffer yes
  
 ## Update interval in seconds
 update_interval 2
@@ -43,70 +43,77 @@ TEXT
 	{ 
 	  "full_text" : "${execi 60 curl -p icanhazip.com}", 
 	  "color" : ${if_up enp2s0}"\#777777"${else}"\#e74f4f4"${endif},
-	  "separator" : false,
-	  "separator_block_width" : 6
-
+	  "separator" : false
 	},
 	{ 
-	  "full_text" : "\u01C1 \u23e3 ${cpu}%",
+	  "full_text" : "\u23e3", 
+	  "color" : "\#777777",
+	  "separator" : false,
+	  "separator_block_width" : 3
+	},
+	{ 
+	  "full_text" : "${cpu}%",
 	  "color" : ${if_match ${cpu}>75}"\#e74f4f4"${else}"\#777777"${endif},
       "separator" : false, 
-	  "separator_block_width" : 6,
-	  "min_width": 40,
-	  "align" : "center"
+	  "separator_block_width" : 2,
+	  "min_width": 20,
+	  "align" : "left"
 	},
 	{
-	  "full_text" : "\u01C1 ${mem}",
+	  "full_text" : "${mem}",
 	  "color" : "\#777777",
 	  "separator" : false,
 	  "separator_block_width" : 3,
-	  "min_width": 40,
+	  "min_width": 30,
 	  "align" : "right"
 	},	
 	{ 
 	  "full_text" : "(${memmax})",
 	  "separator" : false, 
-	  "separator_block_width" : 3,
+	  "separator_block_width" : 2,
 	  "color" : "\#777777",
-	  "min_width": 410,
+	  "min_width": 450,
 	  "align" : "left"
 
 	},
 	{ 
-	  "full_text" : "${time %A den %d %B, }${time %H:%M}", 
+	  "full_text" : "${time %A den %d %B v%V,  }${time %H:%M}",
 	  "separator" : false, 
 	  "separator_block_width" : 3, 
 	  "color" : "\#cc8800", 
-	  "min_width": 600,
+	  "min_width": 610,
 	  "align" : "center"
 	},
 	{ 
 	  "full_text" : "${execi 900 $HOME/.config/i3/./weather.sh}",
 	  "color" : "\#777777",
-	  "min_width": 550,
+	  "min_width": 520,
 	  "align" : "right",
-      "separator" : false, 
-      "separator_block_width" : 6
-	},
-	{ 
-	  "full_text" : "\u01C1",
-	  "color" : "\#777777",
-	  "separator" : false
+      "separator" : false,
+	  "separator_block_width" : 6
 	},
 	{
-	  "full_text" : "${execi 30 wget -q -O - --auth-no-challenge --user=revoltism@gmail.com \
+#	  "full_text" : " \u",
+#      "color" : "\#777777",
+#      "separator" : false
+#	},
+#	{
+	  "full_text" : " ⌴ ${execi 30 wget -q -O - --auth-no-challenge --user=revoltism@gmail.com \
 		--password=$(pass i3/imap) 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")'}", 
 	  "color" : ${if_match ${execi 30 wget -q -O - --auth-no-challenge --user=revoltism@gmail.com \
 		--password=$(pass i3/imap) 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")'}>0} \
 		"\#e74f4f4"${else}"\#777777"${endif},
-	  "separator" : false, 
-	  "min_width": 5,
-	  "align" : "center"
+	  "name" : "gmail_count",
+	  "separator" : false,
+	  "separator_block_width" : 7,
+	  "min_width": 4,
+	  "align" : "left"
 	},
 	{ 
-	  "full_text" : "\u01C1 \u266a ${exec amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]' | uniq }",
+	  "full_text" : "  \u266a ${exec amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]' | uniq }",
 	  "color" : "\#777777",
-	  "separator" : false 
-        }
+	  "separator" : false,
+	  "separator_block_width" : 3 
+	}
 ],
 

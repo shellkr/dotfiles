@@ -60,6 +60,11 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # Separate man page sections.  Neat.
 zstyle ':completion:*:manuals' separate-sections true
 
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+	. "${HOME}/.gpg-agent-info"
+	export GPG_AGENT_INFO
+#	export SSH_AUTH_SOCK
+fi
 
 [ -r /usr/share/doc/pkgfile/command-not-found.zsh ] && . /usr/share/doc/pkgfile/command-not-found.zsh
 tmux has -t Weechat 1&>2 > /dev/null || tmux -2 -u new -d -s Weechat weechat-curses
