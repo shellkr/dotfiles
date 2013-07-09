@@ -184,6 +184,7 @@ new_window pixel 1
 new_float  normal
 
 for_window [window_role="pop-up"] floating enable,move absolute center
+for_window [class="Pinentry"] floating enable
 for_window [class="Geary"] floating enable
 for_window [class="Gcr-prompter"] floating enable
 for_window [class="Tipswindow.py"] floating enable
@@ -204,6 +205,7 @@ assign [class="^Firefox$"] 2
 exec firefox
 
 ## Set predefined Workspace 3
+for_window [class="^Vlc$"] border normal
 assign [class="URxvt" instance="^rtorrent$"] 3
 assign [class="Vlc"] 3
 exec urxvtc -name rtorrent -e rtorrent

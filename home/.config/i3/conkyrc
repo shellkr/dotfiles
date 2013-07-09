@@ -1,3 +1,9 @@
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+	. "${HOME}/.gpg-agent-info"
+	export GPG_AGENT_INFO
+	export SSH_AUTH_SOCK
+fi
+
 ## i3barConky
 out_to_x no
 own_window no
@@ -72,7 +78,7 @@ TEXT
 	  "separator" : false, 
 	  "separator_block_width" : 2,
 	  "color" : "\#777777",
-	  "min_width": 450,
+	  "min_width": 435,
 	  "align" : "left"
 
 	},

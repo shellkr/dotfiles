@@ -12,7 +12,7 @@ fi
 
 
 #gpg-agent --server &
-eval $(gpg-agent --daemon --default-cache-ttl 1800) &
+eval $(gpg-agent --daemon) & # --default-cache-ttl 4200) &
 compton --config ~/.config/i3/compton.conf -b &
 numlockx &
 /home/daniel/.config/i3/./wallpaper_ch &
