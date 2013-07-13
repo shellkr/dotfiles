@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd /home/daniel/.homesick/repos/dotfiles/
+git status
+echo
+[[ -z $1 ]] && read -p "Enter your commit message: " git_commit || git_commit="$1"
+
+git add -A
+git commit -m "$git_commit"
+git push

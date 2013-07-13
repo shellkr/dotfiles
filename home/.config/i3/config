@@ -149,6 +149,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+## Media keys
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5%
+bindsym XF86AudioMute exec amixer -q set Master toggle
+
 ## Let deepin-scrot handle the screenshots
 bindsym Print exec deepin-scrot
 
@@ -185,6 +190,7 @@ new_float  normal
 
 for_window [window_role="pop-up"] floating enable,move absolute center
 for_window [class="Pinentry"] floating enable
+for_window [class="Eog"] floating enable
 for_window [class="Geary"] floating enable
 for_window [class="Gcr-prompter"] floating enable
 for_window [class="Tipswindow.py"] floating enable
@@ -192,6 +198,8 @@ for_window [class="XVroot"] floating enable
 for_window [class="XVcontrols"] floating enable
 for_window [class="Vlc"] floating enable
 for_window [class="Synergy"] floating enable
+for_window [class="libreoffice-writer"] floating enable
+for_window [class="Shotwell"] floating enable
 	
 ## Set up a predefined workspace 1
 exec xdotool mousemove 1600 500
@@ -205,7 +213,7 @@ assign [class="^Firefox$"] 2
 exec firefox
 
 ## Set predefined Workspace 3
-for_window [class="^Vlc$"] border normal
+#for_window [class="^Vlc$"] border normal
 assign [class="URxvt" instance="^rtorrent$"] 3
 assign [class="Vlc"] 3
 exec urxvtc -name rtorrent -e rtorrent
