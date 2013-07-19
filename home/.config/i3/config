@@ -196,10 +196,11 @@ for_window [class="Gcr-prompter"] floating enable
 for_window [class="Tipswindow.py"] floating enable
 for_window [class="XVroot"] floating enable
 for_window [class="XVcontrols"] floating enable
-for_window [class="Vlc"] floating enable
+#for_window [class="Vlc"] floating enable
 for_window [class="Synergy"] floating enable
 for_window [class="libreoffice-writer"] floating enable
 for_window [class="Shotwell"] floating enable
+for_window [class="UpLauncher"] floating enable
 	
 ## Set up a predefined workspace 1
 exec xdotool mousemove 1600 500
@@ -216,8 +217,8 @@ exec firefox
 #for_window [class="^Vlc$"] border normal
 assign [class="URxvt" instance="^rtorrent$"] 3
 assign [class="Vlc"] 3
-exec urxvtc -name rtorrent -e rtorrent
-exec vlc
+
+exec urxvtc -name rtorrent -e rtorrent; exec vlc
 
 ## Set predefined Workspace 4
 assign [class="^Gimp$"] 4

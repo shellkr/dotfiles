@@ -1,5 +1,5 @@
-if [ -f "${HOME}/.gnupg/.gpg-agent-info" ]; then
-	. "${HOME}/.gnupg/.gpg-agent-info"
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+	. "${HOME}/.gpg-agent-info"
 	export GPG_AGENT_INFO
 	export SSH_AUTH_SOCK
 fi
@@ -93,7 +93,7 @@ TEXT
 	{ 
 	  "full_text" : "${execi 900 $HOME/.config/i3/./weather.sh}",
 	  "color" : "\#777777",
-	  "min_width": 520,
+	  "min_width": 540,
 	  "align" : "right",
       "separator" : false,
 	  "separator_block_width" : 6
@@ -122,4 +122,5 @@ TEXT
 	  "separator_block_width" : 3 
 	}
 ],
+
 

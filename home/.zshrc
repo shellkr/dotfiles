@@ -67,7 +67,7 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
 fi
 
 [ -r /usr/share/doc/pkgfile/command-not-found.zsh ] && . /usr/share/doc/pkgfile/command-not-found.zsh
-tmux has -t Weechat 1&>2 > /dev/null || tmux -2 -u new -d -s Weechat weechat-curses
+#tmux has -t Weechat 1&>2 > /dev/null || tmux -2 -u new -d -s Weechat weechat-curses
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ## My Aliases
