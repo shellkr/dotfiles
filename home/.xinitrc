@@ -15,11 +15,14 @@ source /etc/environment
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
+
 #eval $(gpg-agent --daemon) & # --default-cache-ttl 4200) &
 xsetroot -cursor_name left_ptr &
 compton --config ~/.config/i3/compton.conf -b &
 numlockx &
+
 /home/daniel/.config/bspwm/./wallpaper_ch &
 /home/daniel/.config/bspwm/./hot_edge.sh &
+
 sxhkd -c ~/.config/bspwm/sxhkdrc &
 exec bspwm -s "$PANEL_FIFO" -p W

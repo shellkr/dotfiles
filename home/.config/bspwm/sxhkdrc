@@ -1,73 +1,94 @@
-#
-# bspwm hotkeys
-#
+##
+## bspwm hotkeys
+##
 
+## Quit
 super + alt + Escape
     bspc quit
 
+## Close window
 super + w
     bspc window -c
 
+## Toggle active window fullscreen and back
 super + t
     bspc desktop -l next
 
+## Balance (in size) the desktop/workspace
 super + b
     bspc desktop -B
 
+## Toggle floating or fullscreen 
 super + {s,f}
     bspc window -t {floating,fullscreen}
 
+## Toggle last focused windows or workspace/desktop back-and-forth (§,tab)
 super + {grave,Tab}
     bspc {window,desktop} -f last
 
+## Move window to.. (does not work on my keyboard)
 super + apostrophe
     bspc window -s last
 
+## Move selected window to the biggest window
 super + m
     bspc window -s biggest
 
+## Focus or move window left,down,up,right
 super + {_,shift + }{h,j,k,l}
     bspc window -{f,s} {left,down,up,right}
 
+## Focus window next or prev
 super + {_,shift + }c
     bspc window -f {next,prev}
 
+## Circulate leaves of the tree backward or forward
 super + {comma,period}
     bspc desktop -C {backward,forward}
 
+## Move to previous or next desktop/workspace
 alt + {1,2}
     bspc desktop -f {prev,next}
 
+## Cut the window at...
 super + ctrl + {h,j,k,l}
     bspc window -p {left,down,up,right}
 
+## Not sure.. didn't work on my keyboard
 super + ctrl + {_,shift + }space
     bspc {window -p cancel,desktop -c}
 
+## Resize the window by pushing
 super + alt + {h,j,k,l}
     bspc window -e {left,down,up,right} push
 
+## Resizing the windoiw by pulling
 super + alt + shift + {h,j,k,l}
     bspc window -e {right,up,down,left} pull
 
+## Not sure how or what it does...
 super + ctrl + {1-9}
     bspc window -r 0.{1-9}
 
+## Focus the given desktop or move a window to a given desktop
 super + {_,shift + }{1-9,0}
     bspc {desktop -f,window -d} {1-9,0}
 
+## Focus the window that is clicked
 :button1
     bspc pointer -g focus
 
+## Move or rezise with depending on the mouse button.
 super + button{1-3}
     bspc pointer -g {move,resize_side,resize_corner}
 
+## Not sure yet..
 super + !button{1-3}
     bspc pointer -t %i %i
 
-#
-# wm independent hotkeys
-#
+##
+## wm independent hotkeys
+##
 
 super + Return
     urxvtc
@@ -75,8 +96,9 @@ super + Return
 super + space
      j4-dmenu-desktop --convert=lowercase "dmenu -fn 'Pragmata Pro-8'"
 #    dmenu_run
-# make sxhkd reload its configuration files:
+
+## make sxhkd reload its configuration files:
 super + Escape
-    pkill -USR1 -x sxhkd
+	 pkill -USR1 -x sxhkd
 
 # vim: set ft=sxhkdrc:

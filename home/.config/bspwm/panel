@@ -8,7 +8,7 @@ clock -sf 'S%A den %d %B v%V  %H:%M' > "$PANEL_FIFO" &
 case "$flavor" in
     bar)
         cat "$PANEL_FIFO" | .config/bspwm/panel_bar | bar
-        ;;
+    ;;
     dzen2)
         . panel_colors
         PANEL_HEIGHT=24
@@ -17,5 +17,5 @@ case "$flavor" in
         cat "$PANEL_FIFO" | panel_dzen2 -f "$FONT_FAMILY" -s "$FONT_SIZE" | \
 		dzen2 -h $PANEL_HEIGHT -dock -ta l -title-name panel -fn "${FONT_FAMILY}:pixelsize=${FONT_SIZE}" \
 		-fg "$COLOR_FOREGROUND" -bg "$COLOR_BACKGROUND"
-        ;;
+    ;;
 esac
