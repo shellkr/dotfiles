@@ -4,7 +4,7 @@ flavor=${1:-bar}
 
 bspc control --put-status
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
-clock -sf 'S%A den %d %B v%V  %H:%M' > "$PANEL_FIFO" &
+while true; do date +'S%A den %d %B v%V  %H:%M' > "$PANEL_FIFO"; sleep 2; done &
 case "$flavor" in
     bar)
         cat "$PANEL_FIFO" | .config/bspwm/panel_bar | bar

@@ -7,24 +7,25 @@ bspc monitor -a $REMAINING_DESKS
 
 export BSPWM_SOCKET=/tmp/bspwm-socket
 
-bspc set bottom_padding 23
-bspc set border_width 8
-bspc set window_gap 2
-bspc set focus_follows_pointer true
-bspc set click_to_focus true
-bspc set gapless_monocle true
-bspc set borderless_monocle true
-bspc set apply_shadow_property true
-bspc set adaptative_raise true
-bspc set fence_grip 100
-bspc set focused_border_color "#aa6300"  #"#11809E"
-bspc set active_border_color "#1D667A"
-bspc set normal_border_color "#222222" #"#3F3E3B"
-bspc set presel_border_color "#A7BF81"
-bspc set focused_locked_border_color "#C7B579"
-bspc set active_locked_border_color "#7E7F89"
-bspc set normal_locked_border_color "#3F3E3B"
-bspc set urgent_border_color "#EFA29A"
+bspc config split_ratio 0.52
+bspc config bottom_padding 23
+bspc config border_width 2
+bspc config window_gap 8
+bspc config focus_follows_pointer true
+bspc config click_to_focus true
+bspc config gapless_monocle true
+bspc config borderless_monocle true
+bspc config apply_shadow_property true
+bspc config adaptative_raise true
+bspc config fence_grip 100
+bspc config focused_border_color "#aa6300"  #"#11809E"
+bspc config active_border_color "#1D667A"
+bspc config normal_border_color "#222222" #"#3F3E3B"
+bspc config presel_border_color "#A7BF81"
+bspc config focused_locked_border_color "#C7B579"
+bspc config active_locked_border_color "#7E7F89"
+bspc config normal_locked_border_color "#3F3E3B"
+bspc config urgent_border_color "#EFA29A"
 
 bspc rule Geary floating
 bspc rule Nautilus floating
@@ -33,13 +34,6 @@ bspc rule -a Firefox -d 2
 bspc rule -a Vlc -d 3
 bspc rule -a rtorrent -d 3
 bspc rule -a URthree -d 3
-
-
-bspc config split_ratio         	0.52
-bspc config border_width        	2
-bspc config window_gap          	10
-bspc config borderless_monocle  	true
-bspc config gapless_monocle     	true
 
 
 bspc monitor -p 14 0 0 0
@@ -55,6 +49,6 @@ urxvtc && urxvtc && urxvtc
 firefox &
 
 ## Predefined Workspace 3
+
 urxvtc -name rtorrent -e rtorrent &
-vlc &
-urxvtc -name URthree &
+urxvtc -name URthree & vlc &

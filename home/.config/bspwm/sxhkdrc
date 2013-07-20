@@ -78,7 +78,7 @@ super + {_,shift + }{1-9,0}
 :button1
     bspc pointer -g focus
 
-## Move or rezise with depending on the mouse button.
+## Move or rezise depending on the mouse button.
 super + button{1-3}
     bspc pointer -g {move,resize_side,resize_corner}
 
