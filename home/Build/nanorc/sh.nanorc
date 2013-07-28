@@ -1,0 +1,19 @@
+syntax "sh" "\.sh$" "\.bash$" "bashrc$" "bash_profile$"
+header "^#!.*/(env +)?(ba|z|k|pdk)?sh[-0-9_]*( |$)"
+
+TYPE:     "^\w*\s"
+FUNCTION: "^[A-Za-z0-9_+-]+[[:space:]]*\(\)"
+KEYWORD:  "\<(case|do|done|elif|else|esac|fi|for|function|if)\>"
+KEYWORD:  "\<(in|select|then|time|until|while)\>"
+FUNCTION: "\<(source)\>"
+TYPE:     "^\s*[A-Za-z0-9_]*\s*[A-Za-z0-9_]*="
+OPERATOR: "[{}()<>!=&|;`$]|\\|\[|\]|-(eq|ne|gt|lt|ge|le|s|n|z)\>"
+NUMBER:   "\<([0-9]+|0x[0-9a-fA-F]*)\>|true|false|'.'"
+STRING:   ""(\\.|[^"])*""
+VARIABLE: "\$\{?[A-Za-z0-9_!@#$*?]+\}?|`[^`]*`"
+STRING:   "'(\\.|[^'])*'"
+COMMAND:  "\<(cat|cd|chmod|chown|cp|echo|env|export|grep|install|let|ln|make|mkdir|mv|rm|sed|set|sleep|tar|touch|umask|unset)\>"
+ESCAPE:   "\\.?"
++HASHCOMMENT
++TODO
++LINT

@@ -1,0 +1,56 @@
+set tabstospaces # Tab key inserts spaces (Ctrl+t for verbatim mode)
+set tabsize 4    # Insert 4 spaces per tab
+#set fill 76      # Justify command (Ctrl+j) wraps at 76 columns
+set autoindent   # Jump to the current indent level after inserting a newline
+set nowrap       # Don't wrap text at all.
+set morespace    # Use the second row (usually blank) for editing space
+set quickblank   # Clear status messages after a single keystroke
+set multibuffer  # Allow opening multiple files (Alt+< and Alt+> to switch)
+set historylog   # Remember command history
+set undo         # Enable undo/redo features
+set smooth       # Scroll one line at a time
+set const        # Show cursor position at the bottom of the screen
+set nohelp       # Remove the help bar from the bottom of the screen
+set regexp       # Enable regular expression mode for find (Ctrl+r to disable)
+set poslog       # Save the cursor position of files between editing sessions
+set smarthome    # Home key jumps to first non-whitespace character
+
+# Annoyances
+#unbind ^C all
+#unbind ^G all
+
+# File
+#bind ^O insert main
+#bind ^N insert main
+#bind ^S writeout main
+#bind ^Q cancel all
+#bind ^W cancel all
+#bind ^Q exit main
+#bind ^W exit main
+
+# Edit
+#bind ^A mark main
+#bind ^C copytext main
+#bind ^X cut main
+#bind ^V uncut main
+#bind ^Z undo main
+#bind ^Y redo main
+#bind ^T verbatim main
+#bind F5 refresh all
+#bind F8 autoindent main
+#bind F12 autoindent main
+
+# Search
+#bind ^F whereis all
+#bind ^H replace all
+#bind ^I casesens search
+#bind ^I casesens replace
+#bind ^R regex search
+#bind ^R regex replace
+#bind ^L gotoline main
+#bind F3 searchagain main
+#bind ^] findbracket main
+
+# Default highlighting
+syntax "default"
++LINT

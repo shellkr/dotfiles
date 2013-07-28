@@ -1,0 +1,13 @@
+syntax "gitconfig" "git(config|modules)$|\.git/config$"
+
++BOOLEAN
++INI
++STRING
++HASHCOMMENT
++LINT
+
+syntax "gitmsg" "COMMIT_EDITMSG$"
+
+ESCAPE:   "\\."
++HASHCOMMENT
++LINT
