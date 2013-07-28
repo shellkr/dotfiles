@@ -2,12 +2,22 @@
 ## bspwm hotkeys
 ##
 
+## make sxhkd reload its configuration files:
+super + F1
+    pkill -USR1 -x sxhkd
+
+super + F2
+    $HOME/.bin/bspwm-autostart
+
+super + F3
+    bspc toggle_visibility
+
 ## Quit
 super + alt + Escape
     bspc quit
 
 ## Close window
-super + w
+super + Escape
     bspc window -c
 
 ## Toggle active window fullscreen and back
@@ -19,15 +29,15 @@ super + b
     bspc desktop -B
 
 ## Toggle floating or fullscreen 
-super + {s,f}
+super + {z,f}
     bspc window -t {floating,fullscreen}
 
 ## Toggle last focused windows or workspace/desktop back-and-forth (§,tab)
-super + {grave,Tab}
+super + {Paragraph,Tab}
     bspc {window,desktop} -f last
 
 ## Move window to.. (does not work on my keyboard)
-super + apostrophe
+super + Grave # apostrophe
     bspc window -s last
 
 ## Move selected window to the biggest window
@@ -35,7 +45,7 @@ super + m
     bspc window -s biggest
 
 ## Focus or move window left,down,up,right
-super + {_,shift + }{h,j,k,l}
+super + {_,shift + }{a,s,w,d}
     bspc window -{f,s} {left,down,up,right}
 
 ## Focus window next or prev
@@ -51,19 +61,19 @@ alt + {1,2}
     bspc desktop -f {prev,next}
 
 ## Cut the window at...
-super + ctrl + {h,j,k,l}
+super + ctrl + {a,s,w,d}
     bspc window -p {left,down,up,right}
 
-## Not sure.. didn't work on my keyboard
-super + ctrl + {_,shift + }space
+## Cancels a cut
+super + ctrl + {_,shift + }Escape
     bspc {window -p cancel,desktop -c}
 
 ## Resize the window by pushing
-super + alt + {h,j,k,l}
+super + alt + {a,s,w,d}
     bspc window -e {left,down,up,right} push
 
 ## Resizing the windoiw by pulling
-super + alt + shift + {h,j,k,l}
+super + alt + shift + {a,s,w,d}
     bspc window -e {right,up,down,left} pull
 
 ## Not sure how or what it does...
@@ -94,11 +104,17 @@ super + Return
     urxvtc
 
 super + space
-     j4-dmenu-desktop --convert=lowercase "dmenu -fn 'Pragmata Pro-8'"
-#    dmenu_run
+#     j4-dmenu-desktop --convert=lowercase "dmenu -fn 'Pragmata Pro-8'"
+    dmenu_run
 
-## make sxhkd reload its configuration files:
-super + Escape
-	 pkill -USR1 -x sxhkd
+## Media keys
+XF86AudioRaiseVolume
+	pactl set-sink-volume 0 +5%
+
+XF86AudioLowerVolume
+	pactl set-sink-volume 0 -- -5%
+
+XF86AudioMute
+	amixer -q set Master toggle
 
 # vim: set ft=sxhkdrc:

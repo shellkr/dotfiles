@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd /etc
+
+[[ $(id -u) > 0 ]] && { echo "You need to be root to do this." && exit 1; }
+
+git status
+echo
+[[ -z $1 ]] && read -p "Enter your commit message: " git_commit || git_commit="$1"
+
+git add -A
+git commit -m "$git_commit"
+git push

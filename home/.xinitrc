@@ -15,6 +15,7 @@ use_gpg_agent() {
 
 init_desktop() {
 	[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+	setxkbmap -option terminate:ctrl_alt_bksp
 	xsetroot -cursor_name left_ptr &
 	compton --config ~/.config/i3/compton.conf -b &
 	numlockx &

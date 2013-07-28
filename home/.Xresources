@@ -30,28 +30,30 @@ URxvt*keysym.M-s: perl:keyboard-select:search
 URxvt*keysym.M-u: perl:url-select:select_next
 
 !black
-*color0: #191919
-*color8: #484848
+*color0:	#191919
+*color8:	#484848
 !red
-*color1: #EB3D51
-*color9: #BE6262
+*color1:	#CC2222
+*color9:	#FF4949
+!#BE6262
 !green
-*color2:  #66B61A
-*color10: #4B8A10
+*color2:	#66B61A
+*color10:	#4B8A10
 !yellow
-*color3:  #D98E1D
-*color11: #E5D95E
+*color3:	#D98E1D
+*color11:	#ffa64f 
+!#E5D95E
 ! Blue
-*color4:      #204a87
-*color12:     #3465a4
+*color4:	#204a87
+*color12:	#3465a4
 !magenta
-*color5:  #FF00DA
-*color13: #AB005B
+*color5:	#9A005B
+*color13:	#D500CA
 ! Cyan 
-*color6:                  #8C54FE
-*color14:                 #9E6FFE
+*color6:	#8C54FE
+*color14:	#9E6FFE
 !white
-*color7:  #EAEAEA
-*color15: #BBBBBB
+*color7:	#EAEAEA
+*color15:	#BBBBBB
 
 Xcursor*theme: Pulse-Glass

@@ -1,21 +1,62 @@
-#! /bin/sh
+#!/bin/zsh
 
-flavor=${1:-bar}
+flavor=${1:-dzen2}
+
+function gmail() {
+	while true
+	do
+		inbox_count=$(wget -q -O- --auth-no-challenge --user=revoltism@gmail.com --password=$(pass i3/imap) 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")')
+		echo "G:$inbox_count"
+		sleep 60
+	done
+}
+
+function weather() {
+	while true
+	do
+		weather_stat=$($HOME/.config/i3/./weather.sh)
+		echo "F$weather_stat"
+		sleep 900
+	done
+}
+
+function volume() {
+	while true
+	do
+		#ONF=$(amixer get Master | awk '/Front\ Left:/ {print $7}' | tr -d '[]')
+		VOL=$(amixer get Master | egrep -o "[0-9]+%" | tr -d '%')
+		echo -n "^fg($COLOR_ICON)^i($ICONPATH/vol1.xbm)^fg()" $(echo $VOL | gdbar -fg $BAR_FG -bg $BAR_BG -h 7 -w 40 -s o -nonl)
+		return
+	done
+}
+
+function time_date() {
+	while true
+	do
+		klocka=$(date +'%A den %d %B v%V  %H:%M')
+		echo "S$klocka"
+		sleep 10
+	done < <(echo)
+}
 
 bspc control --put-status
-xtitle -sf 'T%s' > "$PANEL_FIFO" &
-while true; do date +'S%A den %d %B v%V  %H:%M' > "$PANEL_FIFO"; sleep 2; done &
+xtitle -sf "T%s" > "$PANEL_FIFO" &
+weather > "$PANEL_FIFO" &
+gmail > "$PANEL_FIFO" &
+time_date > "$PANEL_FIFO" &
 case "$flavor" in
     bar)
         cat "$PANEL_FIFO" | .config/bspwm/panel_bar | bar
     ;;
     dzen2)
-        . panel_colors
-        PANEL_HEIGHT=24
-        FONT_FAMILY='DejaVu Sans'
-        FONT_SIZE=11
-        cat "$PANEL_FIFO" | panel_dzen2 -f "$FONT_FAMILY" -s "$FONT_SIZE" | \
+        . .config/bspwm/panel_colors
+        PANEL_HEIGHT=14
+        FONT_FAMILY='Dejavu Sans'
+        FONT_SIZE=9
+        cat "$PANEL_FIFO" | .config/bspwm/panel_dzen2 -f "$FONT_FAMILY" -s "$FONT_SIZE" | \
 		dzen2 -h $PANEL_HEIGHT -dock -ta l -title-name panel -fn "${FONT_FAMILY}:pixelsize=${FONT_SIZE}" \
 		-fg "$COLOR_FOREGROUND" -bg "$COLOR_BACKGROUND"
     ;;
 esac
+
+#while true; do date +'S%A den %d %B v%V  %H:%M' > "$PANEL_FIFO"; sleep 10; done &
