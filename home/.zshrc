@@ -82,3 +82,4 @@ alias mem="free -m | awk '/che:/ {print \$3\" total used\n\"\$4\" total left\"}'
 sort -r -n | awk '{print \$1/1024\" MB - \"\$2\" \"}' | column -t | ccze -m ansi | head"
 alias memp="ps -eo pmem,args | sort -k 1 -r -n | ccze -m ansi | head"
 alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
+alias dmesg="dmesg -deL"

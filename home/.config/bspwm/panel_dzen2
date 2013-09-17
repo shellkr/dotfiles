@@ -92,14 +92,14 @@ case $line in
         		esac
 			shift
 			done
-		
+
 	IFS=$NORMIFS
 ;;
 esac
 	set -- $(printf '%s\0%s' "$wm_infos" "$title" "$weather_infos" "$inbox" "$sys_infos" | sed 's/\^[a-z]\+([^)]*)//g' | xargs -0 txtw -f "$font_family" -s "$font_size")
     left_width=$1
     center_width=$2
-    right_width="270" #$3
+    right_width="300" #$3
     left_indent=0
     right_indent=$((screen_width - right_width))
     available_center=$((screen_width - (left_width + right_width)))

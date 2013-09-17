@@ -59,9 +59,9 @@ bspc window $(bspc query -W -d 3) -p right
 urxvtc -name URthree
 bspc window $(bspc query -W -d 3|tail -1) -p up
 
-vlc &
+sleep 3 && vlc &
 
-bspc window $(bspc query -W -d 3|tail -1) -e left 0.4 && bspc window $(bspc query -W -d 3|tail -1) -e up 0.7
+sleep 4 && bspc window $(bspc query -W -d 3|tail -1) -e left 0.4 && bspc window $(bspc query -W -d 3|tail -1) -e up 0.7
 
 
 #BW=$(bspc config border_width)
