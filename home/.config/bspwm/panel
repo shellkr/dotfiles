@@ -5,7 +5,7 @@ flavor=${1:-dzen2}
 function gmail() {
 	while true
 	do
-		inbox_count=$(wget -q -O- --auth-no-challenge --user=<email> --password=<password> 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")')
+		inbox_count=$(wget -q -O- --auth-no-challenge --user=revoltism@gmail.com --password= 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")')
 		echo "G:$inbox_count"
 		sleep 60
 	done

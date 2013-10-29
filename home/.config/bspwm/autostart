@@ -34,7 +34,7 @@ bspc config urgent_border_color         "#EFA29A"
 bspc rule -a Geary --floating
 bspc rule -a Nautilus --floating
 bspc rule -a Gimp --floating
-bspc rule -a Firefox -d 2
+bspc rule -a Firefox -d 2 --floating
 bspc rule -a Vlc -d 3
 bspc rule -a rtorrent -d 3
 bspc rule -a URthree -d 3
@@ -54,14 +54,15 @@ firefox &
 #sleep 5 && urxvtc -name rtorrent -e rtorrent
 
 urxvtc -name rtorrent -e rtorrent
-bspc window $(bspc query -W -d 3) -p right
+sleep 1 && bspc window $(bspc query -W -d 3) -p right
 
-urxvtc -name URthree
-bspc window $(bspc query -W -d 3|tail -1) -p up
+sleep 2 && urxvtc -name URthree
+sleep 3 && bspc window $(bspc query -W -d 3|tail -1) -p up
 
-sleep 3 && vlc &
+sleep 4 && vlc &
 
-sleep 4 && bspc window $(bspc query -W -d 3|tail -1) -e left 0.4 && bspc window $(bspc query -W -d 3|tail -1) -e up 0.7
+sleep 6 && bspc window $(bspc query -W -d 3|tail -1) -e left 0.3
+sleep 7 && bspc window $(bspc query -W -d 3|tail -1) -e up 0.7
 
 
 #BW=$(bspc config border_width)

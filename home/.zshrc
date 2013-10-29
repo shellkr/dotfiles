@@ -83,3 +83,4 @@ sort -r -n | awk '{print \$1/1024\" MB - \"\$2\" \"}' | column -t | ccze -m ansi
 alias memp="ps -eo pmem,args | sort -k 1 -r -n | ccze -m ansi | head"
 alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
 alias dmesg="dmesg -deL"
+alias psc="ps xawf -eo pid,user,cgroup,args"
