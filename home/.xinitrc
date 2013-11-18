@@ -15,22 +15,21 @@ use_gpg_agent() {
 
 init_desktop() {
 	[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+    source ~/.profile
 	setxkbmap -option terminate:ctrl_alt_bksp
 	xsetroot -cursor_name left_ptr &
+    xset -dpms &
+    xset s off &
+    xset s noblank &
 	compton --config ~/.config/i3/compton.conf -b &
 	numlockx &
-	/home/daniel/.config/bspwm/./wallpaper_ch &
-	/home/daniel/.config/bspwm/./hot_edge.sh &
+	wallpaper_ch &
+	hot_edge.sh &
 }
 
 run_bspwm() {
-	source /etc/environment
-
-	[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
-	mkfifo "$PANEL_FIFO"
-
 	sxhkd -c ~/.config/bspwm/sxhkdrc &
-	exec bspwm -s "$PANEL_FIFO" -p W
+    exec wm
 }
 
 system_xinitrc

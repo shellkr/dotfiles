@@ -1,7 +1,7 @@
-set tabstospaces # Tab key inserts spaces (Ctrl+t for verbatim mode)
+#set tabstospaces # Tab key inserts spaces (Ctrl+t for verbatim mode)
 set tabsize 4    # Insert 4 spaces per tab
 #set fill 76      # Justify command (Ctrl+j) wraps at 76 columns
-set autoindent   # Jump to the current indent level after inserting a newline
+#set autoindent   # Jump to the current indent level after inserting a newline
 set nowrap       # Don't wrap text at all.
 set morespace    # Use the second row (usually blank) for editing space
 set quickblank   # Clear status messages after a single keystroke

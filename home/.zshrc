@@ -12,10 +12,10 @@ setopt inc_append_history
 setopt extendedglob
 
 ## spelling correction for commands
-setopt correct 
+setopt correct
 
-## spelling correction for arguments 
-#setopt correctall 
+## spelling correction for arguments
+#setopt correctall
 
 ## Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
@@ -34,7 +34,7 @@ HISTFILE=~/.zsh_history
 
 export EDITOR="nano"
 export GREP_OPTIONS='--color=auto'
-export GREP_COLOR='1;33' 
+export GREP_COLOR='1;33'
 
 eval "$(dircolors -b)"
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -67,8 +67,8 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
 fi
 
 [ -r /usr/share/doc/pkgfile/command-not-found.zsh ] && . /usr/share/doc/pkgfile/command-not-found.zsh
-#tmux has -t Weechat 1&>2 > /dev/null || tmux -2 -u new -d -s Weechat weechat-curses
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#tmux has -t Weechat 1&>2 > /dev/null || tmux -2 -u new -d -s Weechat weechat-curses
 
 ## My Aliases
 alias ls="ls --color=auto -FshX"
@@ -76,7 +76,6 @@ alias sshn='ssh -XC -p 22273 -L 5900:localhost:5900 naima -t "tmux attach -t Nai
 alias weechat='tmux attach -t Weechat || tmux -2 -u new -s Weechat weechat-curses'
 alias printstat="cngpij -P Canon-MG5200-series_2C-9E-FC-09-C3-AB"
 #alias CopyCmd="CopyCmd Cloud -password=\"$(pass cloud/copy.com)\" -username=sandmanie@hotmail.com"
-alias df="dfc -T"
 alias cpu="ps -eo pcpu,args --no-headers | sort -k 1 -r -n | ccze -m ansi | head"
 alias mem="free -m | awk '/che:/ {print \$3\" total used\n\"\$4\" total left\"}' && echo && ps -eo rss,args | \
 sort -r -n | awk '{print \$1/1024\" MB - \"\$2\" \"}' | column -t | ccze -m ansi | head"
@@ -84,3 +83,6 @@ alias memp="ps -eo pmem,args | sort -k 1 -r -n | ccze -m ansi | head"
 alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
 alias dmesg="dmesg -deL"
 alias psc="ps xawf -eo pid,user,cgroup,args"
+alias fullupn='yaourt -Syua --devel --noconfirm'
+alias fullup='yaourt -Syua --devel'
+alias pachist="awk -F' ' /\(upgraded\|downgraded\|installed\)/'{print \$1,\$2,\$5,\$6,\$7,\$8}' /var/log/pacman.log | colout '(\[.*\]) (.*) (\(.*\))' black,white,blue| tail"
