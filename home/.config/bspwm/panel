@@ -19,8 +19,8 @@ mkfifo "$PANEL_FIFO"
 #bspc config top_padding $PANEL_HEIGHT
 
 function gmail() {
-	local email="user@gmail.com"
-	local passw="password"
+	email="$(cat $XDG_CONFIG_HOME/bspwm/passw|head -1"
+	passw="$(cat $XDG_CONFIG_HOME/bspwm/passw|tail -1)"
 	while true
 	do
 		inbox_count=$(wget -q -O- --auth-no-challenge --user=${email} --password=${passw} 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")')

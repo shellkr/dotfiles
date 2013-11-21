@@ -18,7 +18,7 @@ if [ -z "$rules" ] ; then
     rulc -a 'class == "Geary"' 'floating=on'
     rulc -a 'class == "Nautilus"' 'floating=on'
     rulc -a 'calss == "Gimp"' 'floating=on'
-    rulc -a 'class == "Firefox"' 'desktop=^2, tiled=on'
+    rulc -a 'class == "Firefox"' 'desktop=^2'
     rulc -a 'class == "Vlc"' 'desktop=^3'
     rulc -a 'instance == "rtorrent"' 'desktop=^3'
     rulc -a 'instance == "URthree"' 'desktop=^3'

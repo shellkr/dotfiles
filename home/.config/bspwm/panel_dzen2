@@ -43,7 +43,7 @@ while read -r line ; do
     case $line in
         C*)
             # system informations
-            sys_clock="^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc control --toggle-visibility)${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}"
+            sys_clock="^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc control --toggle-visibility)${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}${PADDING}"
             ;;
         V*)
             set -- ${line#?}
