@@ -5,7 +5,9 @@ URxvt*boldFont: xft:PragmataPro:size=8:antialias=true
 URxvt*italicFont: xft:PragmataPro:size=8:antialias=true
 URxvt*boldItalicFont: xft:PragmataPro:size=8:antialias=true
 
-URxvt*depth: 32
+!! URxvt*depth: 32
+URxvt*.transparent: true
+URxvt*.shading: 26
 URxvt*background: rgba:0000/0000/0200/c800
 URxvt*foreground: [100]#ffffff
 URxvt*saveLines: 10000
@@ -41,15 +43,15 @@ URxvt*keysym.M-u: perl:url-select:select_next
 *color10:	#4B8A10
 !yellow
 *color3:	#D98E1D
-*color11:	#ffa64f 
+*color11:	#ffa64f
 !#E5D95E
-! Blue
+!Blue
 *color4:	#204a87
 *color12:	#3465a4
 !magenta
 *color5:	#9A005B
 *color13:	#D500CA
-! Cyan 
+!Cyan
 *color6:	#8C54FE
 *color14:	#9E6FFE
 !white

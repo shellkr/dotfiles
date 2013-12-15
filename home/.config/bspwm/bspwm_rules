@@ -1,24 +1,19 @@
 #! /bin/bash
 
-rulc -l > /dev/null || fork ruld
+
+if ! rulc -l > /dev/null ; then
+    (setsid ruld &)
+    while ! rulc -l > /dev/null ; do
+		sleep 0.1
+    done
+fi
 
 rules=$(rulc -l)
-if [ -z "$rules" ] ; then
-    sleep 0.1
 
-#num=$(rulc -l | grep -m 1 -c class)
-#if [ $num -ne 1 ] ; then
-    #rulc -a 'class == "Gimp"' 'desktop = ^8, follow = on, floating = on'
-    #rulc -a 'class == "Inkscape"' 'desktop = ^7, follow = on, floating = on'
-    #rulc -a 'class == "fontforge"' 'desktop = ^6, follow = on, floating = on'
-    #rulc -a 'class == "fontforge" and (title == "Layers" or title == "Tools" or title == "Warnings")' 'focus = off'
-    #rulc -a 'class == "Gifview"' 'floating = on'
-    #rulc -a 'class == "Termite"' 'center = on'
-
-    rulc -a 'class == "Geary"' 'floating=on'
+    rulc -a 'class == "Geary"' 'floating=on, center=on'
     rulc -a 'class == "Nautilus"' 'floating=on'
     rulc -a 'calss == "Gimp"' 'floating=on'
-    rulc -a 'class == "Firefox"' 'desktop=^2'
+    rulc -a 'class == "Firefox"' 'desktop=^2, focus=off'
     rulc -a 'class == "Vlc"' 'desktop=^3'
     rulc -a 'instance == "rtorrent"' 'desktop=^3'
     rulc -a 'instance == "URthree"' 'desktop=^3'

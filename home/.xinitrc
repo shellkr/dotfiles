@@ -28,7 +28,7 @@ init_desktop() {
 }
 
 run_bspwm() {
-	sxhkd -c ~/.config/bspwm/sxhkdrc &
+	sxhkd -c $XDG_CONFIG_HOME/bspwm/sxhkdrc &
     exec wm
 }
 

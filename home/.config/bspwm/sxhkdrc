@@ -14,7 +14,7 @@ super + F3
 
 ## Quit
 super + alt + Escape
-    pkill -x panel;bspc quit
+    pkill panel;bspc quit
 
 ## Close window
 super + Escape
@@ -28,7 +28,7 @@ super + t
 super + b
     bspc desktop -B
 
-## Toggle floating or fullscreen 
+## Toggle floating or fullscreen
 super + {z,f}
     bspc window -t {floating,fullscreen}
 

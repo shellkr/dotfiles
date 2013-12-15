@@ -48,7 +48,7 @@ bspc config urgent_border_color         "#EFA29A"
 #   rm "$BSPWM_TREE" "$BSPWM_HISTORY" "$BSPWM_STACK"
 #fi
 
-bspc config rule_command "$HOME/.config/bspwm/rule_command"
+bspc config external_rules_command "$(command -v external_rules)"
 bspwm_rules #
 
 ## Focus last monitor

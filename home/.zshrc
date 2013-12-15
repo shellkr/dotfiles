@@ -71,7 +71,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 #tmux has -t Weechat 1&>2 > /dev/null || tmux -2 -u new -d -s Weechat weechat-curses
 
 ## My Aliases
-alias ls="ls --color=auto -FshX"
+alias ls="ls -FshX --color=auto --group-directories-first"
+alias rm="rm -rf"
 alias sshn='ssh -XC -p 22273 -L 5900:localhost:5900 naima -t "tmux attach -t Naima -d || tmux -2 -u new -s Naima"'
 alias weechat='tmux attach -t Weechat || tmux -2 -u new -s Weechat weechat-curses'
 alias printstat="cngpij -P Canon-MG5200-series_2C-9E-FC-09-C3-AB"
@@ -82,7 +83,9 @@ sort -r -n | awk '{print \$1/1024\" MB - \"\$2\" \"}' | column -t | ccze -m ansi
 alias memp="ps -eo pmem,args | sort -k 1 -r -n | ccze -m ansi | head"
 alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
 alias dmesg="dmesg -deL"
+alias diff='colordiff -yZEwBd'
 alias psc="ps xawf -eo pid,user,cgroup,args"
 alias fullupn='yaourt -Syua --devel --noconfirm'
 alias fullup='yaourt -Syua --devel'
-alias pachist="awk -F' ' /\(upgraded\|downgraded\|installed\)/'{print \$1,\$2,\$5,\$6,\$7,\$8}' /var/log/pacman.log | colout '(\[.*\]) (.*) (\(.*\))' black,white,blue| tail"
+alias pachist="awk -F' ' /\(starting\|upgraded\|downgraded\|installed\)/'{print \$1,\$2,\$5,\$6,\$7,\$8}' \
+/var/log/pacman.log | sed 's/.*full.*//' | colout '(\[.*\]) (.*) (\(.*\))' black,white,blue| tail"
