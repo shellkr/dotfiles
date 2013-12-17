@@ -1,7 +1,0 @@
-#! /bin/bash
-
-#trap 'pkill -x panel' INT TERM QUIT EXIT
-
-#while true ; do
-  bspwm #|| break
-#done

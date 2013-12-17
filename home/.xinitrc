@@ -1,5 +1,12 @@
 #!/bin/sh
 
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+    for f in /etc/X11/xinit/xinitrc.d/*; do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
+fi
+
 system_xinitrc() {
 	if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 		for f in /etc/X11/xinit/xinitrc.d/* ; do
@@ -29,7 +36,7 @@ init_desktop() {
 
 run_bspwm() {
 	sxhkd -c $XDG_CONFIG_HOME/bspwm/sxhkdrc &
-    exec wm
+    exec /usr/bin/bspwm
 }
 
 system_xinitrc

@@ -5,7 +5,7 @@
 #bspc monitor -a $REMAINING_DESKS
 
 #bspc desktop -n 1 # $FIRST_DESK
-bspc monitor -d {1..6}
+bspc monitor -d {1..8}
 bspc desktop -f 1
 
 #i=1
