@@ -1,12 +1,5 @@
 #!/bin/sh
 
-if [ -d /etc/X11/xinit/xinitrc.d ]; then
-    for f in /etc/X11/xinit/xinitrc.d/*; do
-        [ -x "$f" ] && . "$f"
-    done
-    unset f
-fi
-
 system_xinitrc() {
 	if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 		for f in /etc/X11/xinit/xinitrc.d/* ; do
@@ -39,6 +32,7 @@ run_bspwm() {
     exec /usr/bin/bspwm
 }
 
+use_gpg_agent
 system_xinitrc
 init_desktop
 run_bspwm

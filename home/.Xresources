@@ -23,6 +23,7 @@ URxvt*url-select.launcher: /usr/bin/firefox -new-tab
 URxvt*matcher.button:   1
 URxvt*clipboard.autocopy: true
 URxvt*selection.pattern-0: ([[:word:]]+)
+URxvt*urgentOnBell: True
 
 URxvt*keysym.A-c: perl:clipboard:copy
 URxvt*keysym.A-v: perl:clipboard:paste
