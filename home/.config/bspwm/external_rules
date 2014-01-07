@@ -1,1 +1,3 @@
-/home/daniel/.homesick/repos/dotfiles/home/.config/bspwm/rule_command
+#! /bin/sh
+
+xwinfo -cints $1 | xargs -d '\n' rulc -t
