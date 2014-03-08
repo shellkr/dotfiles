@@ -102,10 +102,13 @@ check_hash = yes
 # Colors # only in rtorrent extended
 ## Colors: 0 = black, 1 = red, 2 = green, 3 = yellow, 4 = blue, 5 = magenta, 6 = cyan, 7 = white
 
-done_fg_color = 3
+color_finished_fg = 2
+color_inactive_fg = 3
+#done_fg_color = 3
 #done_bg_color
-active_fg_color = 7
+color_active_fg = 7
 #active_bg_color
+color_dead_fg = 1
 
 # UI/VIEW: Colors
 #ui.color.alarm.set="bold white on red"

@@ -52,6 +52,9 @@ super + {_,shift + }{a,s,w,d}
 super + {_,shift + }c
     bspc window -f {next,prev}
 
+super + {_,shift + }r
+    bspc desktop -R 90
+
 ## Circulate leaves of the tree backward or forward
 super + {comma,period}
     bspc desktop -C {backward,forward}
@@ -76,7 +79,7 @@ super + alt + {a,s,w,d}
 super + alt + shift + {a,s,w,d}
     bspc window -e {right,up,down,left} pull
 
-## Not sure how or what it does...
+## Set the split ratio...
 super + ctrl + {1-9}
     bspc window -r 0.{1-9}
 

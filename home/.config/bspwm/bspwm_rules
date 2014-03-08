@@ -20,4 +20,5 @@ rules=$(rulc -l)
     rulc -a 'instance == "mutt"' 'desktop=^4'
     rulc -a 'instance == "weechat"' 'desktop=^5'
     rulc -a 'class == "Budgie"' 'desktop=^6,floating=on'
+	rulc -a 'instance == "gl"' 'floating=on'
 fi
