@@ -4,5 +4,5 @@ softvol-max=400
 #title="${filename}"
 idle=yes
 autofit=800
-#msglevel="no"
+msglevel="no"
 
