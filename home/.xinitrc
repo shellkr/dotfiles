@@ -32,6 +32,10 @@ run_bspwm() {
     exec /usr/bin/bspwm
 }
 
+run_awesome() {
+	exec /usr/bin/awesome
+}
+
 use_gpg_agent
 system_xinitrc
 init_desktop

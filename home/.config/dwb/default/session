@@ -1,0 +1,88 @@
+g:*default
+-21 dwb:keys dwb
+-20 dwb:settings dwb
+-19 dwb:keys dwb
+-18 dwb:downloads dwb
+-17 dwb:searchengines dwb
+-16 dwb:history dwb
+-15 dwb:quickmarks dwb
+-14 dwb:bookmarks dwb
+-13 dwb:settings dwb
+-12 dwb:keys dwb
+-11 dwb:settings dwb
+-10 dwb:plugins dwb
+-9 dwb:bookmarks dwb
+-8 dwb:keys dwb
+-7 dwb:plugins dwb
+-6 dwb:keys dwb
+-5 dwb:settings dwb
+-4 dwb:keys dwb - Keys
+-3 dwb:settings dwb - Settings
+-2 dwb:keys dwb - Keys
+-1 dwb:settings dwb - Settings
+0|2 dwb:keys dwb - Keys
+-21 https://www.tink.se/en/ Tink
+-20 https://www.tink.se/en/ Tink
+-19 https://www.tink.se/sv/ Tink
+-18 https://www.tink.se/sv/ Tink
+-17 https://www.tinkapp.com/b/ Tink
+-16 https://www.tinkapp.com/b/#login Tink
+-15 https://www.tinkapp.com/b/# Tink
+-14 https://www.tinkapp.com/b/#incomes-expenses Tink - Inkomster & Utgifter
+-13 https://www.tinkapp.com/b/#/logout Tink - Inkomster & Utgifter
+-12 https://www.tinkapp.com/b/#login Tink - Inkomster & Utgifter
+-11 https://www.tinkapp.com/b/#login Tink
+-10 https://www.tinkapp.com/b/#login Tink
+-9 https://www.tinkapp.com/b/#login Tink
+-8 https://www.tinkapp.com/b/#login Tink
+-7 https://www.tinkapp.com/b/#login Tink
+-6 https://www.tinkapp.com/b/#login Tink
+-5 https://www.tinkapp.com/b/# Tink
+-4 https://www.tinkapp.com/b/#incomes-expenses Tink - Inkomster & Utgifter
+-3 https://www.tinkapp.com/b/#/logout Tink - Inkomster & Utgifter
+-2 https://www.tinkapp.com/b/#login Tink - Inkomster & Utgifter
+-1 https://www.tinkapp.com/b/# Tink - Inkomster & Utgifter
+0|0 https://www.tinkapp.com/b/#incomes-expenses Tink - Inkomster & Utgifter
+0|0 https://github.com/naglis/dwb-userscripts naglis/dwb-userscripts · GitHub
+-2 https://accounts.google.com/ServiceLogin?service=oz&passive=1209600&continue=https://plus.google.com/?gpsrc%3Dgplp0 Google+
+-1 https://accounts.google.com/SecondFactor?continue=https%3A%2F%2Fplus.google.com%2F%3Fgpsrc%3Dgplp0&service=oz&checkedDomains=youtube&checkConnection=youtube%3A268%3A1&pstMsg=1 Logga in – Google Konton
+0|0 https://plus.google.com/ Google+
+0|0 http://news.distractify.com/people/scenes-from-the-past-you-never-expected-never-seen-before/?v=1 These 50 Photos From The Past Are Shocking And Hilarious. I Can't Believe How Things Have Changed...
+0|0 http://www.mtv.se/exposureforecast | MTV
+-16 http://h4x.bot.nu/ ownCloud
+-15 http://188.226.199.193/index.php?redirect_url=%2Findex.php%2Fapps%2Ffiles ownCloud
+-14 http://188.226.199.193/index.php?redirect_url=%2Findex.php%2Fapps%2Ffiles ownCloud
+-13 http://188.226.199.193/%2Findex.php%2Fapps%2Ffiles Files
+-12 http://188.226.199.193/ ownCloud
+-11 http://188.226.199.193/ ownCloud
+-10 http://188.226.199.193/index.php/apps/files Files
+-9 http://188.226.199.193/index.php/settings/personal ownCloud
+-8 http://188.226.199.193/index.php/settings/users ownCloud
+-7 http://188.226.199.193/index.php/settings/admin ownCloud
+-6 http://188.226.199.193/index.php/apps/contacts/ Contacts
+-5 http://188.226.199.193/index.php/apps/news/ News
+-4 http://188.226.199.193/index.php/apps/news/# News
+-3 http://188.226.199.193/index.php/apps/gallery Pictures
+-2 http://188.226.199.193/index.php/apps/gallery#daniel/photos Pictures
+-1 http://188.226.199.193/index.php/apps/files Files
+0|0 http://188.226.199.193/index.php?redirect_url=%2Findex.php%2Fapps%2Ffiles ownCloud
+-16 http://maykiller.com/2013/install-arch-linux-on-btrfs/ Install
+-15 http://www.google.se/search?hl=sv&output=search&sclient=psy-ab&q=user%20archlinux%20wiki%27&oq=&gs_l=&pbx=1 user
+-14 https://wiki.archlinux.org/index.php/Users_and_Groups Users
+-13 http://www.google.se/search?hl=sv&output=search&sclient=psy-ab&q=terminal%20colors&oq=&gs_l=&pbx=1 terminal
+-12 http://www.google.se/search?q=terminal+colors&hl=sv&source=lnms&tbm=isch&sa=X&ei=6l_qUZGbNYOn4gS0vYGABQ&ved=0CAkQ_AUoAQ&biw=982&bih=1018 terminal
+-11 http://www.google.se/search?q=terminal+colors&hl=sv&source=lnms&sa=X&ei=-F_qUYqYBqeN4gSb8YC4DA&ved=0CAgQ_AUoAA&biw=982&bih=1018 terminal
+-10 http://www.google.se/search?q=terminal+colors&hl=sv&source=lnms&sa=X&ei=-F_qUYqYBqeN4gSb8YC4DA&ved=0CAgQ_AUoAA&biw=982&bih=1018#hl=sv&sclient=psy-ab&q=terminal+colors&oq=terminal+colors&gs_l=serp.12..0l4.62926.65493.0.69412.2.2.0.0.0.0.66.116.2.2.0....0...1c.1.21.psy-ab.hCGcLgEt_B8&pbx=1&bav=on.2,or.r_qf.&bvm=bv.49478099%2Cd.bGE%2Cpv.xjs.s.en_US.c75bKy5EQ0A.O&fp=c168adc2b0b10df&biw=987&bih=1018 terminal
+-9 http://www.google.se/search?q=terminal+colors&hl=sv&source=lnms&tbm=isch&sa=X&ei=O2PqUeSsH_OQ4gSVwYCQDA&ved=0CAcQ_AUoAQ&biw=987&bih=1018 terminal
+-8 http://www.google.se/search?q=terminal+colors&hl=sv&source=lnms&tbm=isch&sa=X&ei=O2PqUeSsH_OQ4gSVwYCQDA&ved=0CAcQ_AUoAQ&biw=987&bih=1018#hl=sv&tbm=isch&sa=1&q=terminal+colors+xresources&oq=terminal+colors+xresources&gs_l=img.3...150087.152452.0.152699.11.11.0.0.0.0.111.569.10j1.11.0....0...1c.1.21.img.i8sr6K94-60&bav=on.2,or.r_qf.&bvm=bv.49478099%2Cd.bGE%2Cpv.xjs.s.en_US.c75bKy5EQ0A.O&fp=c8c91381642711e8&biw=987&bih=1018 terminal
+-7 http://www.google.se/search?q=terminal+colors&hl=sv&source=lnms&tbm=isch&sa=X&ei=O2PqUeSsH_OQ4gSVwYCQDA&ved=0CAcQ_AUoAQ&biw=987&bih=1018#q=terminal+colors+xresources&hl=sv&tbm=isch&source=lnt&tbs=ic:specific,isc:orange&sa=X&ei=6GPqUbuLI7Sd4gSi24CoCA&ved=0CC0QpwU&bav=on.2,or.r_qf.&bvm=bv.49478099%2Cd.bGE%2Cpv.xjs.s.en_US.c75bKy5EQ0A.O&fp=dc1713970d07ff13&biw=986&bih=1018 terminal
+-6 http://www.google.se/search?q=terminal+colors&hl=sv&source=lnms&tbm=isch&sa=X&ei=O2PqUeSsH_OQ4gSVwYCQDA&ved=0CAcQ_AUoAQ&biw=987&bih=1018#hl=sv&tbs=ic:specific%2Cisc%3Aorange&tbm=isch&sa=1&q=terminal+256+colors+xresources&oq=terminal+256+colors+xresources&gs_l=img.12...16467.17473.3.18592.4.4.0.0.0.0.47.170.4.4.0....0...1c.1.21.img.vk9n1yuizOM&bav=on.2,or.r_qf.&bvm=bv.49478099%2Cd.bGE%2Cpv.xjs.s.en_US.c75bKy5EQ0A.O&fp=16199b9e9c484999&biw=986&bih=1018 256
+-5 http://www.google.se/search?q=terminal+colors&hl=sv&source=lnms&tbm=isch&sa=X&ei=O2PqUeSsH_OQ4gSVwYCQDA&ved=0CAcQ_AUoAQ&biw=987&bih=1018#hl=sv&tbs=ic:specific%2Cisc%3Aorange&tbm=isch&sa=1&q=256+colors+xresources&oq=256+colors+xresources&gs_l=img.12...9030.9030.5.9952.1.1.0.0.0.0.41.41.1.1.0....0...1c.1.21.img.VGE1-hX_NZc&bav=on.2,or.r_qf.&bvm=bv.49478099%2Cd.bGE%2Cpv.xjs.s.en_US.c75bKy5EQ0A.O&fp=f30ea7a60c5e7174&biw=986&bih=1018 urxvt
+-4 http://www.google.se/search?q=terminal+colors&hl=sv&source=lnms&tbm=isch&sa=X&ei=O2PqUeSsH_OQ4gSVwYCQDA&ved=0CAcQ_AUoAQ&biw=987&bih=1018#hl=sv&tbs=ic:specific%2Cisc%3Aorange&tbm=isch&sa=1&q=urxvt+256+colors+xresources&oq=urxvt+256+colors+xresources&gs_l=img.3...7263.9078.7.9820.6.6.0.0.0.0.43.245.6.6.0....0...1c.1.21.img.FTZnMjNMo-o&bav=on.2,or.r_qf.&bvm=bv.49478099%2Cd.bGE%2Cpv.xjs.s.en_US.c75bKy5EQ0A.O&fp=3c792a41fc836ec3&biw=986&bih=1018 urxvt
+-3 http://www.google.se/search?q=terminal+colors&hl=sv&source=lnms&tbm=isch&sa=X&ei=O2PqUeSsH_OQ4gSVwYCQDA&ved=0CAcQ_AUoAQ&biw=987&bih=1018#q=urxvt+256+colors+xresources&hl=sv&tbm=isch&tbas=0&source=lnt&sa=X&ei=2a3qUdzEHZTX4QT5iIGQDQ&ved=0CCgQpwUoAA&bav=on.2,or.r_qf.&bvm=bv.49478099%2Cd.bGE%2Cpv.xjs.s.en_US.c75bKy5EQ0A.O&fp=867308a3dfc7ed8c&biw=986&bih=1018&facrc=_&imgdii=_&imgrc=092jECDNeogriM%3A%3BgbuHp7TOSWP6sM%3Bhttp%253A%252F%252Fi.imgur.com%252FRF6MO.png%3Bhttps%253A%252F%252Fbbs.archlinux.org%252Fviewtopic.php%253Fpid%253D1067552%3B479%3B242 urxvt
+-2 https://bbs.archlinux.org/viewtopic.php?pid=1067552 Terminal
+-1 https://wiki.archlinux.org/ ArchWiki
+0|0 https://wiki.archlinux.org/index.php/Dwb dwb - ArchWiki
+-1 http://portix.bitbucket.org/dwb/snippets/snippets.html dwb userscript snippets
+0|0 http://portix.bitbucket.org/dwb/ dwb - a webkit web browser
+0|0 https://www.google.se/search?hl=sv&output=search&sclient=psy-ab&q=dwb%20pinned%20tab&oq=&gs_l=&pbx=1 dwb pinned tab - Sök på Google

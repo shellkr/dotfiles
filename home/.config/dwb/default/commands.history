@@ -1,0 +1,21 @@
+set adblocker-filterlist /home/daniel/.config/dwb/adblock_lists
+dwb:script
+open mpv.js
+open mpv-yt.js
+open-firefox.sh
+firefox-open.sh
+mpv.js
+mpv-yt.js
+reload_scripts
+z
+v
+play_in_mpv
+playInMpv
+mpv
+mp
+zmp
+adblock_reload_rules
+set adblocker true
+reload
+uscript
+gg beginners guide
