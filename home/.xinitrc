@@ -36,6 +36,10 @@ run_awesome() {
 	exec /usr/bin/awesome
 }
 
+run_snapwm() {
+	exec /usr/bin/snapwm
+}
+
 use_gpg_agent
 system_xinitrc
 init_desktop

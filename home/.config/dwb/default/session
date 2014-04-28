@@ -1,54 +1,148 @@
 g:*default
--21 dwb:keys dwb
--20 dwb:settings dwb
--19 dwb:keys dwb
--18 dwb:downloads dwb
--17 dwb:searchengines dwb
--16 dwb:history dwb
--15 dwb:quickmarks dwb
--14 dwb:bookmarks dwb
+-29 dwb:keys dwb
+-28 dwb:settings dwb
+-27 dwb:keys dwb
+-26 dwb:downloads dwb
+-25 dwb:searchengines dwb
+-24 dwb:history dwb
+-23 dwb:quickmarks dwb
+-22 dwb:bookmarks dwb
+-21 dwb:settings dwb
+-20 dwb:keys dwb
+-19 dwb:settings dwb
+-18 dwb:plugins dwb
+-17 dwb:bookmarks dwb
+-16 dwb:keys dwb
+-15 dwb:plugins dwb
+-14 dwb:keys dwb
 -13 dwb:settings dwb
 -12 dwb:keys dwb
 -11 dwb:settings dwb
--10 dwb:plugins dwb
--9 dwb:bookmarks dwb
+-10 dwb:keys dwb
+-9 dwb:settings dwb
 -8 dwb:keys dwb
--7 dwb:plugins dwb
+-7 dwb:settings dwb
 -6 dwb:keys dwb
 -5 dwb:settings dwb
--4 dwb:keys dwb - Keys
--3 dwb:settings dwb - Settings
--2 dwb:keys dwb - Keys
--1 dwb:settings dwb - Settings
-0|2 dwb:keys dwb - Keys
--21 https://www.tink.se/en/ Tink
--20 https://www.tink.se/en/ Tink
--19 https://www.tink.se/sv/ Tink
--18 https://www.tink.se/sv/ Tink
--17 https://www.tinkapp.com/b/ Tink
+-4 dwb:keys dwb
+-3 dwb:settings dwb
+-2 dwb:keys dwb
+-1 dwb:history dwb
+0|0 dwb:settings dwb - Settings
+-31 https://accounts.google.com/ServiceLogin?service=oz&passive=1209600&continue=https://plus.google.com/?gpsrc%3Dgplp0 Google+
+-30 https://accounts.google.com/SecondFactor?continue=https%3A%2F%2Fplus.google.com%2F%3Fgpsrc%3Dgplp0&service=oz&checkedDomains=youtube&checkConnection=youtube%3A268%3A1&pstMsg=1 Logga
+-29 https://accounts.google.com/ServiceLogin?service=oz&passive=1209600&continue=https://plus.google.com/?gpsrc%3Dgplp0 Google+
+-28 https://accounts.google.com/SecondFactor?continue=https%3A%2F%2Fplus.google.com%2F%3Fgpsrc%3Dgplp0&service=oz&checkedDomains=youtube&checkConnection=youtube%3A503%3A1&pstMsg=1 Logga
+-27 https://accounts.google.com/ServiceLogin?service=oz&passive=1209600&continue=https://plus.google.com/?gpsrc%3Dgplp0 Google+
+-26 https://accounts.google.com/ServiceLogin?service=oz&passive=1209600&continue=https://plus.google.com/?gpsrc%3Dgplp0 Google+
+-25 https://accounts.google.com/SecondFactor?continue=https%3A%2F%2Fplus.google.com%2F%3Fgpsrc%3Dgplp0&service=oz&checkedDomains=youtube&checkConnection=youtube%3A798%3A1&pstMsg=1 Logga
+-24 https://accounts.google.com/SecondFactor Logga
+-23 https://plus.google.com/ Google+
+-22 https://plus.google.com/communities/110877051765662117331 Linux
+-21 https://plus.google.com/ Google+
+-20 https://plus.google.com/+DanielSandman/posts Daniel
+-19 https://plus.google.com/ Google+
+-18 https://plus.google.com/ Google+
+-17 https://plus.google.com/ Google+
+-16 https://plus.google.com/ Google+
+-15 https://plus.google.com/ Google+
+-14 https://plus.google.com/ Google+
+-13 https://plus.google.com/ Google+
+-12 https://plus.google.com/ Google+
+-11 https://plus.google.com/ Google+
+-10 https://plus.google.com/ Google+
+-9 https://plus.google.com/ Google+
+-8 https://plus.google.com/ Google+
+-7 https://plus.google.com/ Google+
+-6 https://plus.google.com/ Google+
+-5 https://plus.google.com/ Google+
+-4 https://plus.google.com/ Google+
+-3 https://plus.google.com/ Google+
+-2 https://plus.google.com/ Google+
+-1 https://plus.google.com/ Google+
+0|0 https://plus.google.com/ Google+
+-25 https://www.tink.se/en/ Tink
+-24 https://www.tink.se/en/ Tink
+-23 https://www.tink.se/sv/ Tink
+-22 https://www.tink.se/sv/ Tink
+-21 https://www.tinkapp.com/b/ Tink
+-20 https://www.tinkapp.com/b/#login Tink
+-19 https://www.tinkapp.com/b/# Tink
+-18 https://www.tinkapp.com/b/#incomes-expenses Tink
+-17 https://www.tinkapp.com/b/#/logout Tink
 -16 https://www.tinkapp.com/b/#login Tink
--15 https://www.tinkapp.com/b/# Tink
--14 https://www.tinkapp.com/b/#incomes-expenses Tink - Inkomster & Utgifter
--13 https://www.tinkapp.com/b/#/logout Tink - Inkomster & Utgifter
--12 https://www.tinkapp.com/b/#login Tink - Inkomster & Utgifter
+-15 https://www.tinkapp.com/b/#login Tink
+-14 https://www.tinkapp.com/b/#login Tink
+-13 https://www.tinkapp.com/b/#login Tink
+-12 https://www.tinkapp.com/b/#login Tink
 -11 https://www.tinkapp.com/b/#login Tink
 -10 https://www.tinkapp.com/b/#login Tink
--9 https://www.tinkapp.com/b/#login Tink
--8 https://www.tinkapp.com/b/#login Tink
--7 https://www.tinkapp.com/b/#login Tink
+-9 https://www.tinkapp.com/b/# Tink
+-8 https://www.tinkapp.com/b/#incomes-expenses Tink
+-7 https://www.tinkapp.com/b/#/logout Tink
 -6 https://www.tinkapp.com/b/#login Tink
 -5 https://www.tinkapp.com/b/# Tink
--4 https://www.tinkapp.com/b/#incomes-expenses Tink - Inkomster & Utgifter
--3 https://www.tinkapp.com/b/#/logout Tink - Inkomster & Utgifter
--2 https://www.tinkapp.com/b/#login Tink - Inkomster & Utgifter
--1 https://www.tinkapp.com/b/# Tink - Inkomster & Utgifter
-0|0 https://www.tinkapp.com/b/#incomes-expenses Tink - Inkomster & Utgifter
-0|0 https://github.com/naglis/dwb-userscripts naglis/dwb-userscripts · GitHub
--2 https://accounts.google.com/ServiceLogin?service=oz&passive=1209600&continue=https://plus.google.com/?gpsrc%3Dgplp0 Google+
--1 https://accounts.google.com/SecondFactor?continue=https%3A%2F%2Fplus.google.com%2F%3Fgpsrc%3Dgplp0&service=oz&checkedDomains=youtube&checkConnection=youtube%3A268%3A1&pstMsg=1 Logga in – Google Konton
-0|0 https://plus.google.com/ Google+
-0|0 http://news.distractify.com/people/scenes-from-the-past-you-never-expected-never-seen-before/?v=1 These 50 Photos From The Past Are Shocking And Hilarious. I Can't Believe How Things Have Changed...
-0|0 http://www.mtv.se/exposureforecast | MTV
+-4 https://www.tinkapp.com/b/#incomes-expenses Tink
+-3 https://www.tinkapp.com/b/#login Tink
+-2 https://www.tinkapp.com/b/# Tink
+-1 https://www.tinkapp.com/b/#incomes-expenses Tink
+0|0 https://www.tinkapp.com/b/#login Tink
+-55 http://eztv.it/ EZTV
+-54 http://eztv.it/login/ EZTV
+-53 http://eztv.it/ EZTV
+-52 http://eztv.it/myshows/ EZTV
+-51 http://eztv.it/ EZTV
+-50 http://eztv.it/login/ EZTV
+-49 http://eztv.it/ EZTV
+-48 http://eztv.it/myshows/ EZTV
+-47 http://eztv.it/ EZTV
+-46 http://eztv.it/login/ EZTV
+-45 http://eztv.it/myshows/ EZTV
+-44 http://eztv.it/ EZTV
+-43 http://eztv.it/login/ EZTV
+-42 http://eztv.it/ EZTV
+-41 http://eztv.it/myshows/ EZTV
+-40 http://eztv.it/ EZTV
+-39 http://eztv.it/login/ EZTV
+-38 http://eztv.it/myshows/ EZTV
+-37 http://eztv.it/ EZTV
+-36 http://eztv.it/login/ EZTV
+-35 http://eztv.it/myshows/ EZTV
+-34 http://eztv.it/ EZTV
+-33 http://eztv.it/login/ EZTV
+-32 http://eztv.it/myshows/ EZTV
+-31 http://eztv.it/ EZTV
+-30 http://eztv.it/login/ EZTV
+-29 http://eztv.it/myshows/ EZTV
+-28 http://eztv.it/ EZTV
+-27 http://eztv.it/login/ EZTV
+-26 http://eztv.it/myshows/ EZTV
+-25 http://eztv.it/ EZTV
+-24 http://eztv.it/login/ EZTV
+-23 http://eztv.it/ EZTV
+-22 http://eztv.it/myshows/ EZTV
+-21 http://eztv.it/ EZTV
+-20 http://eztv.it/login/ EZTV
+-19 http://eztv.it/myshows/ EZTV
+-18 http://eztv.it/ EZTV
+-17 http://eztv.it/login/ EZTV
+-16 http://eztv.it/ EZTV
+-15 http://eztv.it/myshows/ EZTV
+-14 http://eztv.it/ EZTV
+-13 http://eztv.it/login/ EZTV
+-12 http://eztv.it/myshows/ EZTV
+-11 http://eztv.it/ EZTV
+-10 http://eztv.it/login/ EZTV
+-9 http://eztv.it/myshows/ EZTV
+-8 http://eztv.it/ EZTV
+-7 http://eztv.it/login/ EZTV
+-6 http://eztv.it/myshows/ EZTV
+-5 http://eztv.it/ EZTV
+-4 http://eztv.it/login/ EZTV
+-3 http://eztv.it/myshows/ EZTV
+-2 http://eztv.it/myshows/54490/watched/ EZTV
+-1 http://eztv.it/myshows/998/watched/all/ EZTV
+0|0 http://eztv.it/myshows/54441/watched/ EZTV - TV Torrents Online
 -16 http://h4x.bot.nu/ ownCloud
 -15 http://188.226.199.193/index.php?redirect_url=%2Findex.php%2Fapps%2Ffiles ownCloud
 -14 http://188.226.199.193/index.php?redirect_url=%2Findex.php%2Fapps%2Ffiles ownCloud
@@ -83,6 +177,106 @@ g:*default
 -2 https://bbs.archlinux.org/viewtopic.php?pid=1067552 Terminal
 -1 https://wiki.archlinux.org/ ArchWiki
 0|0 https://wiki.archlinux.org/index.php/Dwb dwb - ArchWiki
--1 http://portix.bitbucket.org/dwb/snippets/snippets.html dwb userscript snippets
+-1 http://portix.bitbucket.org/dwb/snippets/snippets.html dwb
 0|0 http://portix.bitbucket.org/dwb/ dwb - a webkit web browser
-0|0 https://www.google.se/search?hl=sv&output=search&sclient=psy-ab&q=dwb%20pinned%20tab&oq=&gs_l=&pbx=1 dwb pinned tab - Sök på Google
+0|0 https://github.com/naglis/dwb-userscripts naglis/dwb-userscripts · GitHub
+1 https://github.com/naglis/dwb-userscripts/blob/master/dwb_youtube_mplayer.js dwb-userscripts/dwb_youtube_mplayer.js
+-1 http://najo.lt/tag/dwb.html na/jo
+0|0 http://najo.lt/ na/jo
+-1 https://www.google.se/search?hl=sv&output=search&sclient=psy-ab&q=dwb%20spell%20check&oq=&gs_l=&pbx=1 javascript
+0|0 https://www.google.se/search?hl=sv&output=search&sclient=psy-ab&q=dwb%20spell%20check&oq=&gs_l=&pbx=1#hl=sv&q=javascript+alert javascript alert - Sök på Google
+-1 http://portix.bitbucket.org/dwb/api/WebKitWebView.html dwb
+0|0 http://portix.bitbucket.org/dwb/api/RegExp.html dwb api: Class: RegExp
+-2 https://www.google.se/search?hl=sv&output=search&sclient=psy-ab&q=regexp%20youtube%20dwb&oq=&gs_l=&pbx=1 regexp
+-1 https://www.google.se/search?hl=sv&output=search&sclient=psy-ab&q=regexp%20youtube%20dwb&oq=&gs_l=&pbx=1#hl=sv&q=regexp+youtu.be+dwb regexp
+0|0 https://www.google.se/search?hl=sv&output=search&sclient=psy-ab&q=regexp%20youtube%20dwb&oq=&gs_l=&pbx=1#hl=sv&q=regexp+%22youtu.be%22+dwb regexp "youtu.be" dwb - Sök på Google
+0|0 http://portix.bitbucket.org/dwb/snippets/snippets.html dwb userscript snippets
+0|0 http://waveearth.blogspot.se/2013/01/archwiki-recent-changes-en-dwb.html Wave Earth: ArchWiki - Recent changes [en]: Dwb
+0|0 http://stackoverflow.com/questions/3717115/regular-expression-for-youtube-links regex - Regular expression for youtube links - Stack Overflow
+0|0 http://stackoverflow.com/questions/3392993/php-regex-to-get-youtube-video-id PHP Regex to get youtube video ID? - Stack Overflow
+0|0 http://stackoverflow.com/questions/6903823/regex-for-youtube-id javascript - Regex for YouTube ID - Stack Overflow
+-16 https://plus.google.com/+MarkDerricutt/posts Mark
+-15 https://plus.google.com/+MarkDerricutt/posts Mark
+-14 https://plus.google.com/+MarkDerricutt/posts Mark
+-13 https://plus.google.com/+MarkDerricutt/posts Mark
+-12 https://plus.google.com/+MarkDerricutt/posts Mark
+-11 https://plus.google.com/+MarkDerricutt/posts Mark
+-10 https://plus.google.com/+MarkDerricutt/posts Mark
+-9 https://plus.google.com/+MarkDerricutt/posts Mark
+-8 https://plus.google.com/+MarkDerricutt/posts Mark
+-7 https://plus.google.com/+MarkDerricutt/posts Mark
+-6 https://plus.google.com/+MarkDerricutt/posts Mark
+-5 https://plus.google.com/+MarkDerricutt/posts Mark
+-4 https://plus.google.com/+MarkDerricutt/posts Mark
+-3 https://plus.google.com/+MarkDerricutt/posts Mark
+-2 https://plus.google.com/+MarkDerricutt/posts Mark
+-1 https://plus.google.com/+MarkDerricutt/posts Mark Derricutt - Google+
+0|0 https://plus.google.com/+MarkDerricutt/posts Mark Derricutt - Google+
+-14 https://plus.google.com/+ChristopherBaluyut/posts Christopher
+-13 https://plus.google.com/+ChristopherBaluyut/posts Christopher
+-12 https://plus.google.com/+ChristopherBaluyut/posts Christopher
+-11 https://plus.google.com/+ChristopherBaluyut/posts Christopher
+-10 https://plus.google.com/+ChristopherBaluyut/posts Christopher
+-9 https://plus.google.com/+ChristopherBaluyut/posts Christopher
+-8 https://plus.google.com/+ChristopherBaluyut/posts Christopher
+-7 https://plus.google.com/+ChristopherBaluyut/posts Christopher
+-6 https://plus.google.com/+ChristopherBaluyut/posts Christopher
+-5 https://plus.google.com/+ChristopherBaluyut/posts Christopher
+-4 https://plus.google.com/+ChristopherBaluyut/posts Christopher
+-3 https://plus.google.com/+ChristopherBaluyut/posts Christopher
+-2 https://plus.google.com/+ChristopherBaluyut/posts Christopher
+-1 https://plus.google.com/+ChristopherBaluyut/posts Christopher Baluyut - Google+
+0|0 https://plus.google.com/+ChristopherBaluyut/posts Christopher Baluyut - Google+
+-19 https://plus.google.com/+JosPoortvliet/posts Jos
+-18 https://plus.google.com/+JosPoortvliet/posts Jos
+-17 https://plus.google.com/+JosPoortvliet/posts Jos
+-16 https://plus.google.com/+JosPoortvliet/posts Jos
+-15 https://plus.google.com/+JosPoortvliet/posts Jos
+-14 https://plus.google.com/+JosPoortvliet/posts Jos
+-13 https://plus.google.com/+JosPoortvliet/posts Jos
+-12 https://plus.google.com/+JosPoortvliet/posts Jos
+-11 https://plus.google.com/+JosPoortvliet/posts Jos
+-10 https://plus.google.com/+JosPoortvliet/posts Jos
+-9 https://plus.google.com/+JosPoortvliet/posts Jos
+-8 https://plus.google.com/+JosPoortvliet/posts Jos
+-7 https://plus.google.com/+JosPoortvliet/posts Jos
+-6 https://plus.google.com/+JosPoortvliet/posts Jos
+-5 https://plus.google.com/+JosPoortvliet/posts Jos
+-4 https://plus.google.com/+JosPoortvliet/posts Jos
+-3 https://plus.google.com/+JosPoortvliet/posts Jos
+-2 https://plus.google.com/+JosPoortvliet/posts Jos Poortvliet - Google+
+-1 https://plus.google.com/+JosPoortvliet/posts Jos Poortvliet - Google+
+0|0 https://plus.google.com/+JosPoortvliet/posts Jos Poortvliet - Google+
+-15 https://plus.google.com/+NicandrosNicolaou/posts Nicandros
+-14 https://plus.google.com/+NicandrosNicolaou/posts Nicandros
+-13 https://plus.google.com/+NicandrosNicolaou/posts Nicandros
+-12 https://plus.google.com/+NicandrosNicolaou/posts Nicandros
+-11 https://plus.google.com/+NicandrosNicolaou/posts Nicandros
+-10 https://plus.google.com/+NicandrosNicolaou/posts Nicandros
+-9 https://plus.google.com/+NicandrosNicolaou/posts Nicandros
+-8 https://plus.google.com/+NicandrosNicolaou/posts Nicandros
+-7 https://plus.google.com/+NicandrosNicolaou/posts Nicandros
+-6 https://plus.google.com/+NicandrosNicolaou/posts Nicandros
+-5 https://plus.google.com/+NicandrosNicolaou/posts Nicandros
+-4 https://plus.google.com/+NicandrosNicolaou/posts Nicandros
+-3 https://plus.google.com/+NicandrosNicolaou/posts Nicandros
+-2 https://plus.google.com/+NicandrosNicolaou/posts Nicandros
+-1 https://plus.google.com/+NicandrosNicolaou/posts Nicandros Nicolaou (nicandris) - Google+
+0|0 https://plus.google.com/+NicandrosNicolaou/posts Nicandros Nicolaou (nicandris) - Google+
+-16 https://plus.google.com/+ChadMcCullough/posts Chad
+-15 https://plus.google.com/+ChadMcCullough/posts Chad
+-14 https://plus.google.com/+ChadMcCullough/posts Chad
+-13 https://plus.google.com/+ChadMcCullough/posts Chad
+-12 https://plus.google.com/+ChadMcCullough/posts Chad
+-11 https://plus.google.com/+ChadMcCullough/posts Chad
+-10 https://plus.google.com/+ChadMcCullough/posts Chad
+-9 https://plus.google.com/+ChadMcCullough/posts Chad
+-8 https://plus.google.com/+ChadMcCullough/posts Chad
+-7 https://plus.google.com/+ChadMcCullough/posts Chad
+-6 https://plus.google.com/+ChadMcCullough/posts Chad
+-5 https://plus.google.com/+ChadMcCullough/posts Chad
+-4 https://plus.google.com/+ChadMcCullough/posts Chad
+-3 https://plus.google.com/+ChadMcCullough/posts Chad
+-2 https://plus.google.com/+ChadMcCullough/posts Chad
+-1 https://plus.google.com/+ChadMcCullough/posts Chad McCullough - Google+
+0|0 https://plus.google.com/+ChadMcCullough/posts Chad McCullough - Google+

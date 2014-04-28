@@ -10,7 +10,7 @@ fi
 
 rules=$(rulc -l)
 
-    rulc -a 'class == "Geary"' 'floating=on,center=on'
+    rulc -a 'class == "Geary"' 'desktop=^4,floating=on,center=on'
     rulc -a 'class == "Nautilus"' 'floating=on'
     rulc -a 'calss == "Gimp"' 'floating=on'
     rulc -a 'class == "Firefox"' 'desktop=^2,focus=off'

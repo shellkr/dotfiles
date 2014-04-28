@@ -37,7 +37,7 @@ super + {Paragraph,Tab}
     bspc {window,desktop} -f last
 
 ## Move window to.. (does not work on my keyboard)
-super + Grave # apostrophe
+super + grave # apostrophe
     bspc window -s last
 
 ## Move selected window to the biggest window
