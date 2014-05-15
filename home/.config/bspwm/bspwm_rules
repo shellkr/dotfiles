@@ -15,6 +15,8 @@ rules=$(rulc -l)
     rulc -a 'calss == "Gimp"' 'floating=on'
     rulc -a 'class == "Firefox"' 'desktop=^2,focus=off'
     rulc -a 'class == "Vlc"' 'desktop=^3,floating=on'
+    rulc -a 'class == "Pavucontrol"' 'floating=on'
+    rulc -a 'class == "Acroread"' 'floating=on'
     rulc -a 'instance == "rtorrent"' 'desktop=^3'
     rulc -a 'instance == "URthree"' 'desktop=^3'
     rulc -a 'instance == "mutt"' 'desktop=^4'
