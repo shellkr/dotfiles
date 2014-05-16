@@ -40,9 +40,13 @@ run_snapwm() {
 	exec /usr/bin/snapwm
 }
 
+run_herbstluftwm() {
+	exec /usr/bin/herbstluftwm
+}
+
 use_gpg_agent
 system_xinitrc
 init_desktop
-run_bspwm
-
+#run_bspwm
+run_herbstluftwm
 
