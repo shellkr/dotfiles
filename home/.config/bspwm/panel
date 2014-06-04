@@ -16,14 +16,12 @@
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
-#bspc config top_padding $PANEL_HEIGHT
-
 function gmail() {
 	email="$(cat $XDG_CONFIG_HOME/bspwm/passw|head -1)"
 	passw="$(cat $XDG_CONFIG_HOME/bspwm/passw|tail -1)"
 	while true
 	do
-		inbox_count=$(wget -q -O- --auth-no-challenge --user=${email} --password=${passw} 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")')
+		inbox_count=$(wget -q -O- --auth-no-challenge --user=${email} --password=${passw} 'https://mail.google.com/mail/feed/atom' | awk -F'<\/?fullcount>' '{print $2}')
 		echo "G:$inbox_count"
 		sleep 60
 	done

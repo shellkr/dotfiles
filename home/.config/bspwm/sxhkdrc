@@ -33,7 +33,7 @@ super + {z,f}
     bspc window -t {floating,fullscreen}
 
 ## Toggle last focused windows or workspace/desktop back-and-forth (§,tab)
-super + {Paragraph,Tab}
+super + {paragraph,Tab}
     bspc {window,desktop} -f last
 
 ## Move window to.. (does not work on my keyboard)
@@ -113,6 +113,8 @@ super + Return
 super + space
 #     j4-dmenu-desktop --convert=lowercase "dmenu -fn 'Pragmata Pro-8'"
     dmenu_run
+ctrl + space
+	bashrun2
 
 ## Media keys
 XF86AudioRaiseVolume

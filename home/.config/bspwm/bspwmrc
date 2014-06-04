@@ -5,8 +5,6 @@
 #bspc monitor -a $REMAINING_DESKS
 
 #bspc desktop -n 1 # $FIRST_DESK
-bspc monitor -d {1..9}
-bspc desktop -f 1
 
 #i=1
 #for monitor in $(bspc query -M); do
@@ -49,7 +47,12 @@ bspc config urgent_border_color         "#EFA29A"
 #fi
 
 bspc config external_rules_command "$(command -v external_rules)"
+
+bspc monitor -d {1..9}
+bspc desktop -f 1
+
 bspwm_rules #
+
 
 ## Focus last monitor
 #bspc monitor -f ^$NMON

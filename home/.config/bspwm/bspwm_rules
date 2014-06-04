@@ -9,7 +9,7 @@ if ! rulc -l > /dev/null ; then
 fi
 
 rules=$(rulc -l)
-
+if [ -z "$rules" ] ; then
     rulc -a 'class == "Geary"' 'desktop=^4,floating=on,center=on'
     rulc -a 'class == "Nautilus"' 'floating=on'
     rulc -a 'calss == "Gimp"' 'floating=on'
@@ -23,4 +23,5 @@ rules=$(rulc -l)
     rulc -a 'instance == "weechat"' 'desktop=^5'
     rulc -a 'class == "Budgie"' 'desktop=^6,floating=on'
 	rulc -a 'instance == "gl"' 'desktop=^3,floating=on'
+	rulc -a 'instance == "bashrun2-run-dialog"' 'floating=on'
 fi

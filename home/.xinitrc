@@ -47,6 +47,5 @@ run_herbstluftwm() {
 use_gpg_agent
 system_xinitrc
 init_desktop
-#run_bspwm
-run_herbstluftwm
+run_bspwm
 

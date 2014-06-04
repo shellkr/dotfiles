@@ -119,21 +119,6 @@ while read -r line ; do
                         esac
                         wm_infos="${wm_infos}^fg(${FG})^bg(${BG})^ca(1, bspc desktop -f ${name})${PADDING}^fn(${font_family}:pixelsize=${font_size}:style=${font_style})${name}^fn()${PADDING}^ca()"
                         ;;
-                    #[Mm]*)
-                    #    case $item in
-                    #        M*)
-                    #            FG=$COLOR_ACTIVE_MONITOR_FG
-                    #            BG=$COLOR_ACTIVE_MONITOR_BG
-                    #            ;;
-                    #        m*)
-                    #            FG=$COLOR_INACTIVE_MONITOR_FG
-                    #            BG=$COLOR_INACTIVE_MONITOR_BG
-                    #            ;;
-                    #    esac
-                    #    if [ ! "$name" = "LVDS" ] ; then
-                    #        wm_infos="${wm_infos}^fg(${FG})^bg(${BG})${PADDING}${name}${PADDING}"
-                    #    fi
-                    #    ;;
                     L*)
                         case $name in
                             tiled)
@@ -151,7 +136,9 @@ while read -r line ; do
          	IFS=$NORMIFS
             ;;
     esac
+
     sys_infos="${weather_infos}${inbox}${sys_volume}${sys_clock}${PADDING}"
+   # sys_infos="${weather_infos}${sys_volume}${sys_clock}${PADDING}"
     set -- $(printf '%s\0%s\0%s' "$wm_infos" "$title" "$sys_infos" | sed 's/\^fn()/\\)/g; s/\^fn([^)]\+)/\\(/g; s/\^[a-z]\+([^)]*)//g' | xargs -0 txtw -f "$font_family" -s "$font_size" -F "$icons_font_family" -S "$icons_font_size")
     left_width=$1
     center_width=$2
