@@ -4,71 +4,46 @@
 ## correspond with your location. Your ip can be blocked if you try to fetch the forecast too quick. So
 ## use an interval longer than 10 minutes.
 
-## 1 = Clear sky
-## 2 = Fair
-## 3 = Partly cloudy
-## 4 = Cloudy
-## 5 = Rain showers
-## 9 = Rain
+##  1 = Clear sky
+##  2 = Fair
+##  3 = Partly cloudy
+##  4 = Cloudy
+##  5 = Rain showers
+##  6 = Rain showers and thunder
+##  9 = Rain
+## 10 = Heavy rain
 ## 15 = Fog
+## 22 = Rain and thunder
+## 40 = Light rain showers
 ## 41 = Heavy rain showers
+## 46 = Light rain
 
 wurl="http://www.yr.no/place/Sweden/Norrbotten/Ala_Lombolo/forecast.xml"
 
-#winfo=$(curl -s $wurl | awk -F'="|"' '/(temperature|symbol)/{printf $4","}')
 winfo=$(curl -s $wurl | awk -F'="|"' '/(temperature|symbol)/{print $4}')
 
-wcond=$(awk 'ORS=NR%2?",":"\n"' <<<"$winfo" | awk -F"," '{print $1}')
-wtemp=$(awk 'ORS=NR%2?",":"\n"' <<<"$winfo" | awk -F"," '{print $2}')
+#We want the new-line to remain
+old_ifs=${IFS}
+IFS=$'
+'
 
-for i in $(awk 'ORS=NR%2?",":"\n"' <<<"$winfo" | awk -F"," '{print $1}');
+for i in $(awk 'ORS=NR%2?",":"\n"' <<<"$winfo" | awk -F"," '{print $2"C",$1}');
 do
-#
-#t="$wtemp"
-#
-#	if [[ $i = (1|2) ]]; then
-#		i="\\u2600"
-#	elif [[ $i = (3|4) ]]; then
-#		i="\\u2601"
-#	elif [[ $i = (5|9|41) ]]; then
-#		i="\\u2602"
-#	elif [[ $i = "15" ]]; then
-#		i="fog"
-#	else
-#		echo "not found"
-#	fi
 
-#done
-
-#awk 'ORS=NR%2?",":"\n"' <<<"$winfo" | awk -F"," '{print $2"°C \\'$i'"}'
-
-	case "$i" in
-		1|2) echo "1" ;;
-		3|4) echo "3" ;;
-		5|9|41) echo "5" ;;
-		6) echo "6" ;;
-		7) echo "7" ;;
-		8) echo "8" ;;
-		10) echo "10" ;;
-		11) echo "11" ;;
-		12) echo "12" ;;
-		13) echo "13" ;;
-		14) echo "14" ;;
-		15) echo "15 fog" ;;
-		*) echo "not recognized" ;;
+	case "$(cut -d' ' -f2 <<<$i)" in
+		1|2) awk 'sub(/C.*/, "°C \\u2600")' <<<$i ;; # Sunny
+		3|4) awk 'sub(/C.*/, "°C \\u2601")' <<<$i ;; # Clody
+		5|9|10|40|41|46) awk 'sub(/C.*/, "°C \\u2602")' <<<$i ;; # Rainy
+		6|22) awk 'sub(/C.*/, "°C \\u2602\\u26a1")' <<<$i ;; # Thunder
+		15) awk 'sub(/C.*/, "°C f")' <<<$i ;; # fog
+		*) echo "n/a ($i)" ;;
 	esac
 
 done
 
-#if [ "grep -i '^[1-2]$' <<<$winfo" ]; then
-#	winfo=$(sed 's/[0-9]/\\u2600/1;s/[0-9]/\\u2600/6' <<<"$winfo")
-#elif [ "grep -i '^[3-4]$' <<<$winfo" ]; then
-#	winfo=$(sed 's/[0-9]/\\u2601/1;s/[0-9]/\\u2601/6' <<<"$winfo")
-#elif [ "grep -i '^[9]$' <<<$winfo" ]; then
-#	winfo=$(sed 's/[0-9]/\\u2602/1;s/[0-9]/\\u2602/6' <<<"$winfo")
-#else
-#	winfo="N/A"
-#fi
+IFS=${old_ifs}
+
+
 
 #awk -F"," '{print $2"°C",$1"  "$4"°C",$3}' <<<$winfo
 
