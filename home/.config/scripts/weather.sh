@@ -47,4 +47,4 @@ done
 
 IFS=${old_ifs}
 
-echo ${fcasts[@]:0:2} # how many forcast we want to show
+echo ${fcasts[@]:0:2} # how many forcasts we want to show

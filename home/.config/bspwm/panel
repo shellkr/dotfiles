@@ -30,7 +30,7 @@ function gmail() {
 function weather() {
 	while true
 	do
-		weather_stat=$($HOME/.config/i3/./weather.sh)
+		weather_stat=$($HOME/.config/scripts/./weather.sh)
 		echo "F$weather_stat"
 		sleep 900
 	done
