@@ -13,6 +13,7 @@ export GPG_TTY=`tty`
 export GPG_AGENT_INFO
 
 export XDG_CONFIG_HOME="/home/$USER/.config"
+export XDG_DATA_HOME="/home/$USER/.local/share"
 
 ## Bspwm
 export BSPWM_SOCKET="/tmp/bspwm-socket"

@@ -113,8 +113,12 @@ super + Return
 super + space
 #     j4-dmenu-desktop --convert=lowercase "dmenu -fn 'Pragmata Pro-8'"
     dmenu_run
+
 ctrl + space
 	bashrun2
+
+alt + space
+	/usr/bin/vendor_perl/dmenuclip
 
 ## Media keys
 XF86AudioRaiseVolume
