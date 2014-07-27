@@ -15,13 +15,13 @@ use_gpg_agent() {
 
 init_desktop() {
 	[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-    source ~/.profile
+	source ~/.profile
 	setxkbmap -option terminate:ctrl_alt_bksp
 	xsetroot -cursor_name left_ptr &
-    xset -dpms &
-    xset s off &
-    xset s noblank &
-	compton --config ~/.config/i3/compton.conf -b &
+	xset -dpms &
+    	xset s off &
+    	xset s noblank &
+	compton --config ~/.config/scripts/compton.conf -b &
 	numlockx &
 	wallpaper_ch &
 	hot_edge.sh &
@@ -29,7 +29,7 @@ init_desktop() {
 
 run_bspwm() {
 	sxhkd -c $XDG_CONFIG_HOME/bspwm/sxhkdrc &
-    exec /usr/bin/bspwm
+	exec /usr/bin/bspwm
 }
 
 run_awesome() {
@@ -44,7 +44,7 @@ run_herbstluftwm() {
 	exec /usr/bin/herbstluftwm
 }
 
-use_gpg_agent
+#use_gpg_agent
 system_xinitrc
 init_desktop
 run_bspwm
