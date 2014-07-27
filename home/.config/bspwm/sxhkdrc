@@ -120,6 +120,9 @@ ctrl + space
 alt + space
 	/usr/bin/vendor_perl/dmenuclip
 
+shift + alt + space
+	/usr/bin/vendor_perl/dmenurl
+
 ## Media keys
 XF86AudioRaiseVolume
 	pactl set-sink-volume 0 +5%
