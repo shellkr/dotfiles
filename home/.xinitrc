@@ -25,6 +25,7 @@ init_desktop() {
 	numlockx &
 	wallpaper_ch &
 	hot_edge.sh &
+	/usr/bin/vendor_perl/clipbored
 }
 
 run_bspwm() {
