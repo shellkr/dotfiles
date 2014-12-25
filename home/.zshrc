@@ -35,8 +35,7 @@ SAVEHIST=10000000
 HISTFILE=~/.zsh_history
 
 export EDITOR="nano"
-export GREP_OPTIONS='--color=auto'
-export GREP_COLOR='1;33'
+export GREP_COLORS='ms=01;33'
 
 eval "$(dircolors -b)"
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -78,8 +77,9 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 ## My Aliases
 alias ls="ls -FshX --color=auto --group-directories-first"
 alias rm="rm -rf"
-alias printmaint="cngpij -P CanonMG5250"
-alias printstat="cngpijmonmg5200 canonMG5250"
+alias grep="grep --color=auto"
+alias printmaint="cngpij -P Canon-MG5200-series_2C-9E-FC-09-C3-AB"
+alias printstat="cngpijmonmg5200 Canon-MG5200-series_2C-9E-FC-09-C3-AB"
 alias cpu="ps -eo pcpu,args --no-headers | sort -k 1 -r -n | head"
 alias mem="free -m | awk '/che:/ {print \$3\" total used\n\"\$4\" total left\"}' && echo && ps -eu 1000 k rss -o rss,args | \
 sort -r -n | awk '{print \$1/1024\"\tMB - \"\$2,\$3,\$4,\$5,\$6,\$7,\$8}' | colout '([0-9].*)(\tMB)(.*)' blue,black,yellow | head"
@@ -92,3 +92,4 @@ alias fullupn='yaourt -Syua --devel --noconfirm'
 alias fullup='yaourt -Syua --devel'
 alias klocka="echo \$(curl -s http://www.frokenur.nu/|grep -oE \('id=.?hours[^<>]*>[^<>]+'\|'id=.?minutes[^<>]*>[^<>]+'\|'id=.?seconds[^<>]*>[^<>]+'\)| cut -d'>' -f2)"
 alias yaourt="YAOURT_COLORS='other=1;30:pkg=0;33' yaourt"
+alias rmpop="ls -d -1tr /tmp/Popcorn-Time/* | head -n -2 | cut -d' ' -f2- | xargs -d '\n' rm -rv"

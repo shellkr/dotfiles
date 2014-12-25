@@ -1,4 +1,4 @@
-PATH="/usr/games:$HOME/.config/bspwm:$PATH"
+PATH="/usr/NX/bin:/usr/games:$HOME/.config/bspwm:$PATH"
 
 # Invoke GnuPG-Agent the first time we login.
 # Does `~/.gpg-agent-info' exist and points to gpg-agent process accepting signals?
