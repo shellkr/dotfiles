@@ -22,6 +22,7 @@ bspc config border_width    2
 bspc config window_gap      8
 bspc config fence_grip      100
 bspc config focus_follows_pointer   true
+bspc config pointer_follows_focus   false
 bspc config click_to_focus          false
 bspc config gapless_monocle         true
 bspc config borderless_monocle      true
@@ -48,7 +49,7 @@ bspc config urgent_border_color         "#EFA29A"
 
 bspc config external_rules_command "$(command -v external_rules)"
 
-bspc monitor -d {1..9}
+bspc monitor -d {term,web,media,mail,chat,other,temp}
 bspc desktop -f 1
 
 bspwm_rules #

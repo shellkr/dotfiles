@@ -27,6 +27,8 @@
 ##  4 = Cloudy
 ##  5 = Rain showers
 ##  6 = Rain showers and thunder
+##  7 = Sleet showers
+##  8 = Snow showers
 ##  9 = Rain
 ## 10 = Heavy rain
 ## 11 = Heavy rain and thunder
@@ -34,13 +36,18 @@
 ## 13 = Snow
 ## 15 = Fog
 ## 22 = Rain and thunder
+## 24 = Light rain showers and thunder
+## 25 = Heavy rain showers and thunder
 ## 30 = Light rain and thunder
 ## 40 = Light rain showers
 ## 41 = Heavy rain showers
+## 42 = Light sleet showers
 ## 44 = Light snow showers
 ## 46 = Light rain
 ## 47 = Light sleet
+## 48 = Heavy sleet
 ## 49 = Light snow
+## 50 = Heavy snow
 
 declare -a fcasts
 
@@ -60,10 +67,10 @@ do
 		1|2) fcast=$(awk 'sub(/C.*/, "°C \\u2600")' <<<$i) ;; # Sunny
 		3|4) fcast=$(awk 'sub(/C.*/, "°C \\u2601")' <<<$i) ;; # Clody
 		5|9|10|40|41|46) fcast=$(awk 'sub(/C.*/, "°C \\u2602")' <<<$i) ;; # Rainy
-		6|11|22|30) fcast=$(awk 'sub(/C.*/, "°C \\u2602\\u26a1")' <<<$i) ;; # Thunder
-		12|47) fcast=$(awk 'sub(/C.*/, "°C \\u2592")' <<<$i) ;; # sleet
+		6|11|22|24|25|30) fcast=$(awk 'sub(/C.*/, "°C \\u2602\\u26a1")' <<<$i) ;; # Thunder
+		7|12|42|47|48) fcast=$(awk 'sub(/C.*/, "°C \\u2592")' <<<$i) ;; # sleet
 		15) fcast=$(awk 'sub(/C.*/, "°C \\u2636")' <<<$i) ;; # fog
-		13|44|49) fcast=$(awk 'sub(/C.*/, "°C \\u2744")' <<<$i) ;; # snow
+		8|13|44|49|50) fcast=$(awk 'sub(/C.*/, "°C \\u2744")' <<<$i) ;; # snow
 		*) echo "n/a ($i)" ;;
 	esac
 

@@ -30,7 +30,7 @@ function gmail() {
 function weather() {
 	while true
 	do
-		weather_stat=$($HOME/.config/scripts/./weather.sh)
+		weather_stat=$($HOME/.config/scripts/./weather-yr.sh)
 		echo "F$weather_stat"
 		sleep 900
 	done
@@ -60,6 +60,6 @@ time_date > "$PANEL_FIFO" &
 #   -fg "$COLOR_FOREGROUND" -bg "$COLOR_BACKGROUND"
 
 cat "$PANEL_FIFO" | panel_dzen2 -f "$PANEL_FONT_FAMILY" -s "$PANEL_FONT_SIZE" -F \
-"$PANEL_ICONS_FONT_FAMILY" -S "$PANEL_ICONS_FONT_SIZE" |  uq | dzen2 -h $PANEL_HEIGHT \
+"$PANEL_ICONS_FONT_FAMILY" -S "$PANEL_ICONS_FONT_SIZE" | dzen2 -h $PANEL_HEIGHT \
 -dock -ta l -title-name panel -fn "${PANEL_FONT_FAMILY}:pixelsize=${PANEL_FONT_SIZE}" -fg \
 "$COLOR_FOREGROUND" -bg "$COLOR_BACKGROUND"

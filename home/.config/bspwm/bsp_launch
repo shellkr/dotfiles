@@ -9,7 +9,7 @@ desktop1() {
 ## Predefined Workspace 2
 desktop2() {
 	bspc desktop 2 -l monocle
-    firefox
+	firefox
 }
 
 ## Predefined Workspace 3
@@ -69,6 +69,6 @@ desktop5() {
 
 desktop1 &
 desktop2 &
-desktop3 &
+#desktop3 &
 #desktop4 &
-desktop5 #
+#desktop5 #
