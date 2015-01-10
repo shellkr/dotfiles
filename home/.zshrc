@@ -81,8 +81,7 @@ alias grep="grep --color=auto"
 alias printmaint="cngpij -P Canon-MG5200-series_2C-9E-FC-09-C3-AB"
 alias printstat="cngpijmonmg5200 Canon-MG5200-series_2C-9E-FC-09-C3-AB"
 alias cpu="ps -eo pcpu,args --no-headers | sort -k 1 -r -n | head"
-alias mem="free -m | awk '/che:/ {print \$3\" total used\n\"\$4\" total left\"}' && echo && ps -eu 1000 k rss -o rss,args | \
-sort -r -n | awk '{print \$1/1024\"\tMB - \"\$2,\$3,\$4,\$5,\$6,\$7,\$8}' | colout '([0-9].*)(\tMB)(.*)' blue,black,yellow | head"
+alias mem="free -m | awk '/che:/ {print \$3\" total used\n\"\$4\" total left\"}' && echo && ps -eu 1000 k rss -o rss,args | \sort -r -n | awk '{print \$1/1024\"\tMB - \"\$2,\$3,\$4,\$5,\$6,\$7,\$8}' | colout '([0-9].*)(\tMB)(.*)' blue,black,yellow | head"
 alias memp="ps -eo pmem,args | sort -k 1 -r -n | ccze -m ansi | head"
 alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
 alias dmesg="dmesg -deL"
@@ -93,3 +92,25 @@ alias fullup='yaourt -Syua --devel'
 alias klocka="echo \$(curl -s http://www.frokenur.nu/|grep -oE \('id=.?hours[^<>]*>[^<>]+'\|'id=.?minutes[^<>]*>[^<>]+'\|'id=.?seconds[^<>]*>[^<>]+'\)| cut -d'>' -f2)"
 alias yaourt="YAOURT_COLORS='other=1;30:pkg=0;33' yaourt"
 alias rmpop="ls -d -1tr /tmp/Popcorn-Time/* | head -n -2 | cut -d' ' -f2- | xargs -d '\n' rm -rv"
+
+## EXTRACT FUNCTION ##
+extract () {
+  if [ -f $1 ] ; then
+      case $1 in
+          *.tar.bz2)   tar xvjf $1    ;;
+          *.tar.gz)    tar xvzf $1    ;;
+          *.bz2)       bunzip2 $1     ;;
+          *.rar)       rar x $1       ;;
+          *.gz)        gunzip $1      ;;
+          *.tar)       tar xvf $1     ;;
+          *.tbz2)      tar xvjf $1    ;;
+          *.tgz)       tar xvzf $1    ;;
+          *.zip)       unzip $1       ;;
+          *.Z)         uncompress $1  ;;
+          *.7z)        7z x $1        ;;
+          *)           echo "don't know how to extract '$1'..." ;;
+      esac
+  else
+      echo "'$1' is not a valid file!"
+  fi
+}
