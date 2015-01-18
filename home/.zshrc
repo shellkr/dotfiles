@@ -29,6 +29,10 @@ bindkey '\e[4~' end-of-line
 ## Rebind the delete key.
 bindkey '\e[3~' delete-char
 
+# Bind ctrl-left / ctrl-right
+bindkey "\e[1;5D" backward-word
+bindkey "\e[1;5C" forward-word
+
 ## Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -72,10 +76,15 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
 fi
 
 [ -r /usr/share/doc/pkgfile/command-not-found.zsh ] && . /usr/share/doc/pkgfile/command-not-found.zsh
+
+## Highlight the syntaxes (https://github.com/zsh-users/zsh-syntax-highlighting)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 ## My Aliases
 alias ls="ls -FshX --color=auto --group-directories-first"
+alias less="less -R"
 alias rm="rm -rf"
 alias grep="grep --color=auto"
 alias printmaint="cngpij -P Canon-MG5200-series_2C-9E-FC-09-C3-AB"
@@ -83,7 +92,6 @@ alias printstat="cngpijmonmg5200 Canon-MG5200-series_2C-9E-FC-09-C3-AB"
 alias cpu="ps -eo pcpu,args --no-headers | sort -k 1 -r -n | head"
 alias mem="free -m | awk '/che:/ {print \$3\" total used\n\"\$4\" total left\"}' && echo && ps -eu 1000 k rss -o rss,args | \sort -r -n | awk '{print \$1/1024\"\tMB - \"\$2,\$3,\$4,\$5,\$6,\$7,\$8}' | colout '([0-9].*)(\tMB)(.*)' blue,black,yellow | head"
 alias memp="ps -eo pmem,args | sort -k 1 -r -n | ccze -m ansi | head"
-alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
 alias dmesg="dmesg -deL"
 alias diff='colordiff -yZEwBd'
 alias psc="ps xawf -eo pid,user,cgroup,args"
@@ -93,7 +101,7 @@ alias klocka="echo \$(curl -s http://www.frokenur.nu/|grep -oE \('id=.?hours[^<>
 alias yaourt="YAOURT_COLORS='other=1;30:pkg=0;33' yaourt"
 alias rmpop="ls -d -1tr /tmp/Popcorn-Time/* | head -n -2 | cut -d' ' -f2- | xargs -d '\n' rm -rv"
 
-## EXTRACT FUNCTION ##
+# stolen from http://dotshare.it/dots/461/
 extract () {
   if [ -f $1 ] ; then
       case $1 in

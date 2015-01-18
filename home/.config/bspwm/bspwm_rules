@@ -13,7 +13,7 @@ if [ -z "$rules" ] ; then
 	rulc -a 'class == "Geary"' 'desktop=^4,floating=off,center=on'
 	rulc -a 'class == "Nautilus"' 'floating=on'
 	rulc -a 'calss == "Gimp"' 'floating=on'
-	rulc -a 'class == "Firefox"' 'desktop=^2,focused=off'
+	rulc -a 'class == "Firefox"' 'desktop=^2,tiled=on,focused=off'
 	rulc -a 'class == "Vlc"' 'desktop=^3,floating=on'
 	rulc -a 'class == "Pavucontrol"' 'floating=on'
 	rulc -a 'class == "Acroread"' 'floating=on'
@@ -21,6 +21,7 @@ if [ -z "$rules" ] ; then
 	rulc -a 'class == "Budgie"' 'desktop=^6,floating=on'
 	rulc -a 'class == "Personal.bin"' 'floating=on'
 	rulc -a 'class == "Popcorntime"' 'desktop=^3,floating=on'
+	rulc -a 'class == "Quirky"' 'desktop=^5,floating=off'
 
 	rulc -a 'instance == "URthree"' 'desktop=^3'
 	rulc -a 'instance == "mutt"' 'desktop=^4'
