@@ -43,6 +43,7 @@
 ## 41 = Heavy rain showers
 ## 42 = Light sleet showers
 ## 44 = Light snow showers
+## 45 = Heavy snow showers
 ## 46 = Light rain
 ## 47 = Light sleet
 ## 48 = Heavy sleet
@@ -70,7 +71,7 @@ do
 		6|11|22|24|25|30) fcast=$(awk 'sub(/C.*/, "°C \\u2602\\u26a1")' <<<$i) ;; # Thunder
 		7|12|42|47|48) fcast=$(awk 'sub(/C.*/, "°C \\u2592")' <<<$i) ;; # sleet
 		15) fcast=$(awk 'sub(/C.*/, "°C \\u2636")' <<<$i) ;; # fog
-		8|13|44|49|50) fcast=$(awk 'sub(/C.*/, "°C \\u2744")' <<<$i) ;; # snow
+		8|13|44|45|49|50) fcast=$(awk 'sub(/C.*/, "°C \\u2744")' <<<$i) ;; # snow
 		*) echo "n/a ($i)" ;;
 	esac
 

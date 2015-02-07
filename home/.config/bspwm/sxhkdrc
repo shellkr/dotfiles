@@ -112,7 +112,7 @@ super + Return
 
 super + space
 #     j4-dmenu-desktop --convert=lowercase "dmenu -fn 'Pragmata Pro-8'"
-    dmenu_run
+    dmenu_run -dim 0.85 -dc "#222222"
 
 ctrl + space
 	bashrun2

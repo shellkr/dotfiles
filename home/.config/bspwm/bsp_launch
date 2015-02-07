@@ -34,7 +34,7 @@ desktop3() {
 		bspc window ${sel_vlc} -e left 0.3 -e down 0.7
 	}
 
-    urxvtc -name URthree && urxvtc -name URthree &&	urxvtc -name rtorrent -e rtorrent &
+    urxvtc -name URthree && urxvtc -name rtorrent -e rtorrent &
 #	vlc &
 #	layout3
 
@@ -69,6 +69,6 @@ desktop5() {
 
 desktop1 &
 desktop2 &
-#desktop3 &
+desktop3 &
 #desktop4 &
 #desktop5 #

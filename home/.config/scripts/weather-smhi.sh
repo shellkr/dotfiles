@@ -33,24 +33,26 @@ declare -a fcasts
 
 wurl="http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/1/geopoint/lat/67.84/lon/20.25/data.json"
 
-winfo=$(curl -s $wurl | awk -F'":' '/(validTime|"t"|pcat)/{print $2}')
+#winfo=$(curl -s $wurl | awk -F'":' '/(validTime|"t"|pcat)/{print $2}')
+winfo=$(curl -s $wurl | awk -F'":' '/("t"|pcat)/{print $2}')
 
 #We want the new-line to remain
 old_ifs=${IFS}
 IFS=$'
 '
 
-for i in $(awk 'ORS=NR%2?",":"\n"' <<<"$winfo" | awk -F"," '{print $2"C",$1}');
+#for i in $(awk 'ORS=NR%2?",":"\n"' <<<"$winfo" | awk -F"," '{print $2"C",$1}');
+for i in $(awk 'ORS=NR%2?",":"\n"' <<<"$winfo" | awk '{print "C "$2,$1}');
 do
 
 	case "$(cut -d' ' -f2 <<<$i)" in
-		1|2) fcast=$(awk 'sub(/C.*/, "°C \\u2600")' <<<$i) ;; # Sunny
-		3|4) fcast=$(awk 'sub(/C.*/, "°C \\u2601")' <<<$i) ;; # Clody
-		5|9|10|40|41|46) fcast=$(awk 'sub(/C.*/, "°C \\u2602")' <<<$i) ;; # Rainy
-		6|11|22|24|25|30) fcast=$(awk 'sub(/C.*/, "°C \\u2602\\u26a1")' <<<$i) ;; # Thunder
-		7|12|42|47|48) fcast=$(awk 'sub(/C.*/, "°C \\u2592")' <<<$i) ;; # sleet
-		15) fcast=$(awk 'sub(/C.*/, "°C \\u2636")' <<<$i) ;; # fog
-		8|13|44|49|50) fcast=$(awk 'sub(/C.*/, "°C \\u2744")' <<<$i) ;; # snow
+		0) fcast=$(awk 'sub(/C.*/, "°C \\u2600")' <<<$i) ;; # Sunny
+		1|2) fcast=$(awk 'sub(/C.*/, "°C \\u2744")' <<<$i) ;; # snow
+		#0) fcast=$(awk 'sub(/C.*/, "°C \\u2601")' <<<$i) ;; # Clody
+		3|4|5|6) fcast=$(awk 'sub(/C.*/, "°C \\u2602")' <<<$i) ;; # Rainy
+		#6|11|22|24|25|30) fcast=$(awk 'sub(/C.*/, "°C \\u2602\\u26a1")' <<<$i) ;; # Thunder
+		#7|12|42|47|48) fcast=$(awk 'sub(/C.*/, "°C \\u2592")' <<<$i) ;; # sleet
+		#15) fcast=$(awk 'sub(/C.*/, "°C \\u2636")' <<<$i) ;; # fog
 		*) echo "n/a ($i)" ;;
 	esac
 
