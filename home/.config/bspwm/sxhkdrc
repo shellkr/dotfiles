@@ -3,14 +3,8 @@
 ##
 
 ## make sxhkd reload its configuration files:
-super + F1
+super + shift + Escape
     pkill -USR1 -x sxhkd
-
-super + F2
-    $HOME/.bin/bspwm-autostart
-
-super + F3
-    bspc toggle_visibility
 
 ## Quit
 super + alt + Escape
@@ -36,9 +30,9 @@ super + {z,f}
 super + {paragraph,Tab}
     bspc {window,desktop} -f last
 
-## Move window to.. (does not work on my keyboard)
-super + grave # apostrophe
-    bspc window -s last
+## Move to previous or next desktop/workspace
+alt + {1,2}
+    bspc desktop -f {prev,next}
 
 ## Move selected window to the biggest window
 super + m
@@ -58,10 +52,6 @@ super + {_,shift + }r
 ## Circulate leaves of the tree backward or forward
 super + {comma,period}
     bspc desktop -C {backward,forward}
-
-## Move to previous or next desktop/workspace
-alt + {1,2}
-    bspc desktop -f {prev,next}
 
 ## Cut the window at...
 super + ctrl + {a,s,w,d}
@@ -87,10 +77,6 @@ super + ctrl + {1-9}
 super + {_,shift + }{1-9,0}
     bspc {desktop -f,window -d} ^{1-9,10}
 
-## Focus the window that is clicked
-#~button1
-#    bspc pointer -g focus
-
 ## Move or rezise depending on the mouse button.
 super + button{1-3}
     bspc pointer -g {move,resize_side,resize_corner}
@@ -99,10 +85,6 @@ super + button{1-3}
 super + !button{1-3}
     bspc pointer -t %i %i
 
-## ...
-#super + @button{1-3}
-#    bspc pointer -u
-
 ##
 ## wm independent hotkeys
 ##
@@ -110,7 +92,7 @@ super + !button{1-3}
 super + Return
     urxvtc
 
-super + space
+{super + space,button8}
 #     j4-dmenu-desktop --convert=lowercase "dmenu -fn 'Pragmata Pro-8'"
     dmenu_run -dim 0.85 -dc "#222222"
 

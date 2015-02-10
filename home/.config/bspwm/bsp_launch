@@ -8,7 +8,7 @@ desktop1() {
 
 ## Predefined Workspace 2
 desktop2() {
-	bspc desktop 2 -l monocle
+	bspc desktop web -l monocle
 	firefox
 }
 
@@ -21,8 +21,8 @@ desktop3() {
     		sleep 1
 		done
 
-		sel_vlc=$(bspc query -T -d 3 | awk -F' ' '/Vlc/{print $3}')
-		win_id=$(bspc query -T -d 3 | awk -F' ' '/URxvt/{print $3}')
+		sel_vlc=$(bspc query -T -d media | awk -F' ' '/Vlc/{print $3}')
+		win_id=$(bspc query -T -d media | awk -F' ' '/URxvt/{print $3}')
 
 		[ "$(xwinfo -i $(echo $win_id) | head -1)" = "rtorrent" ] && {
 			mv_rt="$(echo $win_id | head -1)"
@@ -49,7 +49,7 @@ desktop4() {
             sleep 1
         done
 
-		win_id=$(bspc query -T -d 4 | awk -F' ' '/URxvt/{print $3}')
+		win_id=$(bspc query -T -d chat | awk -F' ' '/URxvt/{print $3}')
 
 		[ "$(xwinfo -i $(echo $win_id2) | head -1)" = "weechat" ] && {
 			bspc window ${win_id2} -r 0.2

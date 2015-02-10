@@ -41,8 +41,7 @@ old_ifs=${IFS}
 IFS=$'
 '
 
-#for i in $(awk 'ORS=NR%2?",":"\n"' <<<"$winfo" | awk -F"," '{print $2"C",$1}');
-for i in $(awk 'ORS=NR%2?",":"\n"' <<<"$winfo" | awk '{print "C "$2,$1}');
+for i in $(awk 'ORS=NR%2?" ":"\n"' <<<"$winfo" | awk '{print $1"C",$2}' | sed 's/,//g');
 do
 
 	case "$(cut -d' ' -f2 <<<$i)" in
@@ -62,5 +61,5 @@ done
 
 IFS=${old_ifs}
 
-echo ${fcasts[@]:0:2} # how many forcasts we want to show
+echo ${fcasts[@]:0:3} # how many forcasts we want to show
 #echo ${fcasts[@]:0:37} # how many forcasts we want to show

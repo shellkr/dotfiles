@@ -100,6 +100,8 @@ alias fullup='yaourt -Syua --devel'
 alias klocka="echo \$(curl -s http://www.frokenur.nu/|grep -oE \('id=.?hours[^<>]*>[^<>]+'\|'id=.?minutes[^<>]*>[^<>]+'\|'id=.?seconds[^<>]*>[^<>]+'\)| cut -d'>' -f2)"
 alias yaourt="YAOURT_COLORS='other=1;30:pkg=0;33' yaourt"
 alias rmpop="ls -d -1tr /tmp/Popcorn-Time/* | head -n -2 | cut -d' ' -f2- | xargs -d '\n' rm -rv"
+alias reboot="systemctl reboot"
+alias shutdown="systemctl poweroff"
 
 # stolen from http://dotshare.it/dots/461/
 extract () {
