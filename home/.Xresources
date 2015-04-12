@@ -1,19 +1,21 @@
 
-Xft.autohint: 0
-Xft.lcdfilter:  lcddefault
-Xft.hintstyle:  hintfull
-Xft.hinting: 1
-Xft.antialias: 1
+Xft.dpi: 96
+Xft.antialias: true
 Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.autohint: true
+Xft.lcdfilter: lcddefault
 
-URxvt*font: xft:PragmataPro:size=8:antialias=true
-URxvt*boldFont: xft:PragmataPro:size=8:antialias=true
-URxvt*italicFont: xft:PragmataPro:size=8:antialias=true
-URxvt*boldItalicFont: xft:PragmataPro:size=8:antialias=true
+URxvt.font: \
+    xft:PragmataPro:size=8:antialias=true,\
+    xft:SourceCodePro:size=9,\
+    xft:UbuntuMono:size=9,\
+    xft:DejaVuSansMono:size=11,\
+    xft:DroidSansMono:size=11,\
+    xft:Inconsolata:size=12,\
+    xft:Symbola:size=9,\
 
-!! URxvt*depth: 32
-URxvt*.transparent: true
-URxvt*.shading: 26
 URxvt*background: rgba:0000/0000/0200/c800
 URxvt*foreground: [100]#ffffff
 URxvt*saveLines: 10000
@@ -38,6 +40,14 @@ URxvt*keysym.A-Escape: perl:keyboard-select:activate
 URxvt*keysym.M-s: perl:keyboard-select:search
 URxvt*keysym.M-u: perl:url-select:select_next
 
+xterm*faceName: xft:DejaVuSansMono:size=10
+xterm*termName: xterm-256color
+xterm*saveLines: 4096
+xterm*utf8: true
+Xterm*alternateScroll: true
+
+*foreground: rgb:b2/b2/b2
+*background: rgb:08/08/08
 !black
 *color0:	#191919
 *color8:	#484848

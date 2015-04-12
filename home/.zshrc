@@ -29,9 +29,17 @@ bindkey '\e[4~' end-of-line
 ## Rebind the delete key.
 bindkey '\e[3~' delete-char
 
-# Bind ctrl-left / ctrl-right
-bindkey "\e[1;5D" backward-word
-bindkey "\e[1;5C" forward-word
+## Bind ctrl-left / ctrl-right
+#bindkey "\e[1;5D" backward-word
+#bindkey "\e[1;5C" forward-word
+#bindkey '^[[5D' emacs-backward-word
+#bindkey '^[[5C' emacs-forward-word
+#bindkey ';5D' emacs-backward-word
+#bindkey ';5C' emacs-forward-word
+#bindkey "\e\e[D" backward-word
+#bindkey "\e\e[C" forward-word
+bindkey "\eOc" forward-word
+bindkey "\eOd" backward-word
 
 ## Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=10000000
@@ -81,6 +89,9 @@ fi
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+
+## Transparent Xterm
+[ -n "$XTERM_VERSION" ] && transset-df -a >/dev/null
 
 ## My Aliases
 alias ls="ls -FshX --color=auto --group-directories-first"
