@@ -22,3 +22,6 @@ export BSPWM_HISTORY=/tmp/bspwm.history
 export BSPWM_STACK=/tmp/bspwm.stack
 export PANEL_FIFO=/tmp/panel-fifo
 export PANEL_HEIGHT=14
+
+## Rtv
+export RTV_EDITOR=nano

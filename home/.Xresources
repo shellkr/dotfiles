@@ -19,6 +19,8 @@ URxvt.font: \
 URxvt*background: rgba:0000/0000/0200/c800
 URxvt*foreground: [100]#ffffff
 URxvt*saveLines: 10000
+URxvt*transparent: true
+URxvt*shading: 26
 
 !! scrollbar style - rxvt (default), plain (most compact), next, or xterm
 URxvt.scrollBar: false

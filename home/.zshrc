@@ -113,6 +113,7 @@ alias yaourt="YAOURT_COLORS='other=1;30:pkg=0;33' yaourt"
 alias rmpop="ls -d -1tr /tmp/Popcorn-Time/* | head -n -2 | cut -d' ' -f2- | xargs -d '\n' rm -rv"
 alias restart="systemctl reboot"
 alias shutdown="systemctl poweroff"
+alias age=$(sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:')
 
 # stolen from http://dotshare.it/dots/461/
 extract () {
@@ -135,3 +136,20 @@ extract () {
       echo "'$1' is not a valid file!"
   fi
 }
+
+# stolen from https://gist.github.com/cirrusUK/35a7642f81097f4e5158
+cmdfu() { curl "http://www.commandlinefu.com/commands/matching/$(echo "$@" \
+| sed 's/ /-/g')/$(echo -n $@ | base64)/plaintext" ;}
+
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+        man "$@"
+}
+
