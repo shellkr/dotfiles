@@ -9,6 +9,7 @@ Xft.lcdfilter: lcddefault
 
 URxvt.font: \
     xft:PragmataPro:size=8:antialias=true,\
+    xft:AwesomeFont:size=8, \
     xft:SourceCodePro:size=9,\
     xft:UbuntuMono:size=9,\
     xft:DejaVuSansMono:size=11,\
@@ -16,14 +17,12 @@ URxvt.font: \
     xft:Inconsolata:size=12,\
     xft:Symbola:size=9,\
 
-URxvt*background: rgba:0000/0000/0200/c800
-URxvt*foreground: [100]#ffffff
 URxvt*saveLines: 10000
-URxvt*transparent: true
+!! URxvt*transparent: false
 URxvt*shading: 26
 
 !! scrollbar style - rxvt (default), plain (most compact), next, or xterm
-URxvt.scrollBar: false
+URxvt*scrollBar: false
 URxvt*scrollstyle: plain
 URxvt*scrollWithBuffer: true
 URxvt*scrollBar_right: false
@@ -47,6 +46,9 @@ xterm*termName: xterm-256color
 xterm*saveLines: 4096
 xterm*utf8: true
 Xterm*alternateScroll: true
+
+URxvt*background: rgba:0000/0000/0200/2200
+URxvt*foreground: [100]#ffffff
 
 *foreground: rgb:b2/b2/b2
 *background: rgb:08/08/08

@@ -1,6 +1,13 @@
-#!/bin/bash
+#!/bin/zsh
 
 sleep 1
+
+## rename $1 incase it was put in a "rarbg" folder
+[ $(grep -o "rarbg" <<<$1) ] && 1=$(sed 's/\[rarbg\]*/.mkv/' <<<$1);
+
+sleep 1
+
+echo "3:$1\n4:$2\n\n" >> rtorrent.log
 
 rm -drf ~/{.cache/rtorrent/incomplete,Downloads,Documents,Videos}/${1}
 rm -drf ~/.cache/rtorrent/{session,incomplete}/*${2}*

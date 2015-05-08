@@ -5,6 +5,20 @@ file_dir="$HOME/.cache/rtorrent/incomplete/"
 
 sleep 2
 
+echo "$(date +'[%y%m%d-%T]')" >> rtorrent.log
+echo "1:$1\n" >> rtorrent.log
+
+## Move movie files to incomplete dir if they are in a "rarbg" folder
+if [ $(grep -o "rarbg" <<<$1) ]; then
+	mv $file_dir/*\[rarbg\]/*.mkv $file_dir
+	1=$(sed 's/\[rarbg\]//' <<<$file_dir$(basename $1.mkv))
+	rm -drf $file_dir/*\[rarbg\]/
+fi
+
+echo "2:$1\n" >> rtorrent.log
+
+sleep 2
+
 ## Move documents to ~/Documents
 if [ $(grep -iE '*.[Dd][Oo][Cc]|[Pp][Dd][Ff]|[Oo][Dd][Tt]|[Tt][Xx][Tt]' <<<"$1") ]; then
 	mv -u $1 ~/Documents

@@ -113,9 +113,10 @@ alias yaourt="YAOURT_COLORS='other=1;30:pkg=0;33' yaourt"
 alias rmpop="ls -d -1tr /tmp/Popcorn-Time/* | head -n -2 | cut -d' ' -f2- | xargs -d '\n' rm -rv"
 alias restart="systemctl reboot"
 alias shutdown="systemctl poweroff"
-alias age=$(sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:')
+# alias age="$(sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:')"
+alias used='cut -f1 -d" " ~/.zsh_history | sort | uniq -c | sort -nr | head -n 30'
 
-# stolen from http://dotshare.it/dots/461/
+## stolen from http://dotshare.it/dots/461/
 extract () {
   if [ -f $1 ] ; then
       case $1 in
@@ -137,7 +138,7 @@ extract () {
   fi
 }
 
-# stolen from https://gist.github.com/cirrusUK/35a7642f81097f4e5158
+## stolen from https://gist.github.com/cirrusUK/35a7642f81097f4e5158
 cmdfu() { curl "http://www.commandlinefu.com/commands/matching/$(echo "$@" \
 | sed 's/ /-/g')/$(echo -n $@ | base64)/plaintext" ;}
 
