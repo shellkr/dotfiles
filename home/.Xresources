@@ -18,7 +18,7 @@ URxvt.font: \
     xft:Symbola:size=9,\
 
 URxvt*saveLines: 10000
-!! URxvt*transparent: false
+URxvt*transparent: true
 URxvt*shading: 26
 
 !! scrollbar style - rxvt (default), plain (most compact), next, or xterm
