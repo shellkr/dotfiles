@@ -8,7 +8,7 @@ sleep 2
 echo "$(date +'[%y%m%d-%T]')" >> rtorrent.log
 echo "1:$1\n" >> rtorrent.log
 
-## Move movie files to incomplete dir if they are in a "rarbg" folder
+## Move movie files to root incomplete dir if they are in a folder
 if [ $(grep -o "\[.*\]" <<<$1) ]; then
 	mv $file_dir/*\[*\]/*.mkv $file_dir
 	1=$(sed 's/\[.*\]//' <<<$file_dir$(basename $1.mkv))

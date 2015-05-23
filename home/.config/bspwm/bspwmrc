@@ -1,20 +1,9 @@
 #!/bin/bash
 
-#FIRST_DESK=1
-#REMAINING_DESKS="$(seq 1 9) 0"
-#bspc monitor -a $REMAINING_DESKS
-
-#bspc desktop -n 1 # $FIRST_DESK
-
-#i=1
-#for monitor in $(bspc query -M); do
-#    bspc monitor "^"$monitor -n "$i" -d {I,II,III,IV,V,VI} #$i/{One,Two,Three,Four,Five,Six}
-#    let i++
-#done
-#NMON=$i
-#unset i
-
 #export BSPWM_SOCKET=/tmp/bspwm-socket
+
+bspc monitor -d {term,web,media,mail,chat,other,temp}
+bspc desktop -f 1
 
 bspc config split_ratio     0.52
 bspc config top_padding     13
@@ -48,13 +37,31 @@ bspc config urgent_border_color         "#EFA29A"
 #   rm "$BSPWM_TREE" "$BSPWM_HISTORY" "$BSPWM_STACK"
 #fi
 
-bspc config external_rules_command "$(command -v external_rules)"
+#bspc config external_rules_command "$(command -v external_rules)"
 
-bspc monitor -d {term,web,media,mail,chat,other,temp}
-bspc desktop -f 1
+rule -a Firefox 	desktop=^2 tiled=on focused=off
+rule -a Dwb 		desktop=^2 tiled=on focused=off
+rule -a Geary		desktop=^4 floating=off center=on
+rule -a Quirky		desktop=^5 floating=off
+rule -a Vlc		desktop=^3 floating=on
+rule -a Popcorntime	desktop=^3 floating=on
+rule -a mpv		desktop=^3 floating=on
+rule -a Budgie		desktop=^6 floating=on
+rule -a gl 		desktop=^3 floating=on
+rule -a Gimp		desktop=^6 tiled=on
+rule -a URthree		desktop=^3
+rule -a mutt		desktop=^4
+rule -a weechat		desktop=^5
+rule -a rtorrent 	desktop=^3
+rule -a Nautilus 	floating=on
+rule -a Pavucontrol	floating=on
+rule -a Personal.bin	floating=on
+rule -a Acroread	floating=on
+rule -a Pinentry	floating=on
+rule -a bashrun2 	floating=on
+rule -a tempterm 	floating=on
 
 bspwm_rules #
-
 
 ## Focus last monitor
 #bspc monitor -f ^$NMON
@@ -62,3 +69,4 @@ bspwm_rules #
 panel &
 
 bsp_launch &
+
