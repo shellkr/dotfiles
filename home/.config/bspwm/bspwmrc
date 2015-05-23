@@ -39,29 +39,27 @@ bspc config urgent_border_color         "#EFA29A"
 
 #bspc config external_rules_command "$(command -v external_rules)"
 
-rule -a Firefox 	desktop=^2 tiled=on focused=off
-rule -a Dwb 		desktop=^2 tiled=on focused=off
-rule -a Geary		desktop=^4 floating=off center=on
-rule -a Quirky		desktop=^5 floating=off
-rule -a Vlc		desktop=^3 floating=on
-rule -a Popcorntime	desktop=^3 floating=on
-rule -a mpv		desktop=^3 floating=on
-rule -a Budgie		desktop=^6 floating=on
-rule -a gl 		desktop=^3 floating=on
-rule -a Gimp		desktop=^6 tiled=on
-rule -a URthree		desktop=^3
-rule -a mutt		desktop=^4
-rule -a weechat		desktop=^5
-rule -a rtorrent 	desktop=^3
-rule -a Nautilus 	floating=on
-rule -a Pavucontrol	floating=on
-rule -a Personal.bin	floating=on
-rule -a Acroread	floating=on
-rule -a Pinentry	floating=on
-rule -a bashrun2 	floating=on
-rule -a tempterm 	floating=on
-
-bspwm_rules #
+bspc rule -a Firefox 		desktop=^2 tiled=on focused=off
+bspc rule -a Dwb 		desktop=^2 tiled=on focused=off
+bspc rule -a Geary		desktop=^4 floating=off center=on
+bspc rule -a Quirky		desktop=^5 floating=off
+bspc rule -a Vlc		desktop=^3 floating=on
+bspc rule -a Popcorntime	desktop=^3 floating=on
+bspc rule -a mpv		desktop=^3 floating=on
+bspc rule -a Budgie		desktop=^6 floating=on
+bspc rule -a gl 		desktop=^3 floating=on
+bspc rule -a Gimp		desktop=^6 tiled=on
+bspc rule -a URthree		desktop=^3
+bspc rule -a mutt		desktop=^4
+bspc rule -a weechat		desktop=^5
+bspc rule -a rtorrent 		desktop=^3
+bspc rule -a Nautilus 		floating=on
+bspc rule -a Pavucontrol	floating=on
+bspc rule -a Personal.bin	floating=on
+bspc rule -a Acroread		floating=on
+bspc rule -a Pinentry		floating=on
+bspc rule -a bashrun2 		floating=on
+bspc rule -a tempterm 		floating=on
 
 ## Focus last monitor
 #bspc monitor -f ^$NMON
