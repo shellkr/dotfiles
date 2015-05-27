@@ -6,21 +6,21 @@ file_dir="$HOME/.cache/rtorrent/incomplete"
 sleep 1
 
 echo "\n$(date +'[%y%m%d-%T]')" >> rtorrent.log
-echo "deleted d1:$1\ndeleted d2:$2" >> rtorrent.log
+#echo "deleted d1:$1\ndeleted d2:$2" >> rtorrent.log
 
 if [ -d $file_dir/$1 ]; then
-        video_file="$(file -F' ' --mime-encoding $file_dir/$1/*|awk '/binary/{print $1}')"
+        video_file="$(file -F' ' --mime-encoding $file_dir/$1/*(ol[1])|awk '/binary/{print $1}')"
         echo "d3: video_file: $video_file" >> rtorrent.log
         echo "d4: Is a directory: $1\n" >> rtorrent.log
-	rm -drf $file_dir/$1
-	rm -f ~/{.cache/rtorrent/incomplete,Downloads,Documents,Videos}/$(basename ${video_file})
+	rm -vdrf $file_dir/$1 >> rtorrent.log
+	rm -vf ~/{.cache/rtorrent/incomplete,Downloads,Documents,Videos}/$(basename ${video_file}) >> rtorrent.log
 elif [ $file_dir/$1 = "" ]; then
 	echo "err2: empty string, aborting" >> rtorrent.log
         exit 1
 else
-        echo "d5: Not a directory: $1\n" >> rtorrent.log
-	rm -f ~/{.cache/rtorrent/incomplete,Downloads,Documents,Videos}/${1}
+        echo "d5: Not a directory: $1" >> rtorrent.log
+	rm -vf ~/{.cache/rtorrent/incomplete,Downloads,Documents,Videos}/${1} >> rtorrent.log
 fi
 
-rm -f ~/.cache/rtorrent/{session,incomplete}/*${2}*(N)
+rm -vf ~/.cache/rtorrent/{session,incomplete}/*${2}*(N) >> rtorrent.log
 #rm -drf .cache/rtorrent/session/$(basename $2 | sed 's/.meta/.torrent/')

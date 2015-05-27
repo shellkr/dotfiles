@@ -16,7 +16,7 @@ function move_files() {
 		exit 0
 	elif [ $(grep -iE '[Aa][Vv][Ii]|[Mm][Pp]4|[Mm][Kk][Vv]|[Mm][Pp][Gg]|[Mm][Pp][Ee][Gg]|[Ff][Ll][Vv]$' <<<"$1") ]; then
 		mv -u $1 ~/Videos
-		ln -s ~/Videos/$(basename $1) $1 && echo "symlink2: ~/Videos/$(basename $1) -> $1" >> rtorrent.log
+		ln -vs ~/Videos/$(basename $1) $1 >> rtorrent.log
 		exit 0
 	else
 		mv -u $1 ~/Downloads;ln -s ~/Downloads/$(basename $1) $1
@@ -26,12 +26,11 @@ function move_files() {
 
 ## Symlink binary files to $file_dir if they are in a folder.
 if [ -d $1 ]; then
-	video_file="$(file -F' ' --mime-encoding $1/*|awk '/binary/{print $1}')"
+	video_file="$(file -F' ' --mime-encoding $1/*(ol[1])|awk '/binary/{print $1}')"
 	echo "video_file: $video_file" >> rtorrent.log
-	if [ "$(file -b --mime-encoding $1/*|grep -o 'binary')" = "binary" ]; then
-		ln -s $video_file $file_dir
-		echo "symlink1: $video_file -> $file_dir" >> rtorrent.log
-		#rm -R $1 && echo "deleted dir: $1" >> rtorrent.log
+	if [ "$(file -b --mime-encoding $1/*(ol[1])|grep -o 'binary')" = "binary" ]; then
+		mv -vu $video_file $file_dir >> rtorrent.log
+		ln -vs $file_dir/$(basename $video_file) $1 >> rtorrent.log
 		1="$file_dir/$(basename $video_file)"
 		move_files $1 $video_file
 	else
