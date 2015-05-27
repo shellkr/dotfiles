@@ -1,14 +1,26 @@
 #!/bin/zsh
 
-sleep 1
-
-## rename $1 incase it was put in a "rarbg" folder
-[ $(grep -o "rarbg" <<<$1) ] && 1=$(sed 's/\[rarbg\]*/.mkv/' <<<$1);
+## Where the files are located
+file_dir="$HOME/.cache/rtorrent/incomplete"
 
 sleep 1
 
-echo "3:$1\n4:$2\n\n" >> rtorrent.log
+echo "\n$(date +'[%y%m%d-%T]')" >> rtorrent.log
+echo "deleted d1:$1\ndeleted d2:$2" >> rtorrent.log
 
-rm -drf ~/{.cache/rtorrent/incomplete,Downloads,Documents,Videos}/${1}
-rm -drf ~/.cache/rtorrent/{session,incomplete}/*${2}*
+if [ -d $file_dir/$1 ]; then
+        video_file="$(file -F' ' --mime-encoding $file_dir/$1/*|awk '/binary/{print $1}')"
+        echo "d3: video_file: $video_file" >> rtorrent.log
+        echo "d4: Is a directory: $1\n" >> rtorrent.log
+	rm -drf $file_dir/$1
+	rm -f ~/{.cache/rtorrent/incomplete,Downloads,Documents,Videos}/$(basename ${video_file})
+elif [ $file_dir/$1 = "" ]; then
+	echo "err2: empty string, aborting" >> rtorrent.log
+        exit 1
+else
+        echo "d5: Not a directory: $1\n" >> rtorrent.log
+	rm -f ~/{.cache/rtorrent/incomplete,Downloads,Documents,Videos}/${1}
+fi
+
+rm -f ~/.cache/rtorrent/{session,incomplete}/*${2}*(N)
 #rm -drf .cache/rtorrent/session/$(basename $2 | sed 's/.meta/.torrent/')

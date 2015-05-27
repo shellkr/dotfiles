@@ -1,34 +1,46 @@
 #!/bin/zsh
 
 ## Where the files are located
-file_dir="$HOME/.cache/rtorrent/incomplete/"
+file_dir="$HOME/.cache/rtorrent/incomplete"
 
 sleep 2
 
-echo "$(date +'[%y%m%d-%T]')" >> rtorrent.log
-echo "1:$1\n" >> rtorrent.log
+echo "\n$(date +'[%y%m%d-%T]')" >> rtorrent.log
+echo "1:$1" >> rtorrent.log
 
-## Move movie files to root incomplete dir if they are in a folder
-if [ $(grep -o "\[.*\]" <<<$1) ]; then
-	mv $file_dir/*\[*\]/*.mkv $file_dir
-	1=$(sed 's/\[.*\]//' <<<$file_dir$(basename $1.mkv))
-	rm -drf $file_dir/*\[*\]/
-fi
+## Function for moving files to either ~/Documents, ~/Videos or ~/Downloads depending on file extension
+function move_files() {
+	if [ $(grep -iE '[Dd][Oo][Cc]|[Pp][Dd][Ff]|[Oo][Dd][Tt]|[Tt][Xx][Tt]$' <<<"$1") ]; then
+		mv -u $1 ~/Documents
+		ln -s ~/Documents/$(basename $1) $1
+		exit 0
+	elif [ $(grep -iE '[Aa][Vv][Ii]|[Mm][Pp]4|[Mm][Kk][Vv]|[Mm][Pp][Gg]|[Mm][Pp][Ee][Gg]|[Ff][Ll][Vv]$' <<<"$1") ]; then
+		mv -u $1 ~/Videos
+		ln -s ~/Videos/$(basename $1) $1 && echo "symlink2: ~/Videos/$(basename $1) -> $1" >> rtorrent.log
+		exit 0
+	else
+		mv -u $1 ~/Downloads;ln -s ~/Downloads/$(basename $1) $1
+		exit 0
+	fi
+}
 
-echo "2:$1\n" >> rtorrent.log
-
-sleep 2
-
-## Move files to ~/Documents, ~/Videos or ~/Downloads depending on file extension
-if [ $(grep -iE '*.[Dd][Oo][Cc]|[Pp][Dd][Ff]|[Oo][Dd][Tt]|[Tt][Xx][Tt]' <<<"$1") ]; then
-	mv -u $1 ~/Documents
-	ln -s ~/Documents/$(basename $1) $1
-	exit 0
-elif [ $(grep -iE '*.[Aa][Vv][Ii]|[Mm][Pp]4|[Mm][Kk][Vv]|[Mm][Pp][Gg]|[Mm][Pp][Ee][Gg]|[Ff][Ll][Vv]' <<<"$1") ]; then
-	mv -u $1 ~/Videos
-	ln -s ~/Videos/$(basename $1) $1
-	exit 0
+## Symlink binary files to $file_dir if they are in a folder.
+if [ -d $1 ]; then
+	video_file="$(file -F' ' --mime-encoding $1/*|awk '/binary/{print $1}')"
+	echo "video_file: $video_file" >> rtorrent.log
+	if [ "$(file -b --mime-encoding $1/*|grep -o 'binary')" = "binary" ]; then
+		ln -s $video_file $file_dir
+		echo "symlink1: $video_file -> $file_dir" >> rtorrent.log
+		#rm -R $1 && echo "deleted dir: $1" >> rtorrent.log
+		1="$file_dir/$(basename $video_file)"
+		move_files $1 $video_file
+	else
+		echo "no binary in $1" >> rtorrent.log
+	fi
+elif [ $1 = "" ]; then
+	echo "err1: empty string" >> rtorrent.log
+	exit 1
 else
-	mv -u $1 ~/Downloads;ln -s ~/Downloads/$(basename $1) $1
-	exit 0
+	move_files $1
 fi
+
