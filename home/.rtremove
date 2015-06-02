@@ -9,7 +9,7 @@ echo "\n$(date +'[%y%m%d-%T]')" >> rtorrent.log
 #echo "deleted d1:$1\ndeleted d2:$2" >> rtorrent.log
 
 if [ -d $file_dir/$1 ]; then
-        video_file="$(file -F' ' --mime-encoding $file_dir/$1/*(ol[1])|awk '/binary/{print $1}')"
+        video_file="$(file -F' ' --mime-encoding $file_dir/$1/*(^-oL[1])|awk '/binary/{print $1}')"
         echo "d3: video_file: $video_file" >> rtorrent.log
         echo "d4: Is a directory: $1\n" >> rtorrent.log
 	rm -vdrf $file_dir/$1 >> rtorrent.log
