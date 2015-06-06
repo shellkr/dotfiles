@@ -1,6 +1,6 @@
 #!/bin/zsh
 #
-# Copyright (C) 2013-2014 Daniel Sandman <revoltism@gmail.com>
+# Copyright (C) 2013-2015 Daniel Sandman <revoltism@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -53,8 +53,10 @@
 declare -a fcasts
 
 wurl="http://www.yr.no/place/Sweden/Norrbotten/Ala_Lombolo/forecast.xml"
+wdata=$(curl -s $wurl)
 
-winfo=$(curl -s $wurl | awk -F'="|"' '/(temperature|symbol)/{print $4}')
+winfo=$(echo $wdata | awk -F'="|"' '/(temperature|symbol)/{print $4}')
+wdate=$(echo $wdata | awk -F'[T ]' '/Valid at/{print $13}')
 
 #We want the new-line to remain
 old_ifs=${IFS}
@@ -63,7 +65,6 @@ IFS=$'
 
 for i in $(awk 'ORS=NR%2?",":"\n"' <<<"$winfo" | awk -F"," '{print $2"C",$1}');
 do
-
 	case "$(cut -d' ' -f2 <<<$i)" in
 		1|2) fcast=$(awk 'sub(/C.*/, "°C \\u2600")' <<<$i) ;; # Sunny
 		3|4) fcast=$(awk 'sub(/C.*/, "°C \\u2601")' <<<$i) ;; # Clody
@@ -74,9 +75,12 @@ do
 		8|13|44|45|49|50) fcast=$(awk 'sub(/C.*/, "°C \\u2744")' <<<$i) ;; # snow
 		*) echo "n/a ($i)" ;;
 	esac
+	
+	for t in $(echo $wdate);
+	do
 
-	fcasts+=( $fcast )
-
+		fcasts+=( "$fcast ${t[@]:0:5}/" )
+	done
 done
 
 IFS=${old_ifs}

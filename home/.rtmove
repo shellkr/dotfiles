@@ -26,9 +26,9 @@ function move_files() {
 
 ## Symlink binary files to $file_dir if they are in a folder.
 if [ -d $1 ]; then
-	video_file="$(file -F' ' --mime-encoding $1/*(ol[1])|awk '/binary/{print $1}')"
+	video_file="$(file -F' ' --mime-encoding $1/*(^-oL[1])|awk '/binary/{print $1}')"
 	echo "video_file: $video_file" >> rtorrent.log
-	if [ "$(file -b --mime-encoding $1/*(ol[1])|grep -o 'binary')" = "binary" ]; then
+	if [ "$(file -b --mime-encoding $1/*(^-oL[1])|grep -o 'binary')" = "binary" ]; then
 		mv -vu $video_file $file_dir >> rtorrent.log
 		ln -vs $file_dir/$(basename $video_file) $1 >> rtorrent.log
 		1="$file_dir/$(basename $video_file)"
@@ -42,4 +42,3 @@ elif [ $1 = "" ]; then
 else
 	move_files $1
 fi
-
