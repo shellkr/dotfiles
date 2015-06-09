@@ -101,18 +101,15 @@ alias grep="grep --color=auto"
 alias printmaint="cngpij -P Canon-MG5200-series_2C-9E-FC-09-C3-AB"
 alias printstat="cngpijmonmg5200 Canon-MG5200-series_2C-9E-FC-09-C3-AB"
 alias cpu="ps -eo pcpu,args --no-headers | sort -k 1 -r -n | head"
-alias mem="free -m | awk '/che:/ {print \$3\" total used\n\"\$4\" total left\"}' && echo && ps -eu 1000 k rss -o rss,args | \sort -r -n | awk '{print \$1/1024\"\tMB - \"\$2,\$3,\$4,\$5,\$6,\$7,\$8}' | colout '([0-9].*)(\tMB)(.*)' blue,black,yellow | head"
+alias mem="free -m | awk '/Mem/{print \"Total used: \"\$3\"\nTotal left: \"\$7}' && echo && ps -eu 1000 k rss -o rss,args | \
+sort -r -n | awk '{print \$1/1024\"\tMB - \"\$2,\$3,\$4,\$5,\$6,\$7,\$8}' | colout '([0-9].*)(\tMB)(.*)' blue,black,yellow | head"
 alias memp="ps -eo pmem,args | sort -k 1 -r -n | ccze -m ansi | head"
 alias dmesg="dmesg -deL"
 alias diff='colordiff -yZEwBd'
 alias psc="ps xawf -eo pid,user,cgroup,args"
 alias fullupn='yaourt -Syua --devel --noconfirm'
 alias fullup='yaourt -Syua --devel'
-alias klocka="echo \$(curl -s http://www.frokenur.nu/|grep -oE \('id=.?hours[^<>]*>[^<>]+'\|'id=.?minutes[^<>]*>[^<>]+'\|'id=.?seconds[^<>]*>[^<>]+'\)| cut -d'>' -f2)"
 alias yaourt="YAOURT_COLORS='other=1;30:pkg=0;33' yaourt"
-alias rmpop="ls -d -1tr /tmp/Popcorn-Time/* | head -n -2 | cut -d' ' -f2- | xargs -d '\n' rm -rv"
-alias restart="systemctl reboot"
-alias shutdown="systemctl poweroff"
 # alias age="$(sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:')"
 alias used='cut -f1 -d" " ~/.zsh_history | sort | uniq -c | sort -nr | head -n 30'
 

@@ -50,9 +50,15 @@
 ## 49 = Light snow
 ## 50 = Heavy snow
 
-declare -a fcasts
+#declare -a fcasts
+#declare -a wdates
 
 wurl="http://www.yr.no/place/Sweden/Norrbotten/Ala_Lombolo/forecast.xml"
+witr="3" # how many forcasts to show
+
+
+## Do not change the below lines ##
+
 wdata=$(curl -s $wurl)
 
 winfo=$(echo $wdata | awk -F'="|"' '/(temperature|symbol)/{print $4}')
@@ -75,15 +81,16 @@ do
 		8|13|44|45|49|50) fcast=$(awk 'sub(/C.*/, "°C \\u2744")' <<<$i) ;; # snow
 		*) echo "n/a ($i)" ;;
 	esac
-	
-	for t in $(echo $wdate);
-	do
 
-		fcasts+=( "$fcast ${t[@]:0:5}/" )
-	done
+	fcasts+=( $fcast )
 done
+
+while read
+do
+	wdates+=( "${REPLY[@]:0:5}" )
+done < <(echo $wdate)
 
 IFS=${old_ifs}
 
-echo ${fcasts[@]:0:3} # how many forcasts we want to show
-#echo ${fcasts[@]:0:37} # how many forcasts we want to show
+
+echo $(paste -d' ' <(printf "%s\n" "${fcasts[@]:0:$witr}") <(printf "%s\n" "${wdates[@]:0:$witr}"))  # how many forcasts we want to show
