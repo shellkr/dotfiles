@@ -47,11 +47,12 @@ xterm*saveLines: 4096
 xterm*utf8: true
 Xterm*alternateScroll: true
 
-URxvt*background: rgba:0000/0000/0200/2200
+xterm*foreground: rgb:b2/b2/b2
+xterm*background: rgb:08/08/08
+
+URxvt*background: rgba:0000/0000/0200/B700
 URxvt*foreground: [100]#ffffff
 
-*foreground: rgb:b2/b2/b2
-*background: rgb:08/08/08
 !black
 *color0:	#191919
 *color8:	#484848

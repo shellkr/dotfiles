@@ -87,10 +87,14 @@ done
 
 while read
 do
-	wdates+=( "${REPLY[@]:0:5}" )
+	wdates+=( "${REPLY[@]:0:5} /" )
 done < <(echo $wdate)
 
 IFS=${old_ifs}
 
+# Make the forcasts and date output correct
+echo $(paste -d' ' <(printf "%s\n" "${fcasts[@]:0:$witr}") <(printf "%s\n" "${wdates[@]:0:$witr}"))
 
-echo $(paste -d' ' <(printf "%s\n" "${fcasts[@]:0:$witr}") <(printf "%s\n" "${wdates[@]:0:$witr}"))  # how many forcasts we want to show
+#unset result
+#for (( i=0; i<${#fcasts[*]}; ++i)); do result+=( ${fcasts[$i]} ${wdates[$i]} ); done
+#echo ${result[@]:0:6}
