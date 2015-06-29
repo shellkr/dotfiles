@@ -101,8 +101,7 @@ alias grep="grep --color=auto"
 alias printmaint="cngpij -P Canon-MG5200-series_2C-9E-FC-09-C3-AB"
 alias printstat="cngpijmonmg5200 Canon-MG5200-series_2C-9E-FC-09-C3-AB"
 alias cpu="ps -eo pcpu,args --no-headers | sort -k 1 -r -n | head"
-alias mem="free -m | awk '/Mem/{print \"Total used: \"\$3\"\nTotal left: \"\$7}' && echo && ps -eu 1000 k rss -o rss,args | \
-sort -r -n | awk '{print \$1/1024\"\tMB - \"\$2,\$3,\$4,\$5,\$6,\$7,\$8}' | colout '([0-9].*)(\tMB)(.*)' blue,black,yellow | head"
+alias mem="free -m | awk '/Mem/{print \"Total used: \"\$3\"\nTotal left: \"\$7}' && echo && ps -eu 1000 k rss -o rss,args | \sort -r -n | awk '{print \$1/1024\"\tMB - \"\$2,\$3,\$4,\$5,\$6,\$7,\$8}' | colout '([0-9].*)(\tMB)(.*)' blue,black,yellow | head"
 alias memp="ps -eo pmem,args | sort -k 1 -r -n | ccze -m ansi | head"
 alias dmesg="dmesg -deL"
 alias diff='colordiff -yZEwBd'
@@ -112,6 +111,11 @@ alias fullup='yaourt -Syua --devel'
 alias yaourt="YAOURT_COLORS='other=1;30:pkg=0;33' yaourt"
 # alias age="$(sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:')"
 alias used='cut -f1 -d" " ~/.zsh_history | sort | uniq -c | sort -nr | head -n 30'
+alias g+='echo -en "\xe2\x80\x8b" | xsel -i'
+alias mpv="mpv $* 2>&1 > /dev/null"
+alias ffsc="ffmpeg -f x11grab -s 1920x1080 -i $DISPLAY -r 30 -f alsa -i default -preset ultrafast -c:v ffvhuff -c:a flac $HOME/Videos/Screencasts/screencast_$(date +'%y%m%d-%H%M').mkv"
+alias ffyt="ffmpeg -i $HOME/Videos/Screencasts/$1 -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -c:a copy $HOME/Videos/Screencasts/yt_$1"
+#alias nano="nano -w"
 
 ## stolen from http://dotshare.it/dots/461/
 extract () {

@@ -71,9 +71,9 @@ while read -r line ; do
             weather_infos="^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc control --toggle-visibility)${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}"
 			;;
      	G*)
-            inbox="^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, exec geary)^i($icon_path/mail9.xbm)${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}"
+            inbox="^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, exec geary)^i($icon_path/mail1.xbm)${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}"
 			;;
-		T*)
+	T*)
             # focused window title
             title="^fg($COLOR_TITLE_FG)^bg($COLOR_TITLE_BG)^ca(1, bspc window -t floating)^ca(2, bspc window -t locked)^ca(3, bspc window -c)${PADDING}${line#?}${PADDING}^ca()^ca()^ca()"
             ;;

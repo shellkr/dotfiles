@@ -61,13 +61,9 @@ super + ctrl + {a,s,w,d}
 super + ctrl + {_,shift + }Escape
     bspc {window -p cancel,desktop -c}
 
-## Resize the window by pushing
+## Resize the window 
 super + alt + {a,s,w,d}
-    bspc window -e {left,down,up,right} push
-
-## Resizing the windoiw by pulling
-super + alt + shift + {a,s,w,d}
-    bspc window -e {right,up,down,left} pull
+    bspc window -e {left -10,down +10,down -10,left +10}
 
 ## Set the split ratio...
 super + ctrl + {1-9}

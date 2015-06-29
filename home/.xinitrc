@@ -17,6 +17,7 @@ init_desktop() {
 	[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 	source ~/.profile
 	setxkbmap -option terminate:ctrl_alt_bksp
+	start-pulseaudio-x11
 	xsetroot -cursor_name left_ptr &
 	xset -dpms &
     	xset s off &

@@ -1,4 +1,4 @@
-PATH="/usr/NX/bin:/usr/games:$HOME/.config/bspwm:$PATH"
+PATH="/usr/games:$HOME/.config/bspwm:$PATH"
 
 # Invoke GnuPG-Agent the first time we login.
 # Does `~/.gpg-agent-info' exist and points to gpg-agent process accepting signals?
@@ -12,8 +12,8 @@ fi
 export GPG_TTY=`tty`
 export GPG_AGENT_INFO
 
-export XDG_CONFIG_HOME="/home/$USER/.config"
-export XDG_DATA_HOME="/home/$USER/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
 
 ## Bspwm
 export BSPWM_SOCKET="/tmp/bspwm-socket"

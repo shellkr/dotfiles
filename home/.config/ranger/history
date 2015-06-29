@@ -1,7 +1,0 @@
-open_with nano
-open_withqqq 
-open_with zgv
-delete
-open_with zgv-sdl
-open_with zgv-sdl %s
-open_with 
