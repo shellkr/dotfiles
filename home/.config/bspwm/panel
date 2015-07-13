@@ -17,8 +17,8 @@
 mkfifo "$PANEL_FIFO"
 
 function gmail() {
-	email="$(sed -n '1p' $HOME/passw)"
-	passw="$(sed -n '2p' $HOME/passw)"
+	email="$(sed -n '1p' <<<$(gpg -d $HOME/passw.asc 2&> /dev/null))"
+	passw="$(sed -n '2p' <<<$(gpg -d $HOME/passw.asc 2&> /dev/null))"
 	while true
 	do
 		inbox_count=$(wget -q -O- --auth-no-challenge --user=${email} --password=${passw} 'https://mail.google.com/mail/feed/atom' | awk -F'<\/?fullcount>' '{print $2}')

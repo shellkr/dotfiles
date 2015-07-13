@@ -10,7 +10,8 @@ system_xinitrc() {
 }
 
 use_gpg_agent() {
-	eval $(gpg-agent --daemon) & # --default-cache-ttl 4200) &
+#	eval $(gpg-agent --daemon) &
+        eval $(gpg-agent --daemon --no-grab --allow-loopback-pinentry) &
 }
 
 init_desktop() {
