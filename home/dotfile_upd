@@ -1,10 +1,33 @@
 #!/bin/bash
 
-cd /home/shellkr/.dotfiles/
-git status
-echo
-[[ -z $1 ]] && read -p "Enter your commit message: " git_commit || git_commit="$1"
+dotfile_home="$HOME/.dotfiles/"
+cd $dotfile_home
 
-git add -A
-git commit -m "$git_commit"
-git push
+old_ifs=$IFS
+IFS='
+'
+
+
+git_init() {
+read -p ""
+} 
+
+git_push() {
+    git status
+    echo
+    read -p "Enter your commit message: " git_commit 
+
+    git add -A
+    git commit -m "$git_commit"     # message input has to be quoted
+    git push
+}
+
+while true; 
+do
+	case $1 in
+		push) git_push ;;
+		*) echo "No valid option entered... closing."; exit 1 ;;
+	esac
+done
+
+IFS=$old_ifs

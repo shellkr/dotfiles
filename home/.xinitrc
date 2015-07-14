@@ -11,7 +11,8 @@ system_xinitrc() {
 
 use_gpg_agent() {
 #	eval $(gpg-agent --daemon) &
-        eval $(gpg-agent --daemon --no-grab --allow-loopback-pinentry) &
+        eval $(gpg-agent --daemon --no-grab --enable-ssh-support --allow-loopback-pinentry) &
+	/usr/lib/gnupg/gpg-preset-passphrase --preset 293D628ED5585FA528668536D3F243CC2E73B2EF &
 }
 
 init_desktop() {
