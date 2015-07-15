@@ -27,7 +27,11 @@ git_init() {
 } 
 
 git_push() {
-	[[ ! -e "$HOME/.config/mkdotfile" ]] && printf "Missing file. You probably need to\ndo an init first\n"
+	[[ ! -e "$HOME/.config/mkdotfile" ]] && {
+		printf "\nMissing file. You probably need to\ndo an init first\n\n"
+		exit 1 
+	}
+	
 	cd $(< "$HOME/.config/mkdotfile") 
 	git status
 	echo
