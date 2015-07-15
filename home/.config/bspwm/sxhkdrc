@@ -31,7 +31,7 @@ super + {paragraph,Tab}
     bspc {window,desktop} -f last
 
 ## Move to previous or next desktop/workspace
-alt + {1,2}
+alt + shift {1,2}
     bspc desktop -f {prev,next}
 
 ## Move selected window to the biggest window

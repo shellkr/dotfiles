@@ -1,31 +1,48 @@
 #!/bin/bash
 
-dotfile_home="$HOME/.dotfiles/"
-cd $dotfile_home
+#dotfile_home="$HOME/.dotfiles/"
+#cd $dotfile_home
 
 old_ifs=$IFS
-IFS='
-'
+IFS=$'\012' 
 
 
 git_init() {
-read -p ""
+
+	printf "This will create a directory where you will\nstore your dotfiles\n\n"
+
+	read -p "Enter dotfile directory: " dotfile_home
+
+	[[ ! -d $dotfile_home ]] && { 
+		echo "creating dir"
+		mkdir -p $dotfile_home 
+		echo "$dotfile_home" > $HOME/.config/mkdotfile
+		break
+	} || { 
+		echo "\n\nDirectory already exist"
+	}
+
+	read -p "Enter git repository url: " dotfile_home
+
 } 
 
 git_push() {
-    git status
-    echo
-    read -p "Enter your commit message: " git_commit 
+	[[ ! -e "$HOME/.config/mkdotfile" ]] && printf "Missing file. You probably need to\ndo an init first\n"
+	cd $(< "$HOME/.config/mkdotfile") 
+	git status
+	echo
+	read -p "Enter your commit message: " git_commit 
 
-    git add -A
-    git commit -m "$git_commit"     # message input has to be quoted
-    git push
+	git add -A
+	git commit -m "$git_commit"  
+	git push
 }
 
 while true; 
 do
 	case $1 in
 		push) git_push ;;
+		init) git_init ;;
 		*) echo "No valid option entered... closing."; exit 1 ;;
 	esac
 done
