@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#dotfile_home="$HOME/.dotfiles/"
-#cd $dotfile_home
-
 old_ifs=$IFS
 IFS=$'\012' 
 
@@ -22,6 +19,7 @@ git_init() {
 		echo "\n\nDirectory already exist"
 	}
 
+        cd $(< "$HOME/.config/mkdotfile")
 	read -p "Enter git repository url: " dotfile_home
 
 } 

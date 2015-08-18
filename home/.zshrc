@@ -108,61 +108,24 @@ alias psc="ps xawf -eo pid,user,cgroup,args"
 alias fullupn='yaourt -Syua --devel --noconfirm'
 alias fullup='yaourt -Syua --devel'
 alias yaourt="YAOURT_COLORS='other=1;30:pkg=0;33' yaourt"
-# alias age="$(sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:')"
+age () { sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:' }
 alias used='cut -f1 -d" " ~/.zsh_history | sort | uniq -c | sort -nr | head -n 30'
 alias g+='echo -en "\xe2\x80\x8b" | xsel -i'
 alias mpv="mpv $* 2>&1 > /dev/null"
-alias ffsc="ffmpeg -f x11grab -s 1920x1080 -i $DISPLAY -r 30 -f alsa -i default -preset ultrafast -c:v ffvhuff -c:a flac $HOME/Videos/Screencasts/screencast_$(date +'%y%m%d-%H%M').mkv"
-alias ffyt="ffmpeg -i $HOME/Videos/Screencasts/$1 -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -c:a copy $HOME/Videos/Screencasts/yt_$1"
+#alias ffsc="ffmpeg -f x11grab -s 1920x1080 -i $DISPLAY -r 30 -f alsa -i default -preset ultrafast -c:v ffvhuff -c:a flac $HOME/Videos/Screencasts/screencast_$(date +'%y%m%d-%H%M').mkv"
+#alias ffyt="ffmpeg -i $HOME/Videos/Screencasts/$1 -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -c:a copy $HOME/Videos/Screencasts/yt_$1"
 
-## update both aur and aur4
-aur_upd () {
-        while [ "$#" -ne "0" ]; do
-	        case $1 in
-        	        aur)	echo "upd aur"
-				[[ $(grep 'aur4\.' /etc/yaourtrc) ]] && {
-                		sudo sed -i 's/aur4\./aur\./' /etc/yaourtrc
-				yaourt -Syua --devel --noconfirm && pachist 60
-                		sudo sed -i 's/aur\./aur4\./' /etc/yaourtrc
-				}
-			;;
-                	aur4)	echo "upd aur4"
-				yaourt -Syua --devel --noconfirm && pachist 60
-			;;
-			-s)     echo "search aur"
-                		sudo sed -i 's/aur4\./aur\./' /etc/yaourtrc
-				yaourt -Ss $2
-				echo "\nsearch aur4"
-                		sudo sed -i 's/aur\./aur4\./' /etc/yaourtrc
-				yaourt -Ss $2
-			;;
-			-si)    echo "info aur"
-                		sudo sed -i 's/aur4\./aur\./' /etc/yaourtrc
-				yaourt -Sii $2
-				echo "\ninfo aur4"
-                		sudo sed -i 's/aur\./aur4\./' /etc/yaourtrc
-				yaourt -Sii $2
-			;;
-			-i)	echo "inst"
-				[[ $2 = aur35 ]] && {
-					echo "AUR\n"
-	                		sudo sed -i 's/aur4\./aur\./' /etc/yaourtrc
-					yaourt -S $3
-	                		sudo sed -i 's/aur\./aur4\./' /etc/yaourtrc
-				}
-				[[ $2 = aur40 ]] && {
-					echo "AUR4\n"
-					yaourt -S $3
-				}
-				[[ $2 = "" ]] && {
-					echo "Your forgot to write aur35 or aur40"
-				}
-			;;
-                esac
-                shift
-        done
+# Make screencast or convert to yt
+ffsc () {
+echo $2
+	case $1 in
+		sc) ffmpeg -f x11grab -s 1920x1080 -i $DISPLAY -r 30 -f alsa -i default -preset ultrafast \
+	    	    -c:v ffvhuff -c:a flac $HOME/Videos/Screencasts/screencast_$(date +'%y%m%d-%H%M').mkv
+		;;
+		yt) ffmpeg -i $2 -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -c:a copy ${2/scr/yt_scr}
+		;;
+	esac
 }
-
 
 ## stolen from http://dotshare.it/dots/461/
 extract () {

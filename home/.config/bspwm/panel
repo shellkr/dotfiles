@@ -2,14 +2,14 @@
 
 
 #if [ $(pgrep -cx panel) -gt 1 ] ; then
+#    pkill panel
+#    ./$0
 #    printf "%s\n" "The panel is already running." >&2
 #    exit 1
 #fi
 
-#    trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+    trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
-
-#flavor=${1:-dzen2}
 
 . panel_colors
 
@@ -21,7 +21,7 @@ function gmail() {
 	passw="$(sed -n '2p' <<<$(gpg -d $HOME/passw.asc 2&> /dev/null))"
 	while true
 	do
-		inbox_count=$(wget -q -O- --auth-no-challenge --user=${email} --password=${passw} 'https://mail.google.com/mail/feed/atom' | awk -F'<\/?fullcount>' '{print $2}')
+		inbox_count=$(wget -q -O- --auth-no-challenge --user=${email} --password=${passw} 'https://mail.google.com/mail/feed/atom' | awk -F'<\/?fullcount>' '{print $2}' 2&> /dev/null)
 		echo "G:$inbox_count"
 		sleep 60
 	done

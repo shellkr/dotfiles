@@ -10,7 +10,6 @@ system_xinitrc() {
 }
 
 use_gpg_agent() {
-#	eval $(gpg-agent --daemon) &
         eval $(gpg-agent --daemon --no-grab --enable-ssh-support --allow-loopback-pinentry) &
 	/usr/lib/gnupg/gpg-preset-passphrase --preset 293D628ED5585FA528668536D3F243CC2E73B2EF &
 }
@@ -28,7 +27,7 @@ init_desktop() {
 	numlockx &
 	wallpaper_ch &
 	hot_edge.sh &
-	/usr/bin/vendor_perl/clipbored
+	/usr/bin/vendor_perl/clipbored &
 	pacmd set-sink-port alsa_output.pci-0000_00_1b.0.analog-stereo analog-output-headphones 
 }
 
@@ -49,8 +48,20 @@ run_herbstluftwm() {
 	exec /usr/bin/herbstluftwm
 }
 
+
 #use_gpg_agent
 system_xinitrc
 init_desktop
-run_bspwm
+
+session=${1:-bspwm}
+
+case $session in
+  bspwm ) run_bspwm;;
+  awesome ) run_awesome;;
+  snapwm ) run_snapwm;;
+  herbst ) run_herbstluftwm;;
+  *) exec $1;;
+esac
+
+
 
