@@ -48,6 +48,7 @@ bspc rule -a Vlc		desktop=^3 floating=on
 bspc rule -a mpv		desktop=^3 floating=on
 bspc rule -a Budgie		desktop=^6 floating=on
 bspc rule -a gl 		desktop=^3 floating=on
+bspc rule -a SessionManager	desktop=^2 floating=on
 bspc rule -a Gimp		desktop=^6 tiled=on
 bspc rule -a URthree		desktop=^3
 bspc rule -a mutt		desktop=^4

@@ -96,7 +96,7 @@ ctrl + space
 	bashrun2
 
 alt + space
-	/usr/bin/vendor_perl/dmenuclip
+	/usr/bin/clipmenu
 
 shift + alt + space
 	/usr/bin/vendor_perl/dmenurl

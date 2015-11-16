@@ -27,7 +27,7 @@ init_desktop() {
 	numlockx &
 	wallpaper_ch &
 	hot_edge.sh &
-	/usr/bin/vendor_perl/clipbored &
+	/usr/bin/clipmenud &
 	pacmd set-sink-port alsa_output.pci-0000_00_1b.0.analog-stereo analog-output-headphones 
 }
 

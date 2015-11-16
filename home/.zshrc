@@ -115,6 +115,11 @@ alias mpv="mpv $* 2>&1 > /dev/null"
 #alias ffsc="ffmpeg -f x11grab -s 1920x1080 -i $DISPLAY -r 30 -f alsa -i default -preset ultrafast -c:v ffvhuff -c:a flac $HOME/Videos/Screencasts/screencast_$(date +'%y%m%d-%H%M').mkv"
 #alias ffyt="ffmpeg -i $HOME/Videos/Screencasts/$1 -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -c:a copy $HOME/Videos/Screencasts/yt_$1"
 
+#time in Stockholm
+klocka () {
+	curl -s http://www.timeanddate.com/worldclock/sweden/stockholm | awk -F'(<*>|</)' '/id=ct/{print $21}'
+}
+
 # Make screencast or convert to yt
 ffsc () {
 echo $2
