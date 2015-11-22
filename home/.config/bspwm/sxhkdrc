@@ -15,7 +15,7 @@ super + Escape
     bspc window -c
 
 ## Toggle layout between monocle and tiled
-super + t
+super + n
     bspc desktop -l next
 
 ## Balance (in size) the desktop/workspace
@@ -23,8 +23,8 @@ super + b
     bspc desktop -B
 
 ## Toggle floating or fullscreen
-super + {z,f}
-    bspc window -t {floating,fullscreen}
+super + {t,p,z,f}
+    bspc window -t {tiled,pseudo_tiled,floating,fullscreen}
 
 ## Toggle last focused windows or workspace/desktop back-and-forth (§,tab)
 super + {paragraph,Tab}
@@ -71,7 +71,7 @@ super + ctrl + {1-9}
 
 ## Focus the given desktop or move a window to a given desktop
 super + {_,shift + }{1-9,0}
-    bspc {desktop -f,window -d} ^{1-9,10}
+    bspc {desktop -f,window -d} '^{1-9,10}'
 
 ## Move or rezise depending on the mouse button.
 super + button{1-3}
