@@ -105,9 +105,10 @@ alias memp="ps -eo pmem,args | sort -k 1 -r -n | ccze -m ansi | head"
 alias dmesg="dmesg -deL"
 alias diff='colordiff -yZEwBd'
 alias psc="ps xawf -eo pid,user,cgroup,args"
-alias fullupn='yaourt -Syua --devel --noconfirm'
-alias fullup='yaourt -Syua --devel'
-alias yaourt="YAOURT_COLORS='other=1;30:pkg=0;33' yaourt"
+#alias fullupn='yaourt -Syua --devel --noconfirm'
+#alias fullup='yaourt -Syua --devel'
+alias fullupn='pacaur -Syu --devel --needed --noedit'
+#alias yaourt="YAOURT_COLORS='other=1;30:pkg=0;33' yaourt"
 age () { sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:' }
 alias used='cut -f1 -d" " ~/.zsh_history | sort | uniq -c | sort -nr | head -n 30'
 alias g+='echo -en "\xe2\x80\x8b" | xsel -i'
@@ -130,6 +131,10 @@ echo $2
 		yt) ffmpeg -i $2 -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -c:a copy ${2/scr/yt_scr}
 		;;
 	esac
+}
+
+google () {
+	$(firefox --new-tab "https://encrypted.google.com/search?hl=en&q=$1")
 }
 
 ## stolen from http://dotshare.it/dots/461/
