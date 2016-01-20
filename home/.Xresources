@@ -7,8 +7,9 @@ Xft.hintstyle: hintslight
 Xft.autohint: true
 Xft.lcdfilter: lcddefault
 
-URxvt.font: \
-    xft:PragmataPro:size=8:antialias=true,\
+URxvt*font: \
+    xft:PragmataPro:pixelsize=10:antialias=true,xft:Inconsolata for Powerline:pixelsize=11:antialias=true,\
+    xft:Sauce Code Powerline:pixelsize=10:antialias=true,\
     xft:AwesomeFont:size=8, \
     xft:SourceCodePro:size=9,\
     xft:UbuntuMono:size=9,\
@@ -16,6 +17,9 @@ URxvt.font: \
     xft:DroidSansMono:size=11,\
     xft:Inconsolata:size=12,\
     xft:Symbola:size=9,\
+URxvt*boldFont: xft:Sauce Code Powerline:size=9:antialias=true
+
+URxvt*letterSpace: -1
 
 URxvt*saveLines: 10000
 URxvt*transparent: true

@@ -5,8 +5,8 @@ autoload -U bashcompinit
 compinit
 bashcompinit
 promptinit
-prompt adam1
-RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}][%{$fg_no_bold[yellow]%}%T%{$reset_color%}]"
+#prompt adam1
+#RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}][%{$fg_no_bold[yellow]%}%T%{$reset_color%}]"
 
 setopt histignorealldups sharehistory
 setopt inc_append_history
@@ -48,29 +48,8 @@ HISTFILE=~/.zsh_history
 export EDITOR="nano"
 export GREP_COLORS='ms=01;33'
 
-eval "$(dircolors -b)"
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _match _correct _approximate
-#zstyle ':completion:*' completer _complete _match _approximate
-zstyle ':completion:*:match:*' original only
-zstyle ':completion:*:approximate:*' max-errors 1 numeric
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-#zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
-# Separate man page sections.  Neat.
-zstyle ':completion:*:manuals' separate-sections true
+source  .config/powerlevel9k/powerlevel9k.zsh-theme
+. /usr/share/zsh/site-contrib/powerline.zsh
 
 for sd_cmd in systemctl systemd-analyze systemd-run; do
     alias $sd_cmd='DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/dbus/user_bus_socket" '$sd_cmd
@@ -81,13 +60,6 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
 	export GPG_AGENT_INFO
 #	export SSH_AUTH_SOCK
 fi
-
-[ -r /usr/share/doc/pkgfile/command-not-found.zsh ] && . /usr/share/doc/pkgfile/command-not-found.zsh
-
-## Highlight the syntaxes (https://github.com/zsh-users/zsh-syntax-highlighting)
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 ## Transparent Xterm
 [ -n "$XTERM_VERSION" ] && transset-df -a >/dev/null
