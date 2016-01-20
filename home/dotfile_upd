@@ -31,11 +31,11 @@ git_push() {
 	}
 	
 	cd $(< "$HOME/.config/mkdotfile") 
+	git add -A
 	git status
 	echo
 	read -p "Enter your commit message: " git_commit 
 
-	git add -A
 	git commit -m "$git_commit"  
 	git push
 	break
@@ -46,7 +46,7 @@ do
 	case $1 in
 		push) git_push ;;
 		init) git_init ;;
-		*) echo "No valid option entered... closing."; exit 1 ;;
+		*) echo "No valid option (init|push) entered... closing."; exit 1 ;;
 	esac
 done
 
