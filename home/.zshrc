@@ -3,6 +3,7 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.zsh_history
 
+export TERM="rxvt-256color"
 export EDITOR="nano"
 export GREP_COLORS='ms=01;33'
 
@@ -24,14 +25,13 @@ alias diff='colordiff -yZEwBd'
 alias psc="ps xawf -eo pid,user,cgroup,args"
 #alias fullupn='yaourt -Syua --devel --noconfirm'
 #alias fullup='yaourt -Syua --devel'
-alias fullupn='pacaur -Syu --devel --needed --noedit'
+alias fullupn='LOGDEST="/var/cache/" pacaur -Syu --devel --needed --noedit'
 #alias yaourt="YAOURT_COLORS='other=1;30:pkg=0;33' yaourt"
 age () { sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:' }
 alias used='cut -f1 -d" " ~/.zsh_history | sort | uniq -c | sort -nr | head -n 30'
 alias g+='echo -en "\xe2\x80\x8b" | xsel -i'
 alias mpv="mpv $* 2>&1 > /dev/null"
-#alias ffsc="ffmpeg -f x11grab -s 1920x1080 -i $DISPLAY -r 30 -f alsa -i default -preset ultrafast -c:v ffvhuff -c:a flac $HOME/Videos/Screencasts/scr$
-#alias ffyt="ffmpeg -i $HOME/Videos/Screencasts/$1 -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -c:a copy $HOME/Videos/Screencasts/yt_$1"
+alias sudo='sudo '
 
 #time in Stockholm
 klocka () {

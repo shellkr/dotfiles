@@ -39,24 +39,24 @@ bspc config urgent_border_color         "#EFA29A"
 
 #bspc config external_rules_command "$(command -v external_rules)"
 
-bspc rule -a Popcorntime	desktop=^3 tiled=on focused=off floating=on
+bspc rule -a Popcorntime	desktop=^3 tiled=on focused=off state=floating
 bspc rule -a Geary		desktop=^4 floating=on center=on
 bspc rule -a Firefox 		desktop=^2 tiled=on focused=off
-bspc rule -a Quirky		desktop=^5 floating=on
-bspc rule -a mpv		desktop=^3 floating=on
-bspc rule -a gl 		desktop=^3 floating=on
-bspc rule -a SessionManager	desktop=^2 floating=on
+bspc rule -a Quirky		desktop=^5 state=floating
+bspc rule -a mpv		desktop=^3 state=floating
+bspc rule -a gl 		desktop=^3 state=floating
+bspc rule -a SessionManager	desktop=^2 state=floating
 bspc rule -a Gimp		desktop=^6 tiled=on
 bspc rule -a URthree		desktop=^3
 bspc rule -a mutt		desktop=^4
 bspc rule -a weechat		desktop=^5
 bspc rule -a rtorrent 		desktop=^3
-bspc rule -a Nautilus 		floating=on
-bspc rule -a Pavucontrol	floating=on
-bspc rule -a Acroread		floating=on
-bspc rule -a Pinentry		floating=on
-bspc rule -a bashrun2 		floating=on
-bspc rule -a tempterm 		floating=on
+bspc rule -a Nautilus 		state=floating
+bspc rule -a Pavucontrol	state=floating
+bspc rule -a Acroread		state=floating
+bspc rule -a Pinentry		state=floating
+bspc rule -a bashrun2 		state=floating
+bspc rule -a tempterm 		state=floating
 
 ## Focus last monitor
 #bspc monitor -f ^$NMON
