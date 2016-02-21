@@ -38,6 +38,11 @@ klocka () {
         curl -s http://www.timeanddate.com/worldclock/sweden/stockholm | awk -F'(<*>|</)' '/id=ct/{print $21}'
 }
 
+#Weather forcast via nixCraft
+wttr () {
+	curl http://wttr.in/$1
+}
+
 # Make screencast or convert to yt
 ffsc () {
 echo $2

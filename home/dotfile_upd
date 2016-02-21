@@ -3,6 +3,12 @@
 old_ifs=$IFS
 IFS=$'\012' 
 
+chk_init() {
+	[[ ! -e "$HOME/.config/mkdotfile" ]] && {
+		printf "\nMissing file. You probably need to\ndo a init first\n\n"
+		exit 1 
+	}
+}
 
 git_init() {
 
@@ -25,11 +31,7 @@ git_init() {
 } 
 
 git_push() {
-	[[ ! -e "$HOME/.config/mkdotfile" ]] && {
-		printf "\nMissing file. You probably need to\ndo a init first\n\n"
-		exit 1 
-	}
-	
+	chk_init
 	cd $(< "$HOME/.config/mkdotfile") 
 	git add -A
 	git status
@@ -46,7 +48,11 @@ do
 	case $1 in
 		push) git_push ;;
 		init) git_init ;;
-		*) echo "No valid option (init|push) entered... closing."; exit 1 ;;
+		*)	printf "No valid option (init|push) entered... Shall therefore show the current status\n\n"
+			chk_init
+			git -C $(< "$HOME/.config/mkdotfile") status
+			exit 1 
+		;;
 	esac
 done
 

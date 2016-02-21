@@ -16,6 +16,7 @@ use_gpg_agent() {
 
 init_desktop() {
 	[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+	xrandr --output HDMI1 --mode 1920x1080 --fb 1858x1000
 	source ~/.profile
 	setxkbmap -option terminate:ctrl_alt_bksp
 	start-pulseaudio-x11

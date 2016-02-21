@@ -23,11 +23,11 @@ super + b
     bspc desktop -B
 
 ## Toggle floating or fullscreen
-#super + {t,p,z,f}
-#    bspc window -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {t,p,z,f}
+    bspc window -t {tiled,pseudo_tiled,floating,fullscreen}
 
-super + {t,z,shift + t,f}
-    bspc node -t '~{tiled,floating,pseudo_tiled,fullscreen}'
+#super + {t,z,shift + t,f}
+#    bspc node -t '~{tiled,floating,pseudo_tiled,fullscreen}'
 
 ## Toggle last focused windows or workspace/desktop back-and-forth (§,tab)
 super + {paragraph,Tab}
@@ -100,6 +100,9 @@ button8
 
 button9
 	xdotool key 110	
+
+button10
+	xdotool key Tab	
 
 ctrl + space
 	bashrun2
