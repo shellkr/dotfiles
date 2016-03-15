@@ -1,8 +1,8 @@
-if [ -f "${HOME}/.gpg-agent-info" ]; then
-	. "${HOME}/.gpg-agent-info"
-	export GPG_AGENT_INFO
-	export SSH_AUTH_SOCK
-fi
+#if [ -f "${HOME}/.gpg-agent-info" ]; then
+#	. "${HOME}/.gpg-agent-info"
+#	export GPG_AGENT_INFO
+#	export SSH_AUTH_SOCK
+#fi
 
 ## i3barConky
 out_to_x no
@@ -83,15 +83,15 @@ TEXT
 
 	},
 	{ 
-	  "full_text" : "${time %A den %d %B v%V,  }${time %H:%M}",
+	  "full_text" : "${time %A %d %B w%V,  }${time %H:%M}",
 	  "separator" : false, 
 	  "separator_block_width" : 3, 
 	  "color" : "\#cc8800", 
-	  "min_width": 610,
+	  "min_width": 680,
 	  "align" : "center"
 	},
 	{ 
-	  "full_text" : "${execi 900 $HOME/.config/i3/./weather.sh}",
+	  "full_text" : "${execi 900 $HOME/.config/scripts/./weather-yr.sh}",
 	  "color" : "\#777777",
 	  "min_width": 540,
 	  "align" : "right",
@@ -104,10 +104,10 @@ TEXT
 #      "separator" : false
 #	},
 #	{
-	  "full_text" : " ⌴ ${execi 30 wget -q -O - --auth-no-challenge --user=revoltism@gmail.com \
-		--password=$(pass i3/imap) 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")'}", 
-	  "color" : ${if_match ${execi 30 wget -q -O - --auth-no-challenge --user=revoltism@gmail.com \
-		--password=$(pass i3/imap) 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")'}>0} \
+	  "full_text" : " ⌴ ${execi 30 wget -q -O - --auth-no-challenge --user=$(sed -n '1p' < <(gpg -d $HOME/passw.asc 2&> /dev/null)) \
+		--password=$(sed -n '2p' < <(gpg -d $HOME/passw.asc 2&> /dev/null)) 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")'}", 
+	  "color" : ${if_match ${execi 30 wget -q -O - --auth-no-challenge --user=$(sed -n '1p' < <(gpg -d $HOME/passw.asc 2&> /dev/null)) \
+		--password=$(sed -n '2p' < <(gpg -d $HOME/passw.asc 2&> /dev/null)) 'https://mail.google.com/mail/feed/atom' | awk 'gsub(/<\/?fullcount>/, "")'}>0} \
 		"\#e74f4f4"${else}"\#777777"${endif},
 	  "name" : "gmail_count",
 	  "separator" : false,

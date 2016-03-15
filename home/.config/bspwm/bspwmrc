@@ -7,8 +7,6 @@ bspc desktop -f 1
 
 bspc config split_ratio     0.52
 bspc config top_padding     14
-bspc config bottom_padding  80
-bspc config right_padding   62
 bspc config border_width    2
 bspc config window_gap      8
 bspc config fence_grip      100
@@ -46,8 +44,10 @@ bspc rule -a Geary		desktop=^4 floating=on center=on
 bspc rule -a Firefox 		desktop=^2 tiled=on focused=off
 bspc rule -a Quirky		desktop=^5 state=floating
 bspc rule -a mpv		desktop=^3 state=floating
+bspc rule -a mpv 		desktop=^3 floating=on
 bspc rule -a gl 		desktop=^3 state=floating
 bspc rule -a SessionManager	desktop=^2 state=floating
+bspc rule -a SessionManager 	desktop=^2 floating=on
 bspc rule -a Gimp		desktop=^6 tiled=on
 bspc rule -a URthree		desktop=^3
 bspc rule -a mutt		desktop=^4

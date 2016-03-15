@@ -7,6 +7,8 @@ system_xinitrc() {
 		done
 		unset f
 	fi
+
+	source ~/.profile
 }
 
 use_gpg_agent() {
@@ -16,8 +18,6 @@ use_gpg_agent() {
 
 init_desktop() {
 	[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-	xrandr --output HDMI1 --mode 1920x1080 --fb 1858x1000
-	source ~/.profile
 	setxkbmap -option terminate:ctrl_alt_bksp
 	start-pulseaudio-x11
 	xsetroot -cursor_name left_ptr &
@@ -49,6 +49,10 @@ run_herbstluftwm() {
 	exec /usr/bin/herbstluftwm
 }
 
+run_i3() {
+	exec /usr/bin/i3 -c $XDG_CONFIG_HOME/i3/config
+}
+
 
 #use_gpg_agent
 system_xinitrc
@@ -57,10 +61,11 @@ init_desktop
 session=${1:-bspwm}
 
 case $session in
-  bspwm ) run_bspwm;;
-  awesome ) run_awesome;;
-  snapwm ) run_snapwm;;
-  herbst ) run_herbstluftwm;;
+  bspwm) run_bspwm;;
+  awesome) run_awesome;;
+  snapwm) run_snapwm;;
+  herbst) run_herbstluftwm;;
+  i3wm) run_i3;;
   *) exec $1;;
 esac
 

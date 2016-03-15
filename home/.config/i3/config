@@ -25,17 +25,18 @@ font xft:Pragmata Pro 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvtc
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Escape kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec j4-dmenu-desktop --convert=lowercase "dmenu -fn 'Pragmata Pro-8'" # -l 20"
+#bindsym $mod+d exec j4-dmenu-desktop --convert=lowercase "dmenu -fn 'Pragmata Pro-8'" # -l 20"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -118,7 +119,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+p exit
+bindsym $mod+Control+Escape exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -136,11 +137,11 @@ mode "resize" {
         # same bindings, but for the arrow keys
         bindsym Left        resize shrink 	left	10 px or 10 ppt
         bindsym Down        resize shrink 	down	10 px or 10 ppt
-        bindsym Up          resize shrink 	up 		10 px or 10 ppt
+        bindsym Up          resize shrink 	up 	10 px or 10 ppt
         bindsym Right       resize shrink 	right 	10 px or 10 ppt
         bindsym $mod+Left   resize grow 	left	10 px or 10 ppt
         bindsym $mod+Down   resize grow 	down	10 px or 10 ppt
-        bindsym $mod+Up     resize grow 	up 		10 px or 10 ppt
+        bindsym $mod+Up     resize grow 	up 	10 px or 10 ppt
         bindsym $mod+Right  resize grow 	right	10 px or 10 ppt
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -154,11 +155,8 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5%
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
-## Let deepin-scrot handle the screenshots
-bindsym Print exec deepin-scrot
-
 client.focused			#aa6300	#997300	#111111	#111111
-client.focused_inactive	#223322	#222222	#000000 #000000
+client.focused_inactive		#223322	#222222	#000000 #000000
 client.unfocused		#222222	#1c1c1c	#000000	#000000
 client.urgent			#dca3a3	#dca3a3	#DCDCCC	#3f3f3f
 
@@ -166,7 +164,7 @@ client.urgent			#dca3a3	#dca3a3	#DCDCCC	#3f3f3f
 # finds out, if available)
 bar {
  	position top
-    status_command $HOME/.config/i3/startup_conky
+	status_command $HOME/.config/i3/startup_conky
 	mode dock
 #	mode hide
 #	modifier $alt
@@ -182,8 +180,8 @@ bar {
 		}
 }
 
-exec parcellite &
-exec dunst &
+#exec parcellite &
+#exec dunst &
 
 new_window pixel 1
 new_float  normal
@@ -196,17 +194,12 @@ for_window [class="Gcr-prompter"] floating enable
 for_window [class="Tipswindow.py"] floating enable
 for_window [class="XVroot"] floating enable
 for_window [class="XVcontrols"] floating enable
-#for_window [class="Vlc"] floating enable
 for_window [class="Synergy"] floating enable
 for_window [class="libreoffice-writer"] floating enable
 for_window [class="Shotwell"] floating enable
 for_window [class="UpLauncher"] floating enable
 	
 ## Set up a predefined workspace 1
-exec xdotool mousemove 1600 500
-exec urxvtc -name first;
-exec urxvtc -name first; 
-exec sleep 3; i3-msg split v && exec urxvtc -name first
 
 ## Set predefined Workspace 2
 for_window [class="^Firefox$"] border none
@@ -214,11 +207,6 @@ assign [class="^Firefox$"] 2
 exec firefox
 
 ## Set predefined Workspace 3
-#for_window [class="^Vlc$"] border normal
-assign [class="URxvt" instance="^rtorrent$"] 3
-assign [class="Vlc"] 3
-
-exec urxvtc -name rtorrent -e rtorrent; exec vlc
 
 ## gaps
 #for_window [class="^.*"] border pixel 2
@@ -227,7 +215,4 @@ exec urxvtc -name rtorrent -e rtorrent; exec vlc
 #gaps inner 8
 #gaps outer 0
 
-
 ## Set predefined Workspace 4
-assign [class="^Gimp$"] 4
-#exec firefox
