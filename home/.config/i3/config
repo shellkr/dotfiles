@@ -200,8 +200,9 @@ for_window [class="Shotwell"] floating enable
 for_window [class="UpLauncher"] floating enable
 	
 ## Set up a predefined workspace 1
+exec ~/.config/i3/load_layout.sh
 
-## Set predefined Workspace 2
+# Set predefined Workspace 2
 for_window [class="^Firefox$"] border none
 assign [class="^Firefox$"] 2
 exec firefox
