@@ -57,15 +57,15 @@ run_i3() {
 #use_gpg_agent
 system_xinitrc
 init_desktop
-run_i3
-#session=${1:-bspwm}
 
-#case $session in
-#  bspwm) run_bspwm;;
-#  awesome) run_awesome;;
-#  snapwm) run_snapwm;;
-#  herbst) run_herbstluftwm;;
-#  i3wm) run_i3;;
-#  *) exec $1;;
-#esac
+session=${1:-bspwm}
+
+case $session in
+  bspwm   ) run_bspwm;;
+  awesome ) run_awesome;;
+  snapwm  ) run_snapwm;;
+  herbst  ) run_herbstluftwm;;
+  i3wm    ) run_i3;;
+  * ) exec $1;;
+esac
 

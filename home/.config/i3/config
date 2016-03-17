@@ -89,8 +89,6 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $alt+1 workspace prev
-bindsym $alt+2 workspace next
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -120,6 +118,13 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Control+Escape exit
+
+## gaps
+for_window [class="^.*"] border pixel 2
+smart_borders no_gaps
+smart_gaps on
+gaps inner 8
+gaps outer 0
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -188,15 +193,11 @@ new_float  normal
 
 for_window [window_role="pop-up"] floating enable,move absolute center
 for_window [class="Pinentry"] floating enable
-for_window [class="Eog"] floating enable
 for_window [class="Geary"] floating enable
 for_window [class="Gcr-prompter"] floating enable
-for_window [class="Tipswindow.py"] floating enable
 for_window [class="XVroot"] floating enable
 for_window [class="XVcontrols"] floating enable
-for_window [class="Synergy"] floating enable
 for_window [class="libreoffice-writer"] floating enable
-for_window [class="Shotwell"] floating enable
 for_window [class="UpLauncher"] floating enable
 	
 ## Set up a predefined workspace 1
@@ -208,12 +209,5 @@ assign [class="^Firefox$"] 2
 exec firefox
 
 ## Set predefined Workspace 3
-
-## gaps
-#for_window [class="^.*"] border pixel 2
-#smart_borders no_gaps
-#smart_gaps on
-#gaps inner 8
-#gaps outer 0
 
 ## Set predefined Workspace 4
