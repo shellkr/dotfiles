@@ -12,26 +12,40 @@ super + alt + Escape
 
 ## Close window
 super + Escape
-    bspc window -c
+    bspc node -c
 
 ## Toggle layout between monocle and tiled
 super + n
     bspc desktop -l next
 
+# if the current node is automatic, send it to the last manual, otherwise pull the last leaf
+super + y
+    bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
+
+
 ## Balance (in size) the desktop/workspace
 super + b
     bspc desktop -B
 
+
+### state/flags ###
+
+
 ## Toggle floating or fullscreen
 super + {t,p,z,f}
-    bspc window -t {tiled,pseudo_tiled,floating,fullscreen}
+    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-#super + {t,z,shift + t,f}
-#    bspc node -t '~{tiled,floating,pseudo_tiled,fullscreen}'
+## set the node flags
+#super + ctrl + {x,y,z}
+#	bspc node -g {locked,sticky,private}
+
+
+#### focus/swap ####
+
 
 ## Toggle last focused windows or workspace/desktop back-and-forth (§,tab)
 super + {paragraph,Tab}
-    bspc {window,desktop} -f last
+    bspc {node,desktop} -f last
 
 ## Move to previous or next desktop/workspace
 alt + shift {1,2}
@@ -41,13 +55,31 @@ alt + shift {1,2}
 super + m
     bspc window -s biggest
 
-## Focus or move window left,down,up,right
+## focus the node in the given direction
 super + {_,shift + }{a,s,w,d}
-    bspc window -{f,s} {left,down,up,right}
+    bspc node -{f,s} {west,south,north,east}
 
-## Focus window next or prev
+## focus the node for the given path jump
+#super + {p,b,comma,period}
+#    bspc node -f @{parent,brother,first,second}
+
+## focus the next/previous node
 super + {_,shift + }c
-    bspc window -f {next,prev}
+	bspc node -f {next,prev}
+
+# focus the older or newer node in the focus history
+#super + {o,i}
+#	bspc wm -h off; \
+#	bspc node {older,newer} -f; \
+#	bspc wm -h on
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+
+#### preselect ####
+
 
 super + {_,shift + }r
     bspc desktop -R 90
@@ -56,33 +88,54 @@ super + {_,shift + }r
 super + {comma,period}
     bspc desktop -C {backward,forward}
 
-## Cut the window at...
+## Preselect the direction
 super + ctrl + {a,s,w,d}
-    bspc window -p {left,down,up,right}
+    bspc node -p {west,south,north,east}
 
-## Cancels a cut
-super + ctrl + {_,shift + }Escape
-    bspc {window -p cancel,desktop -c}
+## Cancels the preselection for the focused node
+super + ctrl + Escape
+    bspc node -p cancel
 
-## Resize the window 
-super + alt + {a,s,w,d}
-    bspc window -e {left -10,down +10,down -10,left +10}
+## Cancel the preselection for the focused desktop
+#super + ctrl + shift + space
+#    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-## Set the split ratio...
+## preselect the ratio
 super + ctrl + {1-9}
-    bspc window -r 0.{1-9}
+    bspc node -o 0.{1-9}
 
-## Focus the given desktop or move a window to a given desktop
-super + {_,shift + }{1-9,0}
-    bspc {desktop -f,window -d} '^{1-9,10}'
 
-## Move or rezise depending on the mouse button.
+#### resize tiled/floating ####
+
+
+## expand the tiled space in the given direction
+super + alt + {a,s,w,d}
+    bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
+
+## contract the tiled space in the given direction
+super + alt + shift + {a,s,w,d}
+    bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
+
+# move a floating window
+#super + {Left,Down,Up,Right}
+#    xdo move {-x -20,-y +20,-y -20,-x +20}
+
+
+
+#### pointer focus/move/resize ####
+
+
+## focus
+~button1
+	bspc pointer -g focus
+
+## start move/resize
 super + button{1-3}
     ; bspc pointer -g {move,resize_side,resize_corner}
 
-## Track the mouse pointer
-super + !button{1-3}
-    bspc pointer -t %i %i
+## end move/resize
+super + @button{1-3}
+    bspc pointer -u
 
 ##
 ## wm independent hotkeys

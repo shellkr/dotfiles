@@ -1,14 +1,11 @@
 #!/bin/zsh
 
+if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
+        printf "%s\n" "The panel is already running." >&2
+        exit 1
+fi
 
-#if [ $(pgrep -cx panel) -gt 1 ] ; then
-#    pkill panel
-#    ./$0
-#    printf "%s\n" "The panel is already running." >&2
-#    exit 1
-#fi
-
-    trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
 
 . panel_colors
@@ -45,9 +42,7 @@ function time_date() {
 	done < <(echo)
 }
 
-#bspc config top_padding $PANEL_HEIGHT
-#bspc control --put-status &
-bspc control --subscribe > "$PANEL_FIFO" &
+bspc subscribe report > "$PANEL_FIFO" &
 xtitle -sf "T%s" > "$PANEL_FIFO" &
 weather > "$PANEL_FIFO" &
 gmail > "$PANEL_FIFO" &

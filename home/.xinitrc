@@ -8,7 +8,6 @@ system_xinitrc() {
 		unset f
 	fi
 
-	source ~/.profile
 }
 
 use_gpg_agent() {
@@ -18,15 +17,16 @@ use_gpg_agent() {
 
 init_desktop() {
 	[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+	source ~/.profile
 	setxkbmap -option terminate:ctrl_alt_bksp
 	start-pulseaudio-x11
 	xsetroot -cursor_name left_ptr &
 	xset -dpms &
     	xset s off &
     	xset s noblank &
-	compton --config ~/.config/scripts/compton.conf -b &
+	compton --config $XDG_CONFIG_HOME/scripts/compton.conf -b &
 	numlockx &
-	wallpaper_ch &
+	$XDG_CONFIG_HOME/scripts/wallpaper_ch &
 	hot_edge.sh &
 	/usr/bin/clipmenud &
 	pacmd set-sink-port alsa_output.pci-0000_00_1b.0.analog-stereo analog-output-headphones 

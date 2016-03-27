@@ -14,52 +14,12 @@ desktop2() {
 
 ## Predefined Workspace 3
 desktop3() {
-
-	layout3() {
-		until pids=$(pidof vlc)
-		do
-    		sleep 1
-		done
-
-		sel_vlc=$(bspc query -T -d media | awk -F' ' '/Vlc/{print $3}')
-		win_id=$(bspc query -T -d media | awk -F' ' '/URxvt/{print $3}')
-
-		[ "$(xwinfo -i $(echo $win_id) | head -1)" = "rtorrent" ] && {
-			mv_rt="$(echo $win_id | head -1)"
-		} || {
-			mv_rt="$(echo $win_id | tail -1)"
-		}
-
-		bspc window -f ${sel_vlc} && bspc window -s ${mv_rt}
-		bspc window ${sel_vlc} -e left 0.3 -e down 0.7
-	}
-
     urxvtc -name URthree && urxvtc -name rtorrent -e rtorrent &
-#	vlc &
-#	layout3
-
 }
 
 ## Predefined Workspace 4
 desktop4() {
-
-	layout4() {
-        until pids=$(pidof weechat)
-        do
-            sleep 1
-        done
-
-		win_id=$(bspc query -T -d chat | awk -F' ' '/URxvt/{print $3}')
-
-		[ "$(xwinfo -i $(echo $win_id2) | head -1)" = "weechat" ] && {
-			bspc window ${win_id2} -r 0.2
-			bspc window ${win_id2} -p up
-		}
-	}
-
-#	layout4
 	urxvtc -name mutt -e mutt &
-
 }
 
 desktop5() {
