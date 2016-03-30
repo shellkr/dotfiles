@@ -1,9 +1,9 @@
 #!/bin/zsh
 
-if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
-        printf "%s\n" "The panel is already running." >&2
-        exit 1
-fi
+#if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
+#        printf "%s\n" "The panel is already running." >&2
+#        exit 1
+#fi
 
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
@@ -33,12 +33,21 @@ function weather() {
 	done
 }
 
-function time_date() {
+function tid() {
 	while true
 	do
-		klocka=$(date +'%A %d %B w%V  %H:%M')
+		klocka=$(date +'%H:%M')
 		echo "C$klocka"
 		sleep 10
+	done < <(echo)
+}
+
+function datum() {
+	while true
+	do
+		_datum=$(date +'%A %d %B w%V')
+		echo "D$_datum"
+		sleep 60
 	done < <(echo)
 }
 
@@ -46,9 +55,10 @@ bspc subscribe report > "$PANEL_FIFO" &
 xtitle -sf "T%s" > "$PANEL_FIFO" &
 weather > "$PANEL_FIFO" &
 gmail > "$PANEL_FIFO" &
-time_date > "$PANEL_FIFO" &
+tid > "$PANEL_FIFO" &
+datum > "$PANEL_FIFO" &
 
-        PANEL_HEIGHT=14
+        PANEL_HEIGHT=16
         PANEL_FONT_FAMILY='Meiryo'
         PANEL_FONT_SIZE=9
 
