@@ -8,7 +8,7 @@ desktop1() {
 
 ## Predefined Workspace 2
 desktop2() {
-	bspc desktop web -l monocle
+	bspc desktop '^2' -l monocle
 	firefox
 }
 

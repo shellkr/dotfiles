@@ -94,5 +94,5 @@ IFS=${old_ifs}
 
 ## Make the forcasts and date output correct
 #echo $(paste -d' ' <(printf "%s\n" "${fcasts[@]:0:$witr}") <(printf "%s\n" "${wdates[@]:0:$witr}"))
-echo $(printf "%s,\n" "${fcasts[@]:0:$witr}")
+echo $(printf "%s \n" "${fcasts[@]:0:$witr}")
 

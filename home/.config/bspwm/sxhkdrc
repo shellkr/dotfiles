@@ -8,7 +8,12 @@ super + shift + Escape
 
 ## Quit
 super + alt + Escape
-    pkill panel;bspc quit
+    xdotool search --desktop 1 --class firefox windowactivate; xdotool key --delay 700 ctrl+q
+    pkill panel; \
+    pkill -USR1 rtorrent; \
+    killall -TERM weechat-curses; \
+    sleep 5; \
+    bspc quit
 
 ## Close window
 super + Escape
@@ -18,7 +23,7 @@ super + Escape
 super + n
     bspc desktop -l next
 
-# if the current node is automatic, send it to the last manual, otherwise pull the last leaf
+## if the current node is automatic, send it to the last manual, otherwise pull the last leaf
 super + y
     bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
 

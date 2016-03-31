@@ -1,17 +1,14 @@
 #! /bin/sh
-#
-# Example panel for dzen2
 
 font_family='roboto'
-font_size=11
+font_size=12
 icons_font_family="FontAwesome"
-icons_font_size="16"
+icons_font_size="11"
 
 . panel_colors
 
 adaptive_centering=0
 screen_width=$(sres -W)
-icon_path="/usr/share/icons/stlarch_icons"
 NORMIFS=$IFS
 FIELDIFS=':'
 PADDING=' '
@@ -42,39 +39,39 @@ while read -r line ; do
     case $line in
         C*)
             # system informations
-            sys_clock="^fn(FontAwesome:size=8)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc wm --toggle-visibility)${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}${PADDING}"
+            sys_clock="${PADDING}^fn(FontAwesome:size=10)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc wm --toggle-visibility)${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}${PADDING}"
             ;;
         D*)
             # system informations
-            sys_date="^fn(FontAwesome:size=8)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc wm --toggle-visibility)${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}"
+            sys_date="${PADDING}^fn(FontAwesome:size=8)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc wm --toggle-visibility)${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}"
             ;;
-        V*)
-            set -- ${line#?}
-            FG=$COLOR_STATUS_ACTIVE_FG
-            state=$1
-            level=$2
-            case $state in
-                off)
-                    icon_state=Y
-                    FG=$COLOR_STATUS_INACTIVE_FG
-                    ;;
-                on)
-                    if [ $level -lt 33 ] ; then
-                        icon_state=A
-                    elif [ $level -lt 66 ] ; then
-                        icon_state=B
-                    else
-                        icon_state=C
-                    fi
-                    ;;
-            esac
-            sys_volume="^fg($FG)^bg($COLOR_STATUS_BG)${PADDING}^fn(${icons_font_family}:pixelsize=${icons_font_size})${icon_state}^fn()${PADDING}^fg()^bg()"
-            ;;
+        #V*)
+        #    set -- ${line#?}
+        #    FG=$COLOR_STATUS_ACTIVE_FG
+        #    state=$1
+        #    level=$2
+        #    case $state in
+        #        off)
+        #            icon_state=Y
+        #            FG=$COLOR_STATUS_INACTIVE_FG
+        #            ;;
+        #        on)
+        #            if [ $level -lt 33 ] ; then
+        #                icon_state=A
+        #            elif [ $level -lt 66 ] ; then
+        #                icon_state=B
+        #            else
+        #                icon_state=C
+        #            fi
+        #            ;;
+        #    esac
+        #    sys_volume="^fg($FG)^bg($COLOR_STATUS_BG)${PADDING}^fn(${icons_font_family}:pixelsize=${icons_font_size})${icon_state}^fn()${PADDING}^fg()^bg()"
+        #    ;;
      	F*)
-            weather_infos="^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc control --toggle-visibility)${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}"
+            weather_infos="^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc control --toggle-visibility)${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}${PADDING}"
 			;;
      	G*)
-            inbox="^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, exec geary)^fn(FontAwesome:size=8)^fn()${line#?}${PADDING}^ca()^fg()^bg()${PADDING}"
+            inbox="${PADDING}^fn(FontAwesome:size=8)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, exec geary)${line#?}${PADDING}^ca()^fg()^bg()${PADDING}${PADDING}"
 			;;
 	T*)
             # focused window title
@@ -120,7 +117,8 @@ while read -r line ; do
                                 #font_style=Bold
                                 ;;
                         esac
-                        wm_infos="${wm_infos}^fg(${FG})^bg(${BG})^ca(1, bspc desktop -f ${name})${PADDING}^fn(${font_family}:pixelsize=${font_size}:style=${font_style})${name}^fn()${PADDING}^ca()"
+#                        wm_infos="${wm_infos}^fg(${FG})^bg(${BG})^ca(1, bspc desktop -f ${name})${PADDING}^fn(${font_family}:pixelsize=${font_size}:style=${font_style})${name}^fn()${PADDING}^ca()"
+                        wm_infos="${wm_infos}^fg(${FG})^bg(${BG})^ca(1, bspc desktop -f ${name})${PADDING}^fn(FontAwesome:pixelsize=${font_size}:style=${font_style})${name}^fn()${PADDING}^ca()"
                         ;;
                     L*)
                         case $name in
@@ -140,15 +138,12 @@ while read -r line ; do
             ;;
     esac
 
-    sys_infos="${weather_infos}${inbox}${sys_volume}${sys_date}${sys_clock}${PADDING}"
+    sys_infos="${weather_infos}${inbox}${sys_date}${sys_clock}${PADDING}"
    # sys_infos="${weather_infos}${sys_volume}${sys_clock}${PADDING}"
     set -- $(printf '%s\0%s\0%s' "$wm_infos" "$title" "$sys_infos" | sed 's/\^fn()/\\)/g; s/\^fn([^)]\+)/\\(/g; s/\^[a-z]\+([^)]*)//g' | xargs -0 txtw -f "$font_family" -s "$font_size" -F "FontAwesome" -S "16")
     left_width=$1
-	echo "left: $left_width" > dzen2.log
     center_width=$2
-	echo "center: $center_width" >> dzen2.log
     right_width=$3
-	echo "right: $right_width" >> dzen2.log
     left_indent=0
     right_indent=$((screen_width - right_width))
     available_center=$((screen_width - (left_width + right_width)))
