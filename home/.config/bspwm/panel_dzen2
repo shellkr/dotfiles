@@ -39,7 +39,7 @@ while read -r line ; do
     case $line in
         C*)
             # system informations
-            sys_clock="${PADDING}^fn(FontAwesome:size=10)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc wm --toggle-visibility)${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}${PADDING}"
+            sys_clock="${PADDING}^fn(FontAwesome:size=10)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc wm --toggle-visibility)${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}"
             ;;
         D*)
             # system informations
@@ -71,7 +71,7 @@ while read -r line ; do
             weather_infos="^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc control --toggle-visibility)${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}${PADDING}"
 			;;
      	G*)
-            inbox="${PADDING}^fn(FontAwesome:size=8)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, exec geary)${line#?}${PADDING}^ca()^fg()^bg()${PADDING}${PADDING}"
+            inbox="^fn(FontAwesome:size=8)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, exec geary)${line#?}${PADDING}^ca()^fg()^bg()${PADDING}${PADDING}"
 			;;
 	T*)
             # focused window title
@@ -138,9 +138,9 @@ while read -r line ; do
             ;;
     esac
 
-    sys_infos="${weather_infos}${inbox}${sys_date}${sys_clock}${PADDING}"
+    sys_infos="${PADDING}${weather_infos}${inbox}${sys_date}${sys_clock}"
    # sys_infos="${weather_infos}${sys_volume}${sys_clock}${PADDING}"
-    set -- $(printf '%s\0%s\0%s' "$wm_infos" "$title" "$sys_infos" | sed 's/\^fn()/\\)/g; s/\^fn([^)]\+)/\\(/g; s/\^[a-z]\+([^)]*)//g' | xargs -0 txtw -f "$font_family" -s "$font_size" -F "FontAwesome" -S "16")
+    set -- $(printf '%s\0%s\0%s' "$wm_infos" "$title" "$sys_infos" | sed 's/\^fn()/\\)/g; s/\^fn([^)]\+)/\\(/g; s/\^[a-z]\+([^)]*)//g' | xargs -0 txtw -f "$font_family" -s "$font_size" -F "FontAwesome" -S "14")
     left_width=$1
     center_width=$2
     right_width=$3

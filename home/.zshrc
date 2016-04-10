@@ -30,7 +30,8 @@ alias fullupn='LOGDEST="/var/cache/" pacaur -Syu --devel --needed --noedit'
 age () { sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:' }
 used () { cat <(awk -FS="(;| )" "{print $3}" ~/.zsh_history | sort | uniq -c | sort -nr | head -n 30) }
 alias g+='echo -en "\xe2\x80\x8b" | xsel -i'
-alias mpv="mpv $* 2>&1 > /dev/null"
+#alias mpv="mpv $* 2>&1 > /dev/null"
+alias firefox='firejail --dns=8.8.8.8 --dns=8.8.4.4 --net=enp0s25 firefox'
 alias sudo='sudo '
 alias chkspace='sudo du -hsx * | sort -rh | head'
 

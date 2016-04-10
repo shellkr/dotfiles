@@ -28,7 +28,7 @@ function weather() {
 	while true
 	do
 		weather_stat=$($HOME/.config/scripts/./weather-yr.sh)
-		echo "F$weather_stat"
+		echo "F^fn(Meiryo:size=7)$weather_stat^fn()"
 		sleep 900
 	done
 }
@@ -59,7 +59,7 @@ tid > "$PANEL_FIFO" &
 datum > "$PANEL_FIFO" &
 
         PANEL_HEIGHT=16
-        PANEL_FONT_FAMILY='Dejavu,Meiryo'
+        PANEL_FONT_FAMILY='PragmataPro,Meiryo'
         PANEL_FONT_SIZE=10
 
 cat "$PANEL_FIFO" | panel_dzen2 -f "$PANEL_FONT_FAMILY" -s "$PANEL_FONT_SIZE" -F \

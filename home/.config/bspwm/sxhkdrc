@@ -8,11 +8,11 @@ super + shift + Escape
 
 ## Quit
 super + alt + Escape
-    xdotool search --desktop 1 --class firefox windowactivate; xdotool key --delay 700 ctrl+q
+    wmctrl -c firefox; \
+    pkill -2 rtorrent; \
+    pkill -2 weechat-curses; \
+    sleep 6; \
     pkill panel; \
-    pkill -USR1 rtorrent; \
-    killall -TERM weechat-curses; \
-    sleep 5; \
     bspc quit
 
 ## Close window
@@ -47,6 +47,10 @@ super + {t,p,z,f}
 
 #### focus/swap ####
 
+
+## Cycle the windows west/left.
+super + r
+    bspc node @/ -R 90 
 
 ## Toggle last focused windows or workspace/desktop back-and-forth (§,tab)
 super + {paragraph,Tab}

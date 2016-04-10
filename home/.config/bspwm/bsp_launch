@@ -9,12 +9,12 @@ desktop1() {
 ## Predefined Workspace 2
 desktop2() {
 	bspc desktop '^2' -l monocle
-	firefox
+	firejail --dns=8.8.8.8 --dns=8.8.4.4 --net=enp0s25 firefox
 }
 
 ## Predefined Workspace 3
 desktop3() {
-    urxvtc -name URthree && urxvtc -name rtorrent -e rtorrent &
+    urxvtc -name URthree && urxvtc -name rtorrent -e firejail --net=enp0s25 rtorrent &
 }
 
 ## Predefined Workspace 4
@@ -23,7 +23,7 @@ desktop4() {
 }
 
 desktop5() {
-	urxvtc -name weechat -e weechat-curses
+	urxvtc -name weechat -e firejail --net=enp0s25 weechat-curses
 }
 
 desktop1 &
