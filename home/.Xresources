@@ -10,7 +10,7 @@ Xft.lcdfilter: lcddefault
 URxvt*font: \
     xft:PragmataPro:pixelsize=10:antialias=true,xft:Inconsolata for Powerline:pixelsize=11:antialias=true,\
     xft:Sauce Code Powerline:pixelsize=10:antialias=true,\
-    xft:FontWesome:size=8, \
+    xft:FontAwesome:size=8, \
     xft:SourceCodePro:size=9,\
     xft:UbuntuMono:size=9,\
     xft:DejaVuSansMono:size=11,\

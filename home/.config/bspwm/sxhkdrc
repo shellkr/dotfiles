@@ -53,7 +53,7 @@ super + r
     bspc node @/ -R 90 
 
 ## Toggle last focused windows or workspace/desktop back-and-forth (§,tab)
-super + {paragraph,Tab}
+super + {_,shift +}{Tab}
     bspc {node,desktop} -f last
 
 ## Move to previous or next desktop/workspace
@@ -62,15 +62,15 @@ alt + shift {1,2}
 
 ## Move selected window to the biggest window
 super + m
-    bspc window -s biggest
+    bspc node -s biggest
 
 ## focus the node in the given direction
 super + {_,shift + }{a,s,w,d}
     bspc node -{f,s} {west,south,north,east}
 
 ## focus the node for the given path jump
-#super + {p,b,comma,period}
-#    bspc node -f @{parent,brother,first,second}
+super + {p,b,comma,period,o}
+    bspc node -f @{parent,brother,first,second,older}
 
 ## focus the next/previous node
 super + {_,shift + }c

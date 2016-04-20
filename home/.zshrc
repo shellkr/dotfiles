@@ -17,18 +17,13 @@ alias ls="ls -FshX --color=auto --group-directories-first"
 alias less="less -R"
 alias rm="rm -rf"
 alias grep="grep --color=auto"
-alias printmaint="cngpij -P Canon-MG5200-series_2C-9E-FC-09-C3-AB"
-alias printstat="cngpijmonmg5200 Canon-MG5200-series_2C-9E-FC-09-C3-AB"
 alias cpu="ps -eo pcpu,args --no-headers | sort -k 1 -r -n | head"
 alias dmesg="dmesg -deL"
 alias diff='colordiff -yZEwBd'
 alias psc="ps xawf -eo pid,user,cgroup,args"
-#alias fullupn='yaourt -Syua --devel --noconfirm'
-#alias fullup='yaourt -Syua --devel'
 alias fullupn='LOGDEST="/var/cache/" pacaur -Syu --devel --needed --noedit'
-#alias yaourt="YAOURT_COLORS='other=1;30:pkg=0;33' yaourt"
 age () { sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:' }
-used () { cat <(awk -FS="(;| )" "{print $3}" ~/.zsh_history | sort | uniq -c | sort -nr | head -n 30) }
+used () { cat -n <(history 0 | awk '{ print $2}' | sort | uniq -c | sort -nr | head -n30) }
 alias g+='echo -en "\xe2\x80\x8b" | xsel -i'
 #alias mpv="mpv $* 2>&1 > /dev/null"
 alias firefox='firejail --dns=8.8.8.8 --dns=8.8.4.4 --net=enp0s25 firefox'
@@ -63,6 +58,14 @@ echo $2
 
 google () {
         $(firefox --new-tab "https://encrypted.google.com/search?hl=en&q=$1")
+}
+
+pb () {
+  curl -F "c=@${1:--}" https://ptpb.pw/
+}
+
+pbdel () {
+  curl -X DELETE https://ptpb.pw/${1}
 }
 
 ## stolen from http://dotshare.it/dots/461/
