@@ -9,6 +9,7 @@ Xft.lcdfilter: lcddefault
 
 URxvt*font: \
     xft:PragmataPro:pixelsize=10:antialias=true,xft:Inconsolata for Powerline:pixelsize=11:antialias=true,\
+    xft:SauceCodePro NF:pixelsize=9, \
     xft:Sauce Code Powerline:pixelsize=10:antialias=true,\
     xft:FontAwesome:size=8, \
     xft:SourceCodePro:size=9,\
@@ -38,14 +39,14 @@ URxvt*clipboard.autocopy: true
 URxvt*selection.pattern-0: ([[:word:]]+)
 URxvt*urgentOnBell: True
 
-URxvt*keysym.A-c: perl:clipboard:copy
-URxvt*keysym.A-v: perl:clipboard:paste
+URxvt*keysym.M-c: perl:clipboard:copy
+URxvt*keysym.M-v: perl:clipboard:paste
 URxvt*keysym.M-C-v: perl:clipboard:paste_escaped
-URxvt*keysym.A-Escape: perl:keyboard-select:activate
+URxvt*keysym.M-a: perl:keyboard-select:activate
 URxvt*keysym.M-s: perl:keyboard-select:search
 URxvt*keysym.M-u: perl:url-select:select_next
 
-xterm*faceName: xft:DejaVuSansMono:size=10
+xterm*faceName: xft:PragmataPro Nerd Font:pixelsize=10
 xterm*termName: xterm-256color
 xterm*saveLines: 4096
 xterm*utf8: true

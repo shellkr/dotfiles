@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 hc() { "${herbstclient_command[@]:-herbstclient}" "$@" ;}
 monitor=${1:-0}
@@ -12,7 +12,12 @@ x=${geometry[0]}
 y=${geometry[1]}
 panel_width=${geometry[2]}
 panel_height=16
-font="-*-fixed-medium-*-*-*-12-*-*-*-*-*-*-*,FontAwesome:size=8"
+fsize="10"
+font="Droid Sans Mono for Powerline:size=$fsize"
+#font="-misc-droid sans mono dotted for powerline-medium-r-normal--0-0-0-0-m-0-iso8859-1"
+fsize2="8"
+font2="FontAwesome:size=$fsize2"
+#use xorg-xfontsel to pick a new font :3
 bgcolor=$(hc get frame_border_normal_color)
 selbg=$(hc get window_border_active_color)
 selfg='#101010'
@@ -51,8 +56,11 @@ else
       awk '$0 != l { print ; l=$0 ; fflush(); }' "$@"
     }
 fi
+# My Functions
+
 
 hc pad $monitor $panel_height
+
 
 {
     ### Event generator ###
@@ -65,8 +73,8 @@ hc pad $monitor $panel_height
     while true ; do
         # "date" output is checked once a second, but an event is only
         # generated if the output changed compared to the previous run.
-        date +$'date\t^fg(#efefef)%R, %d %b %Y'
-        sleep 1 || break
+	date +$'date\t^fg(#efefef)%H:%M^fg(#909090), %a.^fg(#efefef)%d-^fg(#909090)%m-%Y'
+	sleep 1 || break
     done > >(uniq_linebuffered) &
     childpid=$!
     hc --idle
@@ -105,10 +113,10 @@ hc pad $monitor $panel_height
             esac
             if [ ! -z "$dzen2_svn" ] ; then
                 # clickable tags if using SVN dzen
-	        echo -n "^ca(1,\"${herbstclient_command[@]:-herbstclient}\" "
+                echo -n "^ca(1,\"${herbstclient_command[@]:-herbstclient}\" "
                 echo -n "focus_monitor \"$monitor\" && "
                 echo -n "\"${herbstclient_command[@]:-herbstclient}\" "
-                echo -n "use \"${i:1}\") ^fn(FontAwesome:size=10)${i:1}^fn()^ca()"
+                echo -n "use \"${i:1}\") ^fn($font2)${i:1}^fn() ^ca()"
             else
                 # non-clickable tags if using older dzen
                 echo -n " ${i:1} "
@@ -117,10 +125,12 @@ hc pad $monitor $panel_height
         echo -n "$separator"
         echo -n "^bg()^fg() ${windowtitle//^/^^}"
         # small adjustments
-        right="$separator^bg() $date $separator"
+	cpu_temp=$(echo -n $(sensors | grep "Core" | cut -b 16-19))
+	mpc_current=$(mpc current)
+	right="♫ $mpc_current $separator^fg() $cpu_temp $separator^bg() $date $separator"
         right_text_only=$(echo -n "$right" | sed 's.\^[^(]*([^)]*)..g')
         # get width of right aligned text.. and add some space..
-        width=$($textwidth "$font" "$right_text_only    ")
+        width=$(txtw -f "$font" -s "$fsize" "$right_text_only  ")
         echo -n "^pa($(($panel_width - $width)))$right"
         echo
 
@@ -177,8 +187,10 @@ hc pad $monitor $panel_height
 
     ### dzen2 ###
     # After the data is gathered and processed, the output of the previous block
-    # gets piped to dzen2.
+    # gets piped to dzen2...or is it conky? If this ceases to work at any point
+	# try changing 'conky' to '/dev/null'
 
-} 2> /dev/null | dzen2 -w $panel_width -x $x -y $y -fn "$font" -h $panel_height \
+} 2> conky | dzen2 -w $panel_width -x $x -y $y -fn "$font" -h $panel_height \
     -e 'button3=;button4=exec:herbstclient use_index -1;button5=exec:herbstclient use_index +1' \
     -ta l -bg "$bgcolor" -fg '#efefef'
+ 

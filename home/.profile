@@ -13,3 +13,6 @@ export PANEL_HEIGHT=16
 
 ## Rtv
 export RTV_EDITOR=nano
+
+## Browser
+export BROWSER=w3m

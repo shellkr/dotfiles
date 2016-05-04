@@ -21,7 +21,7 @@ alias cpu="ps -eo pcpu,args --no-headers | sort -k 1 -r -n | head"
 alias dmesg="dmesg -deL"
 alias diff='colordiff -yZEwBd'
 alias psc="ps xawf -eo pid,user,cgroup,args"
-alias fullupn='LOGDEST="/var/cache/" pacaur -Syu --devel --needed --noedit'
+alias fullupn='LOGDEST="/var/cache/" pacaur -Syu --devel --needed --noedit --noconfirm'
 age () { sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:' }
 used () { cat -n <(history 0 | awk '{ print $2}' | sort | uniq -c | sort -nr | head -n30) }
 alias g+='echo -en "\xe2\x80\x8b" | xsel -i'

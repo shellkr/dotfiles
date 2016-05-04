@@ -24,7 +24,7 @@ Mod=Mod4   # Use the super key as the main modifier
 hc keybind $Mod-Control-Escape quit
 hc keybind $Mod-Shift-r	 reload
 hc keybind $Mod-Escape	 close_or_remove
-hc keybind $Mod-Return	 spawn termite
+hc keybind $Mod-Return	 spawn urxvtc
 
 # basic movement
 # focusing clients
@@ -55,8 +55,8 @@ hc keybind $Mod-Control-Up      resize up +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
 
 # tags
-tag_names=( {,,,,,} )
-tag_keys=( {1..6} 0 )
+tag_names=( {,,,,,,} )
+tag_keys=( {1..9} 0 )
 
 hc rename default "${tag_names[0]}" || true
 for i in ${!tag_names[@]} ; do
@@ -159,7 +159,7 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 herbstclient chain $cmds&
 
 # find the panel
-panel=~/.config/herbstluftwm/panel-pj.sh
+panel=~/.config/herbstluftwm/panel.sh
 [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
 for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
     # start it on each monitor

@@ -26,8 +26,21 @@ desktop5() {
 	urxvtc -name weechat -e firejail --net=enp0s25 weechat-curses
 }
 
+desktop6() {
+	urxvtc -name rtv -fn "xft:PragmataPro:style=Regular:pixelsize=12, \
+	xft:Inconsolata for Powerline:pixelsize=11,xft:SauceCodePro NF,xft:FontAwesome" \
+	-e rtv -s linux
+	urxvtc -name rtv -fn "xft:PragmataPro:style=Regular:pixelsize=12, \
+	xft:Inconsolata for Powerline:pixelsize=11,xft:SauceCodePro NF,xft:FontAwesome" \
+	-e rtv -s unixporn
+	urxvtc -name rtv -fn "xft:PragmataPro:style=Regular:pixelsize=12, \
+	xft:Inconsolata for Powerline:pixelsize=11,xft:SauceCodePro NF,xft:FontAwesome" \
+	-e rtv -s archlinux
+}
+
 desktop1 &
 desktop2 &
 desktop3 &
 #desktop4 &
-desktop5 #
+desktop5 &
+desktop6

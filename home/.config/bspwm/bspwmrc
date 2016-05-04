@@ -2,7 +2,7 @@
 
 #export BSPWM_SOCKET=/tmp/bspwm-socket
 
-bspc monitor -d {,,,,,,}
+bspc monitor -d {,,,,,,,}
 bspc desktop -d 1
 
 bspc config split_ratio     0.52
@@ -46,9 +46,10 @@ bspc rule -a Geary		desktop='^4' state=floating center=on
 bspc rule -a Quirky		desktop='^5' state=floating
 bspc rule -a mpv		desktop='^3' state=floating
 bspc rule -a gl 		desktop='^3' state=floating
-bspc rule -a SessionManager	desktop='^2' state=floating layer=above
+bspc rule -a Firefox:SessionManager	desktop='^2' state=floating layer=above
 bspc rule -a Gimp		desktop='^6' state=tiled
 bspc rule -a URxvt:URthree	desktop='^3'
+bspc rule -a URxvt:rtv		desktop='^6'
 bspc rule -a mutt		desktop='^4'
 bspc rule -a URxvt:weechat	desktop='^5'
 bspc rule -a URxvt:rtorrent	desktop='^3'
@@ -65,7 +66,7 @@ bspc rule -a tempterm 		state=floating
 #bspc monitor -f ^$NMON
 
 panel &
-
 bsp_launch &
+sleep 2 && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" $(xdo id -n dzen2) &
 
 

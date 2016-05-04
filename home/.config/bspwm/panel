@@ -58,11 +58,12 @@ gmail > "$PANEL_FIFO" &
 tid > "$PANEL_FIFO" &
 datum > "$PANEL_FIFO" &
 
-        PANEL_HEIGHT=16
-        PANEL_FONT_FAMILY='PragmataPro,Meiryo'
-        PANEL_FONT_SIZE=10
+  PANEL_HEIGHT=16
+  PANEL_FONT_FAMILY='PragmataPro,Meiryo'
+  PANEL_FONT_SIZE=10
 
 cat "$PANEL_FIFO" | panel_dzen2 -f "$PANEL_FONT_FAMILY" -s "$PANEL_FONT_SIZE" -F \
 "$PANEL_ICONS_FONT_FAMILY" -S "$PANEL_ICONS_FONT_SIZE" | dzen2 -h $PANEL_HEIGHT \
 -ta l -title-name panel -fn "${PANEL_FONT_FAMILY}:pixelsize=${PANEL_FONT_SIZE}" -fg \
 "$COLOR_FOREGROUND" -bg "$COLOR_BACKGROUND"
+
