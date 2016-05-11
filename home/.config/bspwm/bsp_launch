@@ -9,7 +9,8 @@ desktop1() {
 ## Predefined Workspace 2
 desktop2() {
 	bspc desktop '^2' -l monocle
-	firejail --dns=8.8.8.8 --dns=8.8.4.4 --net=enp0s25 firefox
+	firefox
+#	firejail --dns=8.8.8.8 --dns=8.8.4.4 --net=enp0s25 firefox
 }
 
 ## Predefined Workspace 3

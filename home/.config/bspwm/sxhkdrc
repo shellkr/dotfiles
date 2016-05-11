@@ -167,7 +167,7 @@ button10
 	xdotool key Tab	
 
 ctrl + space
-	bashrun2
+	passmenu
 
 alt + space
 	/usr/bin/clipmenu
