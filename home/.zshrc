@@ -10,18 +10,19 @@ export GREP_COLORS='ms=01;33'
 ## Transparent Xterm
 [ -n "$XTERM_VERSION" ] && transset-df -a >/dev/null
 
-source  .config/powerlevel9k/powerlevel9k.zsh-theme
+source  ~/.config/powerlevel9k/powerlevel9k.zsh-theme
 
 ## My Aliases
 alias ls="ls -FshX --color=auto --group-directories-first"
 alias less="less -R"
 alias rm="rm -rf"
 alias grep="grep --color=auto"
+alias cal="cal -m"
 alias cpu="ps -eo pcpu,args --no-headers | sort -k 1 -r -n | head"
 alias dmesg="dmesg -deL"
 alias diff='colordiff -yZEwBd'
 alias psc="ps xawf -eo pid,user,cgroup,args"
-alias fullupn='LOGDEST="/var/cache/" pacaur -Syu --devel --needed --noedit --noconfirm'
+alias fullupn='pacaur -Syu --devel --needed --noedit --noconfirm'
 age () { sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:' }
 used () { cat -n <(history 0 | awk '{ print $2}' | sort | uniq -c | sort -nr | head -n30) }
 alias g+='echo -en "\xe2\x80\x8b" | xsel -i'
@@ -41,7 +42,7 @@ klocka () {
 
 #Weather forcast via nixCraft
 wttr () {
-	curl http://wttr.in/$1
+	curl http://wttr.in/"$1"
 }
 
 # Make screencast or convert to yt

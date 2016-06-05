@@ -20,10 +20,11 @@ URxvt*font: \
     xft:Symbola:size=9,\
 URxvt*boldFont: xft:Sauce Code Powerline:size=9:antialias=true
 
-URxvt*letterSpace: -1
+URxvt*letterSpace: 1
 
 URxvt*saveLines: 10000
-URxvt*transparent: true
+!! #URxvt*transparent: true
+URxvt*depth: 32
 URxvt*shading: 26
 
 !! scrollbar style - rxvt (default), plain (most compact), next, or xterm

@@ -3,7 +3,8 @@
 
 ## Predefined Workspace 1
 desktop1() {
-    urxvtc && urxvtc && urxvtc
+    	#urxvtc && urxvtc && urxvtc
+	urxvtc && urxvtc && urxvtc
 }
 
 ## Predefined Workspace 2
@@ -20,7 +21,8 @@ desktop3() {
 
 ## Predefined Workspace 4
 desktop4() {
-	urxvtc -name mutt -e mutt &
+	#urxvtc -name mutt -e mutt &
+	urxvtc -name mutt -e firejail --net=enp0s25 mutt &
 }
 
 desktop5() {
@@ -42,6 +44,6 @@ desktop6() {
 desktop1 &
 desktop2 &
 desktop3 &
-#desktop4 &
+desktop4 &
 desktop5 &
 desktop6

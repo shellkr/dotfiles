@@ -10,14 +10,17 @@ bspc config top_padding     16
 bspc config border_width    2
 bspc config window_gap      8
 bspc config fence_grip      100
-bspc config history_aware_focus 	true
+bspc config pointer_modifier 	    super
+#bspc config history_aware_focus 	true
+bspc config honor_size_hints 		true
 bspc config focus_follows_pointer	true
 bspc config pointer_follows_focus	false
 bspc config click_to_focus		false
 bspc config gapless_monocle		true
 bspc config borderless_monocle		true
-bspc config apply_shadow_property	true
-bspc config adaptative_raise		true
+bspc config single_monocle
+#bspc config apply_shadow_property	true
+#bspc config adaptative_raise		true
 #bspc config initial_polarity 		second_child
 
 bspc config presel_feedback_color	"#2a2a29"
@@ -50,6 +53,7 @@ bspc rule -a Firefox:SessionManager	desktop='^2' state=floating layer=above
 bspc rule -a Gimp		desktop='^6' state=tiled
 bspc rule -a URxvt:URthree	desktop='^3'
 bspc rule -a URxvt:rtv		desktop='^6'
+bspc rule -a URxvt:mutt		desktop='^4'
 bspc rule -a mutt		desktop='^4'
 bspc rule -a URxvt:weechat	desktop='^5'
 bspc rule -a URxvt:rtorrent	desktop='^3'
@@ -65,8 +69,7 @@ bspc rule -a tempterm 		state=floating
 ## Focus last monitor
 #bspc monitor -f ^$NMON
 
-panel &
+panel && sleep 2 && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" $(xdo id -n dzen2) &
 bsp_launch &
-sleep 2 && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" $(xdo id -n dzen2) &
 
 
