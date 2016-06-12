@@ -67,12 +67,12 @@ alt + shift {1,2}
 super + m
     bspc node -s biggest
 
-## focus the node in the given direction
+## focus/swap the node in the given direction
 super + {_,shift + }{a,s,w,d}
     bspc node -{f,s} {west,south,north,east}
 
 ## focus the node for the given path jump
-super + {p,b,comma,period,o}
+super + {h,b,comma,period,o}
     bspc node -f @{parent,brother,first,second,older}
 
 ## focus the next/previous node
@@ -153,6 +153,9 @@ button9
 
 button10
 	xdotool key Tab
+
+button13
+	xdotool key Return
 
 ctrl + space
 	passmenu

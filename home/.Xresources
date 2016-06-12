@@ -13,7 +13,6 @@ URxvt*font: \
     xft:Sauce Code Powerline:pixelsize=10:antialias=true,\
     xft:FontAwesome:size=8, \
     xft:SourceCodePro:size=9,\
-    xft:UbuntuMono:size=9,\
     xft:DejaVuSansMono:size=11,\
     xft:DroidSansMono:size=11,\
     xft:Inconsolata:size=12,\
@@ -32,13 +31,16 @@ URxvt*scrollBar: false
 URxvt*scrollstyle: plain
 URxvt*scrollWithBuffer: true
 URxvt*scrollBar_right: false
+URxvt*urgentOnBell: True
 
-URxvt*perl-ext: default,url-select,keyboard-select,matcher,clipboard,vtwheel
-URxvt*url-select.launcher: /usr/bin/firefox -new-tab
+URxvt*perl-ext: default,url-select,keyboard-select,clipboard,vtwheel
+!!URxvt*perl-ext: default,keyboard-select,matcher,clipboard,vtwheel
+!!URxvt*url-select.launcher: /usr/bin/firefox -new-tab
+URxvt*url-launcher: /usr/bin/firefox -new-tab
+URxvt*url-select.underline: true
 URxvt*matcher.button:   1
 URxvt*clipboard.autocopy: true
 URxvt*selection.pattern-0: ([[:word:]]+)
-URxvt*urgentOnBell: True
 
 URxvt*keysym.M-c: perl:clipboard:copy
 URxvt*keysym.M-v: perl:clipboard:paste

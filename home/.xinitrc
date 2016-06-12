@@ -12,14 +12,13 @@ system_xinitrc() {
 
 use_gpg_agent() {
         eval $(gpg-agent --daemon --no-grab --enable-ssh-support --allow-loopback-pinentry) &
-	/usr/lib/gnupg/gpg-preset-passphrase --preset 293D628ED5585FA528668536D3F243CC2E73B2EF &
+	/usr/lib/gnupg/gpg-preset-passphrase --preset $(head -1 gpgpass) &
 }
 
 init_desktop() {
 	[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 	source ~/.profile
 	setxkbmap -option terminate:ctrl_alt_bksp
-#	start-pulseaudio-x11
 	xsetroot -cursor_name left_ptr &
 	xset -dpms &
     	xset s off &
@@ -28,9 +27,8 @@ init_desktop() {
 	numlockx &
 	$XDG_CONFIG_HOME/scripts/wallpaper_ch &
 	hot_edge.sh &
-#	/usr/bin/clipmenud &
+	/usr/bin/clipmenud &
 	offlineimap -c ~/.mutt/offlineimaprc -l ~/.offlineimap.log 2>&1 /dev/null &
-#	pacmd set-sink-port alsa_output.pci-0000_00_1b.0.analog-stereo analog-output-headphones 
 }
 
 run_bspwm() {
@@ -59,6 +57,7 @@ run_i3() {
 system_xinitrc
 init_desktop
 
+# Run one of the below wm's else bspwm if no argument has been given
 session=${1:-bspwm}
 
 case $session in
