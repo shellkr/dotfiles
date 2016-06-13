@@ -161,7 +161,7 @@ ctrl + space
 	passmenu
 
 alt + space
-	/usr/bin/clipmenu
+	xcmenuctrl -spc && xcmenuctrl
 
 shift + alt + space
 	/usr/bin/vendor_perl/dmenurl

@@ -16,17 +16,17 @@ desktop2() {
 
 ## Predefined Workspace 3
 desktop3() {
-    urxvtc -name URthree && urxvtc -name rtorrent -e firejail --net=enp0s25 rtorrent &
+    urxvtc -name URthree && urxvtc -name rtorrent -e firejail --net=enp0s25 abduco -A -e '^q' rtorrent /usr/bin/rtorrent &
 }
 
 ## Predefined Workspace 4
 desktop4() {
 	#urxvtc -name mutt -e mutt &
-	urxvtc -name mutt -e firejail --net=enp0s25 mutt &
+	urxvtc -name mutt -e firejail --net=enp0s25 abduco -A -e '^q' mutt /usr/bin/mutt &
 }
 
 desktop5() {
-	urxvtc -name weechat -e firejail --net=enp0s25 weechat-curses
+	urxvtc -name weechat -e firejail --net=enp0s25 abduco -A -e '^q' weechat /usr/bin/weechat-curses
 }
 
 desktop6() {

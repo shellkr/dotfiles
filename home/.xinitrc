@@ -17,8 +17,9 @@ use_gpg_agent() {
 
 init_desktop() {
 	[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-	source ~/.profile
-	setxkbmap -option terminate:ctrl_alt_bksp
+	source ~/.profile &
+	setxkbmap -option terminate:ctrl_alt_bksp &
+	setxkbmap -option ctrl:nocaps &
 	xsetroot -cursor_name left_ptr &
 	xset -dpms &
     	xset s off &
@@ -27,7 +28,7 @@ init_desktop() {
 	numlockx &
 	$XDG_CONFIG_HOME/scripts/wallpaper_ch &
 	hot_edge.sh &
-	/usr/bin/clipmenud &
+	/usr/bin/xcmenu &
 	offlineimap -c ~/.mutt/offlineimaprc -l ~/.offlineimap.log 2>&1 /dev/null &
 }
 
@@ -54,8 +55,10 @@ run_i3() {
 
 
 #use_gpg_agent
-system_xinitrc
-init_desktop
+[[ $DISPLAY = ":0" ]] && { 
+	system_xinitrc
+	init_desktop
+}
 
 # Run one of the below wm's else bspwm if no argument has been given
 session=${1:-bspwm}
