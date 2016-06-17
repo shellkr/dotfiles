@@ -11,14 +11,14 @@ system_xinitrc() {
 }
 
 use_gpg_agent() {
-        eval $(gpg-agent --daemon --no-grab --enable-ssh-support --allow-loopback-pinentry) &
-	/usr/lib/gnupg/gpg-preset-passphrase --preset $(head -1 gpgpass) &
+       # eval $(gpg-agent --daemon --no-grab --enable-ssh-support --allow-loopback-pinentry) &
+	/usr/lib/gnupg/gpg-preset-passphrase --preset $(head -1 ~/gpgpass) &
 }
 
 init_desktop() {
 	[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-	source ~/.profile &
-	setxkbmap -option terminate:ctrl_alt_bksp &
+	source ~/.profile 
+	setxkbmap -option terminate:ctrl_alt_bksp 
 	setxkbmap -option ctrl:nocaps &
 	xsetroot -cursor_name left_ptr &
 	xset -dpms &
@@ -54,8 +54,8 @@ run_i3() {
 }
 
 
-#use_gpg_agent
 [[ $DISPLAY = ":0" ]] && { 
+	use_gpg_agent
 	system_xinitrc
 	init_desktop
 }

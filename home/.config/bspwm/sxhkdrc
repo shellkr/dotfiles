@@ -47,6 +47,10 @@ super + {t,p,z,f}
 #super + ctrl + {x,y,z}
 #	bspc node -g {locked,sticky,private}
 
+super + alt + space
+	{smartsplit ; bspc node -i,\
+	for i in $(bspc query -N -n .leaf.!window.local); do bspc node $i -k; done}
+
 
 #### focus/swap ####
 

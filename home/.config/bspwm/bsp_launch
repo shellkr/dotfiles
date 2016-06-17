@@ -26,7 +26,8 @@ desktop4() {
 }
 
 desktop5() {
-	urxvtc -name weechat -e firejail --net=enp0s25 abduco -A -e '^q' weechat /usr/bin/weechat-curses
+	urxvtc -name weechat -e firejail --profile=/etc/firejail/weechat.profile --net=enp0s25 abduco -A -e '^q' weechat 
+/usr/bin/weechat-curses &
 }
 
 desktop6() {
@@ -46,4 +47,4 @@ desktop2 &
 desktop3 &
 desktop4 &
 desktop5 &
-desktop6
+desktop6 &
