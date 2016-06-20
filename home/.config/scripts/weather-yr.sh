@@ -53,8 +53,15 @@
 #declare -a fcasts
 #declare -a wdates
 
+# Url to fetch source for forecast location
 wurl="http://www.yr.no/place/Sweden/Norrbotten/Ala_Lombolo/forecast.xml"
+
+# how many forcasts to show
 witr="3" # how many forcasts to show
+
+# The separator between forecasts
+sep=","
+
 
 
 ## Do not change the below lines ##
@@ -94,5 +101,5 @@ IFS=${old_ifs}
 
 ## Make the forcasts and date output correct
 #echo $(paste -d' ' <(printf "%s\n" "${fcasts[@]:0:$witr}") <(printf "%s\n" "${wdates[@]:0:$witr}"))
-echo $(printf "%s, \n" "${fcasts[@]:0:$witr}")
+echo $(printf "%s${sep} \n" "${fcasts[@]:0:$witr}")
 
