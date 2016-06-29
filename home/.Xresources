@@ -60,6 +60,17 @@ xterm*saveLines: 4096
 xterm*utf8: true
 Xterm*alternateScroll: true
 
+!! Rofi Colors bg,fg,albg,hlbg,hlfg (rofi -dump-Xresources)
+rofi*color-enabled: true
+rofi*color-window: #2a2a29, #ac7311, #ac7311
+rofi*color-normal: #2a2a29, #cccccc, #353535, #ac7311, #2a2a29
+rofi*color-active: #2a2a29, #268bd2, #353535, #268bd2, #ffffff
+rofi*color-urgent: #2a2a29, #dc322f, #353535, #dc322f, #ffffff
+rofi*font: PragmataPro NF 9
+rofi*bw: 1
+rofi*opacity: 90
+rofi*width: 50
+
 xterm*foreground: rgb:b2/b2/b2
 xterm*background: rgb:08/08/08
 

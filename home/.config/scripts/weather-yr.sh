@@ -56,7 +56,7 @@
 # Url to fetch source for forecast location
 wurl="http://www.yr.no/place/Sweden/Norrbotten/Ala_Lombolo/forecast.xml"
 
-# how many forcasts to show
+# how many forecasts to show
 witr="3" # how many forcasts to show
 
 # The separator between forecasts

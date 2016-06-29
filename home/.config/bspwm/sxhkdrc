@@ -8,13 +8,13 @@ super + shift + Escape
 
 ## Quit
 super + alt + Escape
-    wmctrl -c firefox; \
+    wmctrl -c firefox && sync; \
     pkill -2 rtorrent; \
     pkill -USR2 offlineimap; \
     pkill -USR2 mutt; \
     pkill -USR2 weechat-curses; \
     pkill -2 rtv; \
-    sleep 10; \
+    sleep 12; \
     pkill panel; \
     bspc quit
 
@@ -166,6 +166,9 @@ ctrl + space
 
 alt + space
 	xcmenuctrl -spc && xcmenuctrl
+
+shift + space
+	/usr/bin/textsuggest --language English
 
 shift + alt + space
 	/usr/bin/vendor_perl/dmenurl
