@@ -73,7 +73,7 @@ super + m
     bspc node -s biggest
 
 ## focus/swap/preselect the node in the given direction
-super + {_,shift,ctrl + }{a,s,w,d}
+super + {_,shift +,ctrl + }{a,s,w,d}
     bspc node -{f,s,p} {west,south,north,east}
 
 ## focus the node for the given path jump
