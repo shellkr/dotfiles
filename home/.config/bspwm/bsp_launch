@@ -22,7 +22,7 @@ desktop3() {
 ## Predefined Workspace 4
 desktop4() {
 	#urxvtc -name mutt -e mutt &
-	urxvtc -name mutt -e firejail --net=enp0s25 abduco -A -e '^q' mutt /usr/bin/mutt &
+	urxvtc -name mutt -e firejail --net=enp0s25 --profile=/etc/firejail/mutt.profile abduco -A -e '^q' mutt /usr/bin/mutt &
 }
 
 desktop5() {

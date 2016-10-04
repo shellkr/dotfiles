@@ -8,7 +8,7 @@ Xft.autohint: true
 Xft.lcdfilter: lcddefault
 
 URxvt*font: \
-    xft:PragmataPro:pixelsize=10:antialias=true,xft:Inconsolata for Powerline:pixelsize=11:antialias=true,\
+    xft:PragmataPro:pixelsize=12:antialias=true,xft:Inconsolata for Powerline:pixelsize=11:antialias=true,\
     xft:SauceCodePro NF:pixelsize=9, \
     xft:Sauce Code Powerline:pixelsize=10:antialias=true,\
     xft:FontAwesome:size=8, \
@@ -19,7 +19,7 @@ URxvt*font: \
     xft:Symbola:size=9,\
 URxvt*boldFont: xft:Sauce Code Powerline:size=9:antialias=true
 
-URxvt*letterSpace: 1
+URxvt*letterSpace: 0
 
 URxvt*saveLines: 10000
 !! #URxvt*transparent: true

@@ -3,14 +3,14 @@
 #export BSPWM_SOCKET=/tmp/bspwm-socket
 
 bspc monitor -d {,,,,,,,}
-bspc desktop -d 1
+#bspc desktop -d 1
 
 bspc config split_ratio     		0.52
 bspc config top_padding     		16
 bspc config border_width    		1
 bspc config window_gap      		8
-bspc config fence_grip      		100
-bspc config pointer_modifier		super
+#bspc config fence_grip      		100
+bspc config pointer_modifier		mod4
 #bspc config history_aware_focus 	true
 bspc config honor_size_hints 		true
 bspc config focus_follows_pointer	true
@@ -59,6 +59,7 @@ bspc rule -a URxvt:weechat		desktop='^5'
 bspc rule -a URxvt:rtorrent		desktop='^3'
 bspc rule -a Nautilus 			state=floating
 bspc rule -a Pavucontrol		state=floating
+bspc rule -a Toplevel:Firefox		state=floating
 bspc rule -a Acroread			state=floating
 bspc rule -a Pinentry			state=floating
 bspc rule -a Firefox:Dialog		state=floating

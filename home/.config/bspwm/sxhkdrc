@@ -8,15 +8,13 @@ super + shift + Escape
 
 ## Quit
 super + alt + Escape
-    wmctrl -c firefox && sync; \
-    pkill -2 rtorrent; \
-    pkill -USR2 offlineimap; \
-    pkill -USR2 mutt; \
-    pkill -USR2 weechat-curses; \
-    pkill -2 rtv; \
-    sleep 12; \
-    pkill panel; \
-    bspc quit
+    killer
+
+## kill panel, nicely ask all windows to close, quit.
+## todo: ask nicely for real.
+#super + shift + q
+#    for win in $(bspc query -N); do bspc node $win -c ; done; \
+#    bspc quit
 
 ## Close window
 super + Escape
@@ -30,10 +28,13 @@ super + n
 super + y
     bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
 
-
 ## Balance (in size) the desktop/workspace
 super + b
     bspc desktop -B
+
+## hide current node, or restore a queried hidden node
+super + {_,shift} + minus
+    bspc node {,$(bspc query -N -d -n .hidden | head -n 1)} -g hidden
 
 
 ### state/flags ###
@@ -71,9 +72,9 @@ alt + shift {1,2}
 super + m
     bspc node -s biggest
 
-## focus/swap the node in the given direction
-super + {_,shift + }{a,s,w,d}
-    bspc node -{f,s} {west,south,north,east}
+## focus/swap/preselect the node in the given direction
+super + {_,shift,ctrl + }{a,s,w,d}
+    bspc node -{f,s,p} {west,south,north,east}
 
 ## focus the node for the given path jump
 super + {h,b,comma,period,o}
@@ -105,8 +106,8 @@ super + {comma,period}
     bspc desktop -C {backward,forward}
 
 ## Preselect the direction
-super + ctrl + {a,s,w,d}
-    bspc node -p {west,south,north,east}
+#super + ctrl + {a,s,w,d}
+#    bspc node -p {west,south,north,east}
 
 ## Cancels the preselection for the focused node
 super + ctrl + Escape

@@ -24,8 +24,8 @@ zmodules=(directory environment git history input utility custom \
 
 # set your desired prompt here
 # zprompt_theme='xolan'
-zprompt_theme='eriner'
-
+#zprompt_theme='eriner'
+zprompt_theme='powerlevel9k'
 
 # Uncomment to enable command correction prompts; 'setopt CORRECT'
 # See: http://zsh.sourceforge.net/Doc/Release/Options.html#Input_002fOutput

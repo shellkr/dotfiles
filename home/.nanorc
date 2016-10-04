@@ -203,3 +203,5 @@ include "/usr/share/nano-syntax-highlighting/yum.nanorc"
 ## zshrc
 include "/usr/share/nano-syntax-highlighting/zsh.nanorc"
 
+## sxhkd
+include "/usr/share/nano-syntax-highlighting/sxhkd.nanorc"
