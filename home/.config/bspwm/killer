@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for p in {firefox,rtorrent,offlineimap,mutt,weechat-curses,rtv,panel};
+for p in {firefox,rtorrent,offlineimap,mutt,weechat-curses,rtv,panel,panel_dzen2};
 do
         while :;
         do

@@ -12,7 +12,20 @@ system_xinitrc() {
 
 use_gpg_agent() {
        # eval $(gpg-agent --daemon --no-grab --enable-ssh-support --allow-loopback-pinentry) &
+       # eval $(gpg-agent --homedir $HOME/.gnupg --use-standard-socket --daemon --no-grab --allow-preset-passphrase) &
+
+
+	# Start the gpg-agent if not already running
+	#if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
+  	#	gpg-connect-agent /bye >/dev/null 2>&1
+	#fi
+
 	/usr/lib/gnupg/gpg-preset-passphrase --preset $(head -1 ~/gpgpass) &
+
+	#unset SSH_AGENT_PID
+        #if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+        #	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+        #fi
 }
 
 init_desktop() {
@@ -31,6 +44,7 @@ init_desktop() {
 	$XDG_CONFIG_HOME/scripts/wallpaper_ch &
 	hot_edge.sh &
 	run_keybase &
+	ipfs daemon &
 #	/usr/bin/xcmenu &
 #	rm $HOME/.cache/rtorrent/session/rtorrent.lock
 	offlineimap -c ~/.mutt/offlineimaprc -l ~/.offlineimap.log 2>&1 /dev/null &
@@ -59,7 +73,7 @@ run_i3() {
 
 
 [[ $DISPLAY = ":0" ]] && {
-	use_gpg_agent
+#	use_gpg_agent
 	system_xinitrc
 	init_desktop
 }
