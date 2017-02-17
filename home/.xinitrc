@@ -37,14 +37,15 @@ init_desktop() {
 	xset -dpms &
     	xset s off &
     	xset s noblank &
-	autocutsel -fork &
-	autocutsel -selection PRIMARY -fork &
+#	autocutsel -fork &
+#	autocutsel -selection PRIMARY -fork &
 	compton --config $XDG_CONFIG_HOME/scripts/compton.conf -b &
 	numlockx &
 	$XDG_CONFIG_HOME/scripts/wallpaper_ch &
 	hot_edge.sh &
 	run_keybase &
 	ipfs daemon &
+	clipmenud &
 #	/usr/bin/xcmenu &
 #	rm $HOME/.cache/rtorrent/session/rtorrent.lock
 	offlineimap -c ~/.mutt/offlineimaprc -l ~/.offlineimap.log 2>&1 /dev/null &

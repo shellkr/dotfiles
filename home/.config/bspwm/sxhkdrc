@@ -166,10 +166,7 @@ ctrl + space
 	passmenu
 
 alt + space
-	xcmenuctrl -spc && xcmenuctrl
-
-shift + space
-	/usr/bin/textsuggest --language English
+	clipmenu -i -fn PragmataPro:size=10:antialias=true -nb '#2a2a29' -nf '#c4c6cb' -sb '#9f6400'
 
 shift + alt + space
 	/usr/bin/vendor_perl/dmenurl
