@@ -22,3 +22,7 @@ export RTV_EDITOR=nano
 
 ## Browser
 export BROWSER=w3m
+
+## GnuPG
+export GPG_TTY=$(tty)
+export GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent
