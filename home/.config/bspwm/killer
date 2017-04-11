@@ -8,7 +8,7 @@ do
                 pkill -2 rtorrent; \
                 pkill -USR2 offlineimap; \
                 pkill -USR2 mutt; \
-                pkill -USR2 weechat-curses; \
+                pkill weechat-curses; \
                 pkill -2 rtv; \
 		killall -9 panel{,_dzen2}
 
