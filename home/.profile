@@ -1,4 +1,4 @@
-PATH="/usr/games:$HOME/.config/bspwm:$PATH"
+PATH="/usr/games:$HOME/.config/bspwm:$HOME/go/bin:$PATH"
 
 ## Android
 

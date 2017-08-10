@@ -18,7 +18,6 @@ download_rate = 0
 upload_rate = 150
 
 # Default directory to save the downloaded torrents.
-#directory = /home/daniel/Downloads/
 directory = ~/.cache/rtorrent/incomplete
 
 

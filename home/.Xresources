@@ -34,9 +34,9 @@ URxvt*scrollBar_right: false
 URxvt*urgentOnBell: True
 
 URxvt*perl-ext: default,url-select,keyboard-select,clipboard,vtwheel
-!!URxvt*perl-ext: default,keyboard-select,matcher,clipboard,vtwheel
+!!!!URxvt*perl-ext: default,keyboard-select,matcher,clipboard,vtwheel
 URxvt*url-select.launcher: /usr/bin/firefox -new-tab
-!!URxvt*url-launcher: /usr/bin/firefox -new-tab
+!!!!URxvt*url-launcher: /usr/bin/firefox -new-tab
 URxvt*url-select.underline: true
 URxvt*matcher.button:   1
 URxvt*clipboard.autocopy: true

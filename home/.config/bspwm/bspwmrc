@@ -66,6 +66,7 @@ bspc rule -a Firefox:Dialog		state=floating
 bspc rule -a bashrun2 			state=floating
 bspc rule -a tempterm 			state=floating
 bspc rule -a Zat:zat 			state=floating
+bspc rule -a feh:feh 			state=floating
 
 ##         
 ## Focus last monitor

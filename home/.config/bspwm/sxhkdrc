@@ -58,7 +58,7 @@ super + alt + space
 
 ## Cycle the windows west/left.
 super + r
-    bspc node @/ -R 90 
+    bspc node @/ -R 90
 
 ## Toggle last focused windows or workspace/desktop back-and-forth (§,tab)
 super + {_,shift +}{Tab}
@@ -170,6 +170,11 @@ alt + space
 
 shift + alt + space
 	/usr/bin/vendor_perl/dmenurl
+
+## show image
+
+mode_switch + l
+	/usr/bin/feh $(/usr/bin/xclip -o)
 
 ## Media keys
 XF86AudioRaiseVolume

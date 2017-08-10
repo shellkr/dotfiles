@@ -43,9 +43,9 @@ init_desktop() {
 	numlockx &
 	$XDG_CONFIG_HOME/scripts/wallpaper_ch &
 	hot_edge.sh &
-	run_keybase &
-	ipfs daemon &
-	clipmenud &
+#	run_keybase &
+#	ipfs daemon &
+#	clipmenud &
 #	/usr/bin/xcmenu &
 #	rm $HOME/.cache/rtorrent/session/rtorrent.lock
 	offlineimap -c ~/.mutt/offlineimaprc -l ~/.offlineimap.log 2>&1 /dev/null &
