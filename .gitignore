@@ -5,3 +5,4 @@ home/.config/ranger/history
 home/.config/ranger/bookmarks
 home/.mpv/watch_later/*
 home/.config/gtk-3.0/bookmarks
+home/.config/gtk-2.0/gtkfilechooser.ini
