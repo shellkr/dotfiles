@@ -92,7 +92,7 @@ super + {_,shift + }c
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-    bspc {desktop -f,node -d} '^{1-9,10}'
+    bspc {desktop -f,node -d} '^{1-9,0}'
 
 
 #### preselect ####
@@ -164,6 +164,9 @@ button13
 
 ctrl + space
 	passmenu
+
+alt + enter
+	urxvtc -e sh -c "bspc node -t floating;zsh"
 
 alt + space
 	clipmenu -i -fn PragmataPro:size=10:antialias=true -nb '#2a2a29' -nf '#c4c6cb' -sb '#9f6400'

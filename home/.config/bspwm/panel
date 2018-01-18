@@ -69,3 +69,4 @@ cat "$PANEL_FIFO" | panel_dzen2 -f "$PANEL_FONT_FAMILY" -s "$PANEL_FONT_SIZE" -F
 "$COLOR_FOREGROUND" -bg "$COLOR_BACKGROUND"
 
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" $(xdo id -n dzen2)
+xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" $(xdo id -n dzen2)

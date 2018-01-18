@@ -10,23 +10,23 @@ desktop1() {
 ## Predefined Workspace 2
 desktop2() {
 	bspc desktop '^2' -l monocle
-	firefox
+	firefox-beta
 #	firejail --dns=8.8.8.8 --dns=8.8.4.4 --net=enp0s25 firefox
 }
 
 ## Predefined Workspace 3
 desktop3() {
-    urxvtc -name URthree && urxvtc -name rtorrent -e firejail --net=enp0s25 abduco -A -e '^q' rtorrent /usr/bin/rtorrent &
+    urxvtc -name URthree && urxvtc -name rtorrent -e firejail --name=rtorrent --net=enp0s25 abduco -A -e '^q' rtorrent /usr/bin/rtorrent &
 }
 
 ## Predefined Workspace 4
 desktop4() {
 	#urxvtc -name mutt -e mutt &
-	urxvtc -name mutt -e firejail --net=enp0s25 --profile=/etc/firejail/mutt.profile abduco -A -e '^q' mutt /usr/bin/mutt &
+	urxvtc -name mutt -e firejail --name=mutt --net=enp0s25 --profile=/etc/firejail/mutt.profile abduco -A -e '^q' mutt /usr/bin/neomutt &
 }
 
 desktop5() {
-	urxvtc -name weechat -e firejail --profile=/etc/firejail/weechat.profile --net=enp0s25 abduco -A -e '^q' weechat /usr/bin/weechat-curses &
+	urxvtc -name weechat -e firejail --name=weechat --profile=/etc/firejail/weechat.profile --net=enp0s25 abduco -A -e '^q' weechat /usr/bin/weechat-curses &
 }
 
 desktop6() {

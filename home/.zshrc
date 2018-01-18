@@ -2,19 +2,25 @@
 
 POWERLEVEL9K_INSTALLATION_PATH=~/.zim/modules/prompt/external-themes/powerlevel9k/powerlevel9k.zsh-theme
 #source $POWERLEVEL9K_INSTALLATION_PATH
+POWERLEVEL9K_MODE='nerdfont-complete'
 
 #POWERLEVEL9K_MODE='awesome-fontconfig'
 #POWERLEVEL9K_MODE='awesome-patched'
 #POWERLEVEL9K_MODE='compatible'
 #POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
-#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm node_version)
+DEFAULT_USER="v1rgul"
+POWERLEVEL9K_USER_ICON="\uf300" # 
+POWERLEVEL9K_OS_ICON="\uf300" # 
 
-#POWERLEVEL9K_OS_ICON_BACKGROUND="white"
-#POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
-#POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
-#POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
-#POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator time)
+
+
+POWERLEVEL9K_OS_ICON_BACKGROUND="white"
+POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
 
 ## Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=10000000
@@ -56,13 +62,13 @@ alias tl='trans -b'
 export GPG_TTY=$(tty)
 
 ## Start the gpg-agent if not already running
-#if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
-#  gpg-connect-agent /bye >/dev/null 2>&1
-#	gpg-agent --homedir $HOME/.gnupg --no-grab --allow-preset-passphrase --daemon
-#fi
+if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
+  gpg-connect-agent /bye >/dev/null 2>&1
+	gpg-agent --homedir $HOME/.gnupg --no-grab --allow-preset-passphrase --daemon
+fi
 
-# Refresh gpg-agent tty in case user switches into an X session
-#gpg-connect-agent updatestartuptty /bye >/dev/null
+## Refresh gpg-agent tty in case user switches into an X session
+gpg-connect-agent updatestartuptty /bye >/dev/null
 
 ## Set SSH to use gpg-agent
 #unset SSH_AGENT_PID

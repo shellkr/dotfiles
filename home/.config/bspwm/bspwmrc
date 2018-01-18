@@ -2,7 +2,7 @@
 
 #export BSPWM_SOCKET=/tmp/bspwm-socket
 
-bspc monitor -d {,,,,,,,,}
+bspc monitor -d {,,,,,,,,}
 #bspc desktop -d 1
 
 bspc config split_ratio     		0.52
@@ -43,7 +43,7 @@ bspc config urgent_border_color         "#EFA29A"
 #   rm "$BSPWM_TREE" "$BSPWM_HISTORY" "$BSPWM_STACK"
 #fi
 
-bspc rule -a Firefox 			desktop='^2' state=tiled focused=off
+bspc rule -a 'Firefox Beta':Navigator		desktop='^2' state=tiled focused=off
 bspc rule -a Popcorntime		desktop='^3' state=tiled focused=off
 bspc rule -a Geary			desktop='^4' state=floating center=on
 bspc rule -a Quirky			desktop='^5' state=floating
