@@ -50,19 +50,19 @@ desktop9() {
     sleep 2 && urxvtc -name madon_public -e firejail --name=madon_public --net=enp0s25 abduco -A -e '^q' madon_public \
     madonctl stream public --template-file ~/ansi-status.tmpl &
 
-    sleep 3 && bspc node $(xdo id -n madon_public) -z right -200 100 &
-    sleep 4 && bspc node -f $(xdo id -n madon_notifications) && bspc node -p south; urxvtc &
-    sleep 5 && bspc node -f $(xdo id -n madon_notifications) && bspc node -p east -o 0.5; urxvtc &
+    sleep 3 && bspc node $(xdo id -n madon_notifications) && bspc node -p south && urxvtc &
+    sleep 3 && bspc node $(xdo id -n madon_notifications) && bspc node -p east && urxvtc &
+    sleep 4 && bspc node $(xdo id -n madon_public) -z left -200 100 &
 }
 
-[ $1 ] && { desktop$1 } || {
-desktop1 &
-desktop2 &
-desktop3 &
-desktop4 &
-desktop5 &
-desktop6 &
-sleep 5 && desktop9 &
-}
+
+
+#desktop1 &
+#desktop2 &
+#desktop3 &
+#desktop4 &
+#desktop5 &
+#desktop6 &
+desktop9 &
 
 

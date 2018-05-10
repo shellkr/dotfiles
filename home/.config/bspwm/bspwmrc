@@ -50,8 +50,11 @@ bspc rule -a Quirky			desktop='^5' state=floating
 bspc rule -a mpv			desktop='^3' state=floating
 bspc rule -a gl 			desktop='^3' state=floating
 bspc rule -a Firefox:SessionManager	desktop='^2' state=floating layer=above
-bspc rule -a Gimp			desktop='^7' state=tiled manage=on
+bspc rule -a Gimp			desktop='^7' state=floating follow=on
 bspc rule -a URxvt:URthree		desktop='^3'
+bspc rule -a URxvt:madon_public		desktop='^9'
+bspc rule -a URxvt:madon_home		desktop='^9'
+bspc rule -a URxvt:madon_notifications	desktop='^9'
 bspc rule -a URxvt:rtv			desktop='^6'
 bspc rule -a URxvt:mutt			desktop='^4'
 bspc rule -a mutt			desktop='^4'

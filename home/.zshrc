@@ -58,14 +58,22 @@ alias mplay='DISPLAY=:0 xdotool key --window $(ps -aux | sed -n '/mp3/p' | grep 
 alias mprev='DISPLAY=:0 xdotool key --window $(ps -aux | sed -n '/mp3/p' | grep -Eo "[0]x0.......") "94"'
 alias mnext='DISPLAY=:0 xdotool key --window $(ps -aux | sed -n '/mp3/p' | grep -Eo "[0]x0.......") shift+"94"'
 alias tl='trans -b'
+alias tootr="madonctl toot --in-reply-to"
+alias toot="madonctl toot"
+alias boost="madonctl st boost -s"
+alias fav="madonctl st favourite -s"
+alias follow="madonctl accounts follow"
+alias bw='w3m $1'
+alias yt='mpv $1'
+
 
 export GPG_TTY=$(tty)
 
 ## Start the gpg-agent if not already running
-if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
-  gpg-connect-agent /bye >/dev/null 2>&1
-	gpg-agent --homedir $HOME/.gnupg --no-grab --allow-preset-passphrase --daemon
-fi
+#if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
+#  gpg-connect-agent /bye >/dev/null 2>&1
+#	gpg-agent --homedir $HOME/.gnupg --no-grab --allow-preset-passphrase --daemon
+#fi
 
 ## Refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye >/dev/null
@@ -85,25 +93,15 @@ fimg () {
         curl -s "$1" | feh - > /dev/null 2>&1
 }
 
-# mastodon
-mad () {
-	case $1 in
-		not) madonctl accounts notifications --list --all | colout '(^.*Status ID.*|^.*From.*)|(^.*Notification.*)|(Timestamp.*|^.*URL.*|Attachment.*|@.*)|(Contents.*|^[a-zA-Z1-9#"\+].*)|(^.*Account.*)|(^.*Type.*|^.*In-Reply.*)' 237,4,16,189,4,88 ;;
-		noc) madonctl accounts notifications --clear ;;
-		st) madonctl stream | colout '(^.*Status ID.*|^.*Notification.*)|(Timestamp.*|^.*URL.*|Attachment.*|^Event:.*)|(Contents.*|^[a-z].*|^[A-Z].*|^[1-9].*|^#.*|^".*|^\+.*|^\(.*|\).*)|(^.*Account.*|From.*)|(Reblogged.*)|(^.*Attachment.*)|(^.*Type.*)' 160,16,189,4,59,237,88 underline,bold,bold,normal ;;
-		stp) madonctl stream public | colout '(^.*Status ID.*|^.*Notification.*)|(Timestamp.*|^.*URL.*|Attachment.*|^Event:.*)|(Contents.*|^[a-z].*|^[A-Z].*|^[1-9].*|^#.*|^".*|^\+.*|^\(.*|\).*)|(^.*Account.*|From.*)|(Reblogged.*)|(^.*Attachment.*)|(^.*Type.*)' 160,16,189,4,59,237,88 underline,bold,bold,normal ;;
-		stl) madonctl stream local | colout '(^.*Status ID.*|^.*Notification.*)|(Timestamp.*|^.*URL.*|Attachment.*|^Event:.*)|(Contents.*|^[a-z].*|^[A-Z].*|^[1-9].*|^#.*|^".*|^\+.*|^\(.*|\).*)|(^.*Account.*|From.*)|(Reblogged.*)|(^.*Attachment.*)|(^.*Type.*)' 160,16,189,4,59,237,88 underline,bold,bold,normal ;;
-		addr) madonctl accounts follow -r $2
-	esac
-}
+## mastodon
+conty() { printf '%s\n' "$(madonctl status show --template-file ansi-status.tmpl -s $1 --color on)" "$(madonctl status context --template-file ansi-context.tmpl -s $1 --color on)" }
 
-
-#time in Stockholm
+##time in Stockholm
 klocka () {
         curl -s https://www.timeanddate.com/worldclock/sweden/stockholm | awk -F'(<*>|</)' '/id=ct/{print $21}'
 }
 
-#Weather forcast via nixCraft
+##Weather forcast via nixCraft
 wttr () {
 	curl http://wttr.in/$1
 }
@@ -114,7 +112,7 @@ who_where () {
 	sed 's/"//g'
 }
 
-# Make screencast or convert to yt
+## Make screencast or convert to yt
 ffsc () {
 
 vid_name="$HOME/Videos/Screencasts/screencast_$(date +'%y%m%d-%H%M%S')"
@@ -138,6 +136,20 @@ vid_name="$HOME/Videos/Screencasts/screencast_$(date +'%y%m%d-%H%M%S')"
                     echo
                     echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
                     echo "Output file name: ${yt_name/scr/yt_scr}"
+                    echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+                    echo
+		;;
+#                mini) ffmpeg -i $2 -strict -2 -s 1280x720  -r 60 -c:v libx264 -b:v 164 -crf 22 -preset slow \
+                mini) ffmpeg -i $2 -strict -2 -s 1680x1050  -r 60 -c:v libx264 -b:v 164 -crf 22 -preset slow \
+		      -pix_fmt yuv420p -c:a copy -an ${2/scr/mini_scr}
+		      mini_name=${2/scr/mini_scr}
+		      ffmpeg -i ${mini_name} -filter:v "setpts=0.5*PTS" -an ${mini_name/.mkv/.mp4}
+#		      ffmpeg -i ${mini_name} -filter_complex "[0:v]setpts=0.5*PTS[v];[0:a]atempo=2.0[a]" -map "[v]" -map "[a]" ${mini_name/.mkv/.mp4}
+		      rm ${mini_name}
+		    printf "${mini_name/.mkv/.mp4}" | xsel -i
+                    echo
+                    echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+                    echo "Output file name: ${mini_name/.mkv/.mp4}"
                     echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
                     echo
                 ;;

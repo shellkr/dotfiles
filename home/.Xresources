@@ -49,12 +49,6 @@ URxvt*keysym.M-a: perl:keyboard-select:activate
 URxvt*keysym.M-s: perl:keyboard-select:search
 URxvt*keysym.M-u: perl:url-select:select_next
 
-xterm*faceName: \
-	xft:PragmataPro:pixelsize=10:antialias=true, \
-	xft:Inconsolata for Powerline:pixelsize=11:antialias=true,\
-	xft:SauceCodePro NF:pixelsize=9, \
-	xft:FontAwesome:size=8, \
-	xft:PragmataPro Nerd Font:pixelsize=10
 xterm*termName: xterm-256color
 xterm*saveLines: 4096
 xterm*utf8: true

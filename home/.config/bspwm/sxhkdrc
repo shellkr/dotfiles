@@ -39,7 +39,6 @@ super + {_,shift} + minus
 
 ### state/flags ###
 
-
 ## Toggle floating or fullscreen
 super + {t,p,z,f}
     bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
@@ -52,9 +51,12 @@ super + alt + space
 	{smartsplit ; bspc node -i,\
 	for i in $(bspc query -N -n .leaf.!window.local); do bspc node $i -k; done}
 
+## Move window infront or behind other windows
+super + {_,shift} + v
+	bspc node -l {above,below}
+
 
 #### focus/swap ####
-
 
 ## Cycle the windows west/left.
 super + r
@@ -97,7 +99,6 @@ super + {_,shift + }{1-9,0}
 
 #### preselect ####
 
-
 super + {_,shift + }r
     bspc desktop -R 90
 
@@ -123,7 +124,6 @@ super + ctrl + {1-9}
 
 
 #### resize tiled/floating ####
-
 
 ## expand the tiled space in the given direction
 super + alt + {a,s,w,d}
@@ -165,19 +165,31 @@ button13
 ctrl + space
 	passmenu
 
-alt + enter
-	urxvtc -e sh -c "bspc node -t floating;zsh"
+## Open urxvt in a floating window
+mode_switch + k
+	urxvtc -g 160x40 -e sh -c "bspc node -t floating;zsh"
 
+## Open mpv in a floating window and play a yt video
+mode_switch + y
+	urxvtc -g 187x42 -e sh -c 'bspc node -t floating;mpv -wid=$(bspc query -N -n) --hwdec=vaapi --script-opts=osc-layout=box "$(xsel -p)"'
+
+## Open w3m in a floating window and open the copied link
+mode_switch + b
+        uxterm -fa 'xft:SauceCodePro NF:pixelsize=11' -geometry 160x50 -e sh -c "bspc node -t floating;w3m $(xsel -p)"
+
+## Show the clipboard
 alt + space
 	clipmenu -i -fn PragmataPro:size=10:antialias=true -nb '#2a2a29' -nf '#c4c6cb' -sb '#9f6400'
 
-shift + alt + space
-	/usr/bin/vendor_perl/dmenurl
-
-## show image
-
+## Show image from copied link
 mode_switch + l
 	/usr/bin/feh $(/usr/bin/xclip -o)
+
+Print
+	sleep 1 && /usr/bin/scrot -s ~/Pictures/scrots/'scrot_%Y%m%d-%H%M%S_$wx$h.png' -e 'printf $f|xclip'
+
+shift + Print
+	sleep 1 && /usr/bin/scrot -s ~/Pictures/scrots/'scrot_%Y%m%d-%H%M%S_$wx$h.png' -e 'curl -F c=@$f https://ptpb.pw/?u=1|xclip'
 
 ## Media keys
 XF86AudioRaiseVolume
