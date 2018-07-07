@@ -62,7 +62,7 @@ desktop3 &
 desktop4 &
 desktop5 &
 desktop6 &
-sleep 5 && desktop9 &
+#sleep 5 && desktop9 &
 }
 
 
