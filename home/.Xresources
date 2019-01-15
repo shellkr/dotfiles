@@ -33,21 +33,24 @@ URxvt*scrollWithBuffer: true
 URxvt*scrollBar_right: false
 URxvt*urgentOnBell: True
 
-URxvt*perl-ext: default,url-select,keyboard-select,clipboard,vtwheel
+!! URxvt*perl-ext: default,url-select,keyboard-select,clipboard,vtwheel
+URxvt*perl-ext: default,matcher,keyboard-select,vtwheel
 !!!!URxvt*perl-ext: default,keyboard-select,matcher,clipboard,vtwheel
-URxvt*url-select.launcher: /usr/bin/firefox -new-tab
-!!!!URxvt*url-launcher: /usr/bin/firefox -new-tab
+!! URxvt*url-select.launcher: /usr/bin/firefox -new-tab
+URxvt*url-launcher: /usr/bin/firefox -new-tab
 URxvt*url-select.underline: true
 URxvt*matcher.button:   1
-URxvt*clipboard.autocopy: true
+!! URxvt*clipboard.autocopy: true
+URxvt*selection-to-clipboard: true
 URxvt*selection.pattern-0: ([[:word:]]+)
 
-URxvt*keysym.M-c: perl:clipboard:copy
-URxvt*keysym.M-v: perl:clipboard:paste
-URxvt*keysym.M-C-v: perl:clipboard:paste_escaped
+!! URxvt*keysym.M-c: perl:clipboard:copy
+!! URxvt*keysym.M-v: perl:clipboard:paste
+!! URxvt*keysym.M-C-v: perl:clipboard:paste_escaped
 URxvt*keysym.M-a: perl:keyboard-select:activate
 URxvt*keysym.M-s: perl:keyboard-select:search
-URxvt*keysym.M-u: perl:url-select:select_next
+!! URxvt*keysym.M-u: perl:url-select:select_next
+URxvt*keysym.M-u: matcher:select
 
 xterm*termName: xterm-256color
 xterm*saveLines: 4096

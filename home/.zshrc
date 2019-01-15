@@ -45,11 +45,10 @@ alias cpu="ps -eo pcpu,args --no-headers | sort -k 1 -r -n | head"
 alias dmesg="dmesg -deL"
 alias diff='colordiff -yZEwBd'
 alias psc="ps xawf -eo pid,user,cgroup,args"
-alias fullupn='LOGDEST="/var/cache/" pacaur -Syu --devel --needed --noedit --noconfirm'
 age () { sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:' }
-used () { cat -n <(history 0 | awk '{ print $2}' | sort | uniq -c | sort -nr | head -n30) }
+used () { bat -n <(history 0 | awk '{ print $2}' | sort | uniq -c | sort -nr | head -n30) }
 alias g+='echo -en "\xe2\x80\x8b" | xsel -i'
-alias firefox='firejail --profile=/etc/firejail/firefox.profile --dns=8.8.8.8 --dns=8.8.4.4 --net=enp0s25 firefox'
+alias firefox='firejail --profile=/etc/firejail/firefox.profile --dns=9.9.9.9 --dns=1.1.1.1 --net=enp0s25 firefox-beta'
 alias sudo='sudo '
 alias chkspace='sudo du -hsx * | sort -rh | head'
 alias mutt="abduco -A -e '^q' mutt /usr/bin/mutt"
@@ -66,7 +65,10 @@ alias follow="madonctl accounts follow"
 alias bw='w3m $1'
 alias yt='mpv $1'
 
-
+fullup () {
+  yay -Syu --devel --needed --sudoloop --noconfirm --ignore $1 && pachist 60 && arch-audit | \
+  colout '(Package) (.*) (is.*) (Medium|Low) (.*)|(Package) (.*) (is.*) (High) (.*)' black,yellow,black,yellow,black,black,yellow,black,red,black
+}
 export GPG_TTY=$(tty)
 
 ## Start the gpg-agent if not already running
@@ -96,6 +98,11 @@ fimg () {
 ## mastodon
 conty() { printf '%s\n' "$(madonctl status show --template-file ansi-status.tmpl -s $1 --color on)" "$(madonctl status context --template-file ansi-context.tmpl -s $1 --color on)" }
 
+## Look up cheat sheets for commands
+cheat() {
+      curl cht.sh/$1
+  }
+
 ##time in Stockholm
 klocka () {
         curl -s https://www.timeanddate.com/worldclock/sweden/stockholm | awk -F'(<*>|</)' '/id=ct/{print $21}'
@@ -104,6 +111,15 @@ klocka () {
 ##Weather forcast via nixCraft
 wttr () {
 	curl http://wttr.in/$1
+}
+
+vind () {
+	[ "$1" = "v" ] && { curl -s 'http://opendata-download-metobs.smhi.se/explore/zip?parameterIds=3,4&stationId=180940&period=latest-day&includeMetadata=false' }
+	[ "$1" = "r" ] && { curl -s 'http://opendata-download-metobs.smhi.se/explore/zip?parameterIds=21&stationId=189720&period=latest-day&includeMetadata=false' }
+	echo
+	awk -F';' '/;G/{ total += $5; count++ } END { print "Dag: "total/count }' <<<$(curl -s 'http://opendata-download-metobs.smhi.se/explore/zip?parameterIds=3,4&stationId=180940&period=latest-day&includeMetadata=false')
+	awk -F';' '/;G/{ total += $5; count++ } END { print "Månad: "total/count }' <<<$(curl -s 'http://opendata-download-metobs.smhi.se/explore/zip?parameterIds=3,4&stationId=180940&period=latest-months&includeMetadata=false')
+	awk -F';' '/;G/{ total += $5; count++ } END { print "Hist: "total/count }' <<<$(curl -s 'http://opendata-download-metobs.smhi.se/explore/zip?parameterIds=3,4&stationId=180940&period=corrected-archive&includeMetadata=false')
 }
 
 who_where () {
@@ -158,11 +174,6 @@ vid_name="$HOME/Videos/Screencasts/screencast_$(date +'%y%m%d-%H%M%S')"
 
 # Python as a calculator
 pc() { python -c "print($*)"; } 
-
-#Search Google
-google () {
-        $(firefox --new-tab "https://encrypted.google.com/search?hl=en&q=$1")
-}
 
 pb () {
   curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -p

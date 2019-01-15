@@ -163,7 +163,7 @@ button13
 	xdotool key Return
 
 ctrl + space
-	passmenu
+	/usr/bin/passmenu
 
 ## Open urxvt in a floating window
 mode_switch + k
@@ -175,7 +175,7 @@ mode_switch + y
 
 ## Open w3m in a floating window and open the copied link
 mode_switch + b
-        uxterm -fa 'xft:SauceCodePro NF:pixelsize=11' -geometry 160x50 -e sh -c "bspc node -t floating;w3m $(xsel -p)"
+        uxterm -fa 'xft:SauceCodePro NF:pixelsize=11' -geometry 160x50 -e sh -c "bspc node -t floating;w3m \$(xsel -p)"
 
 ## Show the clipboard
 alt + space
