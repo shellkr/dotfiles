@@ -181,8 +181,15 @@ mode_switch + b
 alt + space
 	clipmenu -i -fn PragmataPro:size=10:antialias=true -nb '#2a2a29' -nf '#c4c6cb' -sb '#9f6400'
 
-## Show image from copied link
+## lock the screen
 mode_switch + l
+	i3lock -ng
+
+mode_switch + p
+	i3lock-fancy -p
+
+## Show image from copied link
+mode_switch + o
 	/usr/bin/feh $(/usr/bin/xclip -o)
 
 Print
@@ -190,6 +197,9 @@ Print
 
 shift + Print
 	sleep 1 && /usr/bin/scrot -s ~/Pictures/scrots/'scrot_%Y%m%d-%H%M%S_$wx$h.png' -e 'curl -F c=@$f https://ptpb.pw/?u=1|xclip'
+
+mode_switch + Print
+	sleep 1 && /usr/bin/scrot -s ~/Pictures/scrots/'scrot_%Y%m%d-%H%M%S_$wx$h.png' -e 'lp -d Lexmark_International_Lexmark_CS317dn_ -o fit-to-page -o media=A4 $f'
 
 ## Media keys
 XF86AudioRaiseVolume

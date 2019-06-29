@@ -7,6 +7,9 @@ Xft.hintstyle: hintslight
 Xft.autohint: true
 Xft.lcdfilter: lcddefault
 
+!! https://www.askapache.com/linux/rxvt-xresources/
+!! https://wiki.archlinux.org/index.php/Rxvt-unicode
+
 URxvt*font: \
     xft:PragmataPro:pixelsize=12:antialias=true,xft:Inconsolata for Powerline:pixelsize=11:antialias=true,\
     xft:SauceCodePro NF:pixelsize=9, \
@@ -31,25 +34,25 @@ URxvt*scrollBar: false
 URxvt*scrollstyle: plain
 URxvt*scrollWithBuffer: true
 URxvt*scrollBar_right: false
+URxvt*scrollTtyOutput:  false
 URxvt*urgentOnBell: True
 
 !! URxvt*perl-ext: default,url-select,keyboard-select,clipboard,vtwheel
 URxvt*perl-ext: default,matcher,keyboard-select,vtwheel
-!!!!URxvt*perl-ext: default,keyboard-select,matcher,clipboard,vtwheel
-!! URxvt*url-select.launcher: /usr/bin/firefox -new-tab
-URxvt*url-launcher: /usr/bin/firefox -new-tab
+!! #!!URxvt*perl-ext: default,keyboard-select,matcher,clipboard,vtwheel
+!! #URxvt*clipboard.autocopy: true
+URxvt*url-launcher: /usr/bin/firefox-beta
 URxvt*url-select.underline: true
-URxvt*matcher.button:   1
-!! URxvt*clipboard.autocopy: true
+URxvt*matcher.button: 2
+URxvt*matcher.rend.0: Uline Bold fg5
 URxvt*selection-to-clipboard: true
 URxvt*selection.pattern-0: ([[:word:]]+)
 
-!! URxvt*keysym.M-c: perl:clipboard:copy
-!! URxvt*keysym.M-v: perl:clipboard:paste
-!! URxvt*keysym.M-C-v: perl:clipboard:paste_escaped
-URxvt*keysym.M-a: perl:keyboard-select:activate
-URxvt*keysym.M-s: perl:keyboard-select:search
-!! URxvt*keysym.M-u: perl:url-select:select_next
+!! #URxvt*keysym.M-c: perl:clipboard:copy
+!! #URxvt*keysym.M-v: perl:clipboard:paste
+!! #URxvt*keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt*keysym.M-a: keyboard-select:activate
+URxvt*keysym.M-s: keyboard-select:search
 URxvt*keysym.M-u: matcher:select
 
 xterm*termName: xterm-256color

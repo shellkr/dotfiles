@@ -103,9 +103,14 @@ cheat() {
       curl cht.sh/$1
   }
 
+## Have I Been Pwned checker
+hibp() {
+        curl -fsS "https://haveibeenpwned.com/api/v2/breachedaccount/$1" | jq -r 'sort_by(.BreachDate)[] | [.Title,.Domain,.BreachDate,.PwnCount] | @tsv' | column -t -s$'\t'
+}
+
 ##time in Stockholm
 klocka () {
-        curl -s https://www.timeanddate.com/worldclock/sweden/stockholm | awk -F'(<*>|</)' '/id=ct/{print $21}'
+        curl -s https://www.timeanddate.com/worldclock/sweden/stockholm | awk -F'(<span id=ct class=h1>|</span>)' '/id=ct/{print $2}'
 }
 
 ##Weather forcast via nixCraft

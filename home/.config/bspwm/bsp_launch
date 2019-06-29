@@ -10,13 +10,14 @@ desktop1() {
 ## Predefined Workspace 2
 desktop2() {
 	bspc desktop '^2' -l monocle
-#	firefox-beta
-	firejail --profile=/etc/firejail/firefox.profile --dns=1.1.1.1 --dns=9.9.9.9 --net=enp0s25 firefox-beta
+	firefox-beta
+#	firejail --profile=/etc/firejail/firefox.profile --dns=1.1.1.1 --dns=9.9.9.9 --net=enp0s25 firefox-beta
 }
 
 ## Predefined Workspace 3
 desktop3() {
-    urxvtc -name URthree && urxvtc -name rtorrent -e firejail --name=rtorrent  --dns=1.1.1.1 --dns=9.9.9.9 --net=enp0s25 abduco -A -e '^q' rtorrent /usr/bin/rtorrent &
+#    urxvtc -name URthree && urxvtc -name rtorrent -e firejail --name=rtorrent  --dns=1.1.1.1 --dns=9.9.9.9 --net=enp0s25 abduco -A -e '^q' rtorrent /usr/bin/rtorrent &
+    urxvtc -name URthree && urxvtc -name rtorrent -e /usr/bin/rtorrent &
 }
 
 ## Predefined Workspace 4
@@ -59,9 +60,9 @@ desktop9() {
 desktop1 &
 desktop2 &
 desktop3 &
-desktop4 &
-desktop5 &
-desktop6 &
+#desktop4 &
+#desktop5 &
+#desktop6 &
 #sleep 5 && desktop9 &
 }
 
