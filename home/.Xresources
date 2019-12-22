@@ -11,21 +11,21 @@ Xft.lcdfilter: lcddefault
 !! https://wiki.archlinux.org/index.php/Rxvt-unicode
 
 URxvt*font: \
-    xft:PragmataPro:pixelsize=12:antialias=true,xft:Inconsolata for Powerline:pixelsize=11:antialias=true,\
+    xft:PragmataPro:pixelsize=11:antialias=true,xft:Inconsolata for Powerline:pixelsize=11:antialias=true,\
     xft:SauceCodePro NF:pixelsize=9, \
-    xft:Sauce Code Powerline:pixelsize=10:antialias=true,\
     xft:FontAwesome:size=8, \
-    xft:SourceCodePro:size=9,\
-    xft:DejaVuSansMono:size=11,\
-    xft:DroidSansMono:size=11,\
-    xft:Inconsolata:size=12,\
     xft:Symbola:size=9,\
-URxvt*boldFont: xft:Sauce Code Powerline:size=9:antialias=true
+URxvt*boldFont: xft:SauceCodePro NF:size=9:antialias=true
+
+!!    xft:DejaVuSansMono:size=11,\
+!!    xft:DroidSansMono:size=11,\
+!!    xft:Inconsolata:size=12,\
+
 
 URxvt*letterSpace: 0
 
 URxvt*saveLines: 10000
-!! #URxvt*transparent: true
+!!URxvt*transparent: true
 URxvt*depth: 32
 URxvt*shading: 26
 
@@ -34,7 +34,7 @@ URxvt*scrollBar: false
 URxvt*scrollstyle: plain
 URxvt*scrollWithBuffer: true
 URxvt*scrollBar_right: false
-URxvt*scrollTtyOutput:  false
+URxvt*scrollTtyOutput:  true
 URxvt*urgentOnBell: True
 
 !! URxvt*perl-ext: default,url-select,keyboard-select,clipboard,vtwheel
@@ -55,10 +55,24 @@ URxvt*keysym.M-a: keyboard-select:activate
 URxvt*keysym.M-s: keyboard-select:search
 URxvt*keysym.M-u: matcher:select
 
+URxvt*keysym.M-C-1: command:\033]710;xft:PragmataPro:pixelsize=10:antialias=true\007\033]711;xft:PragmataPro:pixelsize=10:antialias=true\007
+URxvt*keysym.M-C-2: command:\033]710;xft:SauceCodePro NF:pixelsize=10:antialias=true\007\033]711;xft:SauceCodePro NF:pixelsize=10:antialias=true\007
+
 xterm*termName: xterm-256color
 xterm*saveLines: 4096
+!!xterm*vt100.locale: true
 xterm*utf8: true
-Xterm*alternateScroll: true
+!!xterm*vt100.autoWrap: false
+xterm*vt100.metaSendsEscape: true
+xterm*alternateScroll: true
+!!xterm*scaleHeight: 0.95
+xterm*faceName:SauceCodePro NF:pixelsize=10
+
+!! For libsixel support
+xterm*decTerminalID: vt340
+xterm*allowWindowOps      : False
+xterm*disallowedWindowOps : 1,2,3,4,5,6,7,8,9,11,13,18,19,20,21,GetSelection,SetSelection,SetWinLines,SetXprop
+
 
 !! Rofi Colors bg,fg,albg,hlbg,hlfg (rofi -dump-Xresources)
 rofi*color-enabled: true

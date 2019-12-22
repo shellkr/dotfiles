@@ -1,31 +1,44 @@
 #source $HOME/.config/powerlevel9k/powerlevel9k.zsh-theme
+source ~/.zsh_plugins.sh
 
-POWERLEVEL9K_INSTALLATION_PATH=~/.zim/modules/prompt/external-themes/powerlevel9k/powerlevel9k.zsh-theme
+#POWERLEVEL10K_INSTALLATION_PATH=~/.zim/modules/prompt/external-themes/powerlevel9k/powerlevel9k.zsh-theme
 #source $POWERLEVEL9K_INSTALLATION_PATH
-POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL10K_MODE='nerdfont-complete'
 
 #POWERLEVEL9K_MODE='awesome-fontconfig'
 #POWERLEVEL9K_MODE='awesome-patched'
 #POWERLEVEL9K_MODE='compatible'
 #POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 DEFAULT_USER="v1rgul"
-POWERLEVEL9K_USER_ICON="\uf300" # 
-POWERLEVEL9K_OS_ICON="\uf300" # 
+POWERLEVEL10K_USER_ICON="\uf300" # 
+POWERLEVEL10K_OS_ICON="\uf300" # 
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator time)
+POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(status root_indicator time)
 
 
-POWERLEVEL9K_OS_ICON_BACKGROUND="white"
-POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
-POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
+POWERLEVEL10K_OS_ICON_BACKGROUND="white"
+POWERLEVEL10K_OS_ICON_FOREGROUND="blue"
+POWERLEVEL10K_DIR_HOME_FOREGROUND="white"
+POWERLEVEL10K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
+POWERLEVEL10K_DIR_DEFAULT_FOREGROUND="white"
+
+
+autoload -Uz compinit
+[[ -n ${HOME}/.zcompdump(#qN.mh+24) ]] && compinit || compinit -C;
 
 ## Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.zsh_history
+
+bindkey "^[[3~" delete-char
+bindkey "^[[7~" beginning-of-line
+bindkey "^[[8~" end-of-line
+bindkey "^[[5~" beginning-of-history
+bindkey "^[[6~" end-of-history
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
 
 export TERM="rxvt-256color"
 export EDITOR="nano"
@@ -34,7 +47,7 @@ export GREP_COLORS='ms=01;33'
 source <(madonctl completion zsh)
 
 ## Transparent Xterm
-[ -n "$XTERM_VERSION" ] && transset-df -a >/dev/null
+[ -n "$XTERM_VERSION" ] && transset-df -a 0.90 >/dev/null
 
 ## My Aliases
 alias ls="ls -FshX --color=auto --group-directories-first"
@@ -45,11 +58,10 @@ alias cpu="ps -eo pcpu,args --no-headers | sort -k 1 -r -n | head"
 alias dmesg="dmesg -deL"
 alias diff='colordiff -yZEwBd'
 alias psc="ps xawf -eo pid,user,cgroup,args"
-age () { sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:' }
-used () { bat -n <(history 0 | awk '{ print $2}' | sort | uniq -c | sort -nr | head -n30) }
 alias g+='echo -en "\xe2\x80\x8b" | xsel -i'
 alias firefox='firejail --profile=/etc/firejail/firefox.profile --dns=9.9.9.9 --dns=1.1.1.1 --net=enp0s25 firefox-beta'
 alias sudo='sudo '
+alias icat='kitty +kitten icat'
 alias chkspace='sudo du -hsx * | sort -rh | head'
 alias mutt="abduco -A -e '^q' mutt /usr/bin/mutt"
 alias mpv='mpv -wid=$(bspc query -N -n) $1'
@@ -65,10 +77,15 @@ alias follow="madonctl accounts follow"
 alias bw='w3m $1'
 alias yt='mpv $1'
 
+age () { sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:' }
+
+used () { bat -n <(history 0 | awk '{ print $2}' | sort | uniq -c | sort -nr | head -n30) }
+
 fullup () {
   yay -Syu --devel --needed --sudoloop --noconfirm --ignore $1 && pachist 60 && arch-audit | \
   colout '(Package) (.*) (is.*) (Medium|Low) (.*)|(Package) (.*) (is.*) (High) (.*)' black,yellow,black,yellow,black,black,yellow,black,red,black
 }
+
 export GPG_TTY=$(tty)
 
 ## Start the gpg-agent if not already running

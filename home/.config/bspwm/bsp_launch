@@ -4,7 +4,8 @@
 ## Predefined Workspace 1
 desktop1() {
     	#urxvtc && urxvtc && urxvtc
-	urxvtc && urxvtc && urxvtc
+#	urxvtc --transparent -depth 16 --visual 256 && kitty && uxterm
+	urxvtc && urxvtc && kitty -T 'kitty'
 }
 
 ## Predefined Workspace 2

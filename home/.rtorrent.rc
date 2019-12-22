@@ -35,11 +35,11 @@ schedule = untied_directory,5,5,close_untied=
   #d.set_custom1=vlc1,"execute=vlc,$d.get_base_path="
 
 # Run move script of completed torrents to place them according to their type
-system.method.set_key = event.download.finished,run_me,"execute={~/./.rtmove,$d.get_base_path=}" 
+method.set_key = event.download.finished,run_me,"execute2={~/./.rtmove,$d.base_path=}" 
 
 # When torrent is removed delete the files.
   #system.method.set_key = event.download.erased,remove_file1,"execute={rm,-rf,--,$d.get_base_path=}"
-system.method.set_key = event.download.erased,remove_file2,"execute={~/./.rtremove,$d.get_name=,$d.get_hash=}"
+method.set_key = event.download.erased,remove_file2,"execute2={~/./.rtremove,$d.name=,$d.hash=}"
 #system.method.set_key = event.download.erased,remove_file2,"execute={~/./.rtremove,$d.get_name=}"
   #;rm,-drf,--,~/Videos/,$d.get_name=}"
 
@@ -94,7 +94,7 @@ check_hash = yes
 
 # Enable peer exchange (for torrents not marked private)
 #
- peer_exchange = yes
+protocol.pex.set = yes
 
 
 

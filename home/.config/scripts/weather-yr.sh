@@ -86,7 +86,7 @@ do
 		7|12|42|47|48) fcast=$(awk 'sub(/C.*/, "°C \\u2592")' <<<$i) ;; # sleet
 		15) fcast=$(awk 'sub(/C.*/, "°C \\u2636")' <<<$i) ;; # fog
 		8|13|44|45|49|50) fcast=$(awk 'sub(/C.*/, "°C \\u2744")' <<<$i) ;; # snow
-		*) echo "n/a ($i)" ;;
+	#	*) echo "n/a ($i)" ;;
 	esac
 
 	fcasts+=( $fcast )
@@ -102,4 +102,5 @@ IFS=${old_ifs}
 ## Make the forcasts and date output correct
 #echo $(paste -d' ' <(printf "%s\n" "${fcasts[@]:0:$witr}") <(printf "%s\n" "${wdates[@]:0:$witr}"))
 echo $(printf "%s${sep} \n" "${fcasts[@]:0:$witr}")
+
 

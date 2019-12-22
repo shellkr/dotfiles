@@ -68,7 +68,7 @@ while read -r line ; do
         #    sys_volume="^fg($FG)^bg($COLOR_STATUS_BG)${PADDING}^fn(${icons_font_family}:pixelsize=${icons_font_size})${icon_state}^fn()${PADDING}^fg()^bg()"
         #    ;;
      	F*)
-            weather_infos="^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)${PADDING}${line#?}${PADDING}^fg()^bg()${PADDING}${PADDING}"
+            weather_infos="^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, uxterm -geometry 125x41 -e sh -c \"bspc node -t floating;curl -s 'wttr.in/kiruna';read -p ' '\")${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}${PADDING}"
 			;;
      	G*)
             inbox="^fn(FontAwesome:size=8)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc desktop -f ^4)${line#?}${PADDING}^ca()^fg()^bg()${PADDING}${PADDING}"
