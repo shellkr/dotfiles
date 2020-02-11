@@ -28,7 +28,8 @@ desktop4() {
 }
 
 desktop5() {
-	urxvtc -name weechat -e firejail --name=weechat --profile=/etc/firejail/weechat.profile --dns=1.1.1.1 --dns=9.9.9.9 --net=enp0s25 abduco -A -e '^q' weechat /usr/bin/weechat-curses &
+#	urxvtc -name weechat -e firejail --name=weechat --profile=/etc/firejail/weechat.profile --dns=1.1.1.1 --dns=9.9.9.9 --net=enp0s25 abduco -A -e '^q' weechat /usr/bin/weechat-curses &
+	urxvtc -name weechat -e /usr/bin/weechat-curses &
 }
 
 desktop6() {

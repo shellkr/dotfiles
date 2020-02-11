@@ -34,12 +34,11 @@ init_desktop() {
 	setxkbmap -option terminate:ctrl_alt_bksp
 	setxkbmap -option ctrl:nocaps &
 	xsetroot -cursor_name left_ptr &
-	xset -dpms &
-    	xset s off &
-    	xset s noblank &
+    	xset s off -dpms &
+#    	xset s noblank &
 #	autocutsel -fork &
 #	autocutsel -selection PRIMARY -fork &
-	compton --config $XDG_CONFIG_HOME/scripts/compton.conf -b &
+	picom --config $XDG_CONFIG_HOME/scripts/picom.conf -b &
 	numlockx &
 	$XDG_CONFIG_HOME/scripts/wallpaper_ch &
 	hot_edge.sh &

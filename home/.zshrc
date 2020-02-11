@@ -1,27 +1,21 @@
-#source $HOME/.config/powerlevel9k/powerlevel9k.zsh-theme
 source ~/.zsh_plugins.sh
 
 #POWERLEVEL10K_INSTALLATION_PATH=~/.zim/modules/prompt/external-themes/powerlevel9k/powerlevel9k.zsh-theme
-#source $POWERLEVEL9K_INSTALLATION_PATH
-POWERLEVEL10K_MODE='nerdfont-complete'
+POWERLEVEL9K_MODE='nerdfont-complete'
 
-#POWERLEVEL9K_MODE='awesome-fontconfig'
-#POWERLEVEL9K_MODE='awesome-patched'
-#POWERLEVEL9K_MODE='compatible'
-#POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 DEFAULT_USER="v1rgul"
-POWERLEVEL10K_USER_ICON="\uf300" # 
-POWERLEVEL10K_OS_ICON="\uf300" # 
+POWERLEVEL9K_USER_ICON="\uf300" # 
+POWERLEVEL9K_OS_ICON="\uf300" # 
 
-POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(status root_indicator time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator time)
 
 
-POWERLEVEL10K_OS_ICON_BACKGROUND="white"
-POWERLEVEL10K_OS_ICON_FOREGROUND="blue"
-POWERLEVEL10K_DIR_HOME_FOREGROUND="white"
-POWERLEVEL10K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
-POWERLEVEL10K_DIR_DEFAULT_FOREGROUND="white"
+POWERLEVEL9K_OS_ICON_BACKGROUND="white"
+POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
 
 
 autoload -Uz compinit
@@ -44,10 +38,10 @@ export TERM="rxvt-256color"
 export EDITOR="nano"
 export GREP_COLORS='ms=01;33'
 
-source <(madonctl completion zsh)
+#source <(madonctl completion zsh)
 
 ## Transparent Xterm
-[ -n "$XTERM_VERSION" ] && transset-df -a 0.90 >/dev/null
+#[ -n "$XTERM_VERSION" ] && transset-df -a 0.90 >/dev/null
 
 ## My Aliases
 alias ls="ls -FshX --color=auto --group-directories-first"
@@ -113,7 +107,7 @@ fimg () {
 }
 
 ## mastodon
-conty() { printf '%s\n' "$(madonctl status show --template-file ansi-status.tmpl -s $1 --color on)" "$(madonctl status context --template-file ansi-context.tmpl -s $1 --color on)" }
+#conty() { printf '%s\n' "$(madonctl status show --template-file ansi-status.tmpl -s $1 --color on)" "$(madonctl status context --template-file ansi-context.tmpl -s $1 --color on)" }
 
 ## Look up cheat sheets for commands
 cheat() {
@@ -221,6 +215,7 @@ extract () {
           *.zip)       unzip $1       ;;
           *.Z)         uncompress $1  ;;
           *.7z)        7z x $1        ;;
+	  *.xz)        unxz $1	      ;;
           *)           echo "don't know how to extract '$1'..." ;;
       esac
   else

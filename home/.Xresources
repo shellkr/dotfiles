@@ -37,8 +37,8 @@ URxvt*scrollBar_right: false
 URxvt*scrollTtyOutput:  true
 URxvt*urgentOnBell: True
 
-!! URxvt*perl-ext: default,url-select,keyboard-select,clipboard,vtwheel
-URxvt*perl-ext: default,matcher,keyboard-select,vtwheel
+!! #URxvt*perl-ext: default,url-select,keyboard-select,clipboard,vtwheel
+URxvt*perl-ext: default,matcher,keyboard-select
 !! #!!URxvt*perl-ext: default,keyboard-select,matcher,clipboard,vtwheel
 !! #URxvt*clipboard.autocopy: true
 URxvt*url-launcher: /usr/bin/firefox-beta

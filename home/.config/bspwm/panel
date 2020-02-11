@@ -54,7 +54,7 @@ function datum() {
 }
 
 bspc subscribe report > "$PANEL_FIFO" &
-xtitle -sf "T%s" > "$PANEL_FIFO" &
+xtitle -sf "T%s\n" > "$PANEL_FIFO" &
 weather > "$PANEL_FIFO" &
 gmail > "$PANEL_FIFO" &
 tid > "$PANEL_FIFO" &
