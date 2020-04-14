@@ -150,7 +150,7 @@ ffsc () {
 vid_name="$HOME/Videos/Screencasts/screencast_$(date +'%y%m%d-%H%M%S')"
 
         case $1 in
-                sc) ffmpeg -f x11grab -s 1920x1080 -i $DISPLAY -r 30 -f alsa -i default -preset ultrafast \
+                sc) ffmpeg -f x11grab -s 1920x1080 -i $DISPLAY -r 30 -f pulse -i default -preset ultrafast \
                     -c:v ffvhuff -c:a flac ${vid_name}.mkv
                     printf "${vid_name}.mkv" | xsel -i
                     echo

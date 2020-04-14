@@ -1,4 +1,4 @@
-PATH="/usr/games:$HOME/.config/bspwm:$HOME/go/bin:$PATH"
+PATH="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:/usr/games:$HOME/.config/bspwm:$HOME/go/bin:$PATH"
 
 ## Android
 
