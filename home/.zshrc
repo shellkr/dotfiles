@@ -171,12 +171,10 @@ vid_name="$HOME/Videos/Screencasts/screencast_$(date +'%y%m%d-%H%M%S')"
                     echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
                     echo
 		;;
-#                mini) ffmpeg -i $2 -strict -2 -s 1280x720  -r 60 -c:v libx264 -b:v 164 -crf 22 -preset slow \
                 mini) ffmpeg -i $2 -strict -2 -s 1680x1050  -r 60 -c:v libx264 -b:v 164 -crf 22 -preset slow \
 		      -pix_fmt yuv420p -c:a copy -an ${2/scr/mini_scr}
 		      mini_name=${2/scr/mini_scr}
 		      ffmpeg -i ${mini_name} -filter:v "setpts=0.5*PTS" -an ${mini_name/.mkv/.mp4}
-#		      ffmpeg -i ${mini_name} -filter_complex "[0:v]setpts=0.5*PTS[v];[0:a]atempo=2.0[a]" -map "[v]" -map "[a]" ${mini_name/.mkv/.mp4}
 		      rm ${mini_name}
 		    printf "${mini_name/.mkv/.mp4}" | xsel -i
                     echo

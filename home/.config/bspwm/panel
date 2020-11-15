@@ -37,10 +37,10 @@ function weather() {
 function tid() {
 	while true
 	do
-		idl=$(python -c "print(($(xprintidle)/1000)/60)"|cut -d'.' -f1)
+#		idl=$(python -c "print(($(xprintidle)/1000)/60)"|cut -d'.' -f1)
 		klocka="$(date +'%H:%M')"
-		echo "C$klocka ($idl)"
-		sleep 10
+		echo "C$klocka" # ($idl)"
+		sleep 60
 	done < <(echo)
 }
 

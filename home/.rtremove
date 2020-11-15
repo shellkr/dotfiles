@@ -18,7 +18,7 @@ elif [ $file_dir/$1 = "" ]; then
 	echo "err2: empty string, aborting" >> rtorrent.log
         exit 1
 else
-        echo "d5: Not a directory: $1" >> rtorrent.log
+#        echo "d5: Not a directory: $1" >> rtorrent.log
 	rm -vf ~/{.cache/rtorrent/incomplete,Downloads,Documents,Videos}/${1} >> rtorrent.log
 fi
 

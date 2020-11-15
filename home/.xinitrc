@@ -41,12 +41,13 @@ init_desktop() {
 	picom --config $XDG_CONFIG_HOME/scripts/picom.conf -b &
 	numlockx &
 	$XDG_CONFIG_HOME/scripts/wallpaper_ch &
-	hot_edge.sh &
+#	hot_edge.sh &
 #	run_keybase &
 #	ipfs daemon &
-#	clipmenud &
+	clipmenud &
 #	/usr/bin/xcmenu &
-#	offlineimap -c ~/.mutt/offlineimaprc -l ~/.offlineimap.log 2>&1 /dev/null &
+	offlineimap -c ~/.mutt/offlineimaprc -l ~/.offlineimap.log 2>&1 /dev/null &
+	bluetoothctl power on &
 #        [ -e $HOME/.cache/rtorrent/session/rtorrent.lock ] && rm $HOME/.cache/rtorrent/session/rtorrent.lock;
 }
 

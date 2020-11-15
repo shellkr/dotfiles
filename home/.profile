@@ -2,9 +2,9 @@ PATH="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:/u
 
 ## Android
 
-if [ -d "/opt/android-sdk/platform-tools" ] ; then
-  PATH="/opt/android-sdk/platform-tools:$PATH"
-fi
+#if [ -d "/opt/android-sdk/platform-tools" ] ; then
+#  PATH="/opt/android-sdk/platform-tools:$PATH"
+#fi
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"

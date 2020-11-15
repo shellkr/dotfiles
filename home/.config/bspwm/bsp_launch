@@ -4,14 +4,15 @@
 ## Predefined Workspace 1
 desktop1() {
     	#urxvtc && urxvtc && urxvtc
-#	urxvtc --transparent -depth 16 --visual 256 && kitty && uxterm
-	urxvtc && urxvtc && kitty -T 'kitty'
+#	urxvtc --transparent -depth 16 --visual 256 && kitty -T kitty && uxterm
+	urxvtc && urxvtc && urxvtc && bspc node -p south -o 0.8 && urxvtc -hold -e zsh -c 'source ~/.zshrc && ffsc sc' &
+
 }
 
 ## Predefined Workspace 2
 desktop2() {
-	bspc desktop '^2' -l monocle
-	firefox-beta
+	bspc desktop '^2' -l monocle &
+	firefox-beta &
 #	firejail --profile=/etc/firejail/firefox.profile --dns=1.1.1.1 --dns=9.9.9.9 --net=enp0s25 firefox-beta
 }
 
@@ -23,8 +24,8 @@ desktop3() {
 
 ## Predefined Workspace 4
 desktop4() {
-	#urxvtc -name mutt -e mutt &
-	urxvtc -name mutt -e firejail --name=mutt --dns=1.1.1.1 --dns=9.9.9.9 --net=enp0s25 --profile=/etc/firejail/mutt.profile abduco -A -e '^q' mutt /usr/bin/neomutt &
+	urxvtc -name mutt -e neomutt &
+	#urxvtc -name mutt -e firejail --name=mutt --dns=1.1.1.1 --dns=9.9.9.9 --net=enp0s25 --profile=/etc/firejail/mutt.profile abduco -A -e '^q' mutt /usr/bin/neomutt &
 }
 
 desktop5() {
@@ -33,15 +34,18 @@ desktop5() {
 }
 
 desktop6() {
-	urxvtc -name rtv -fn "xft:PragmataPro:style=Regular:pixelsize=12, \
-	xft:Inconsolata for Powerline:pixelsize=11,xft:SauceCodePro NF,xft:FontAwesome" \
-	-e rtv -s linux
-	urxvtc -name rtv -fn "xft:PragmataPro:style=Regular:pixelsize=12, \
-	xft:Inconsolata for Powerline:pixelsize=11,xft:SauceCodePro NF,xft:FontAwesome" \
-	-e rtv -s unixporn
-	urxvtc -name rtv -fn "xft:PragmataPro:style=Regular:pixelsize=12, \
-	xft:Inconsolata for Powerline:pixelsize=11,xft:SauceCodePro NF,xft:FontAwesome" \
-	-e rtv -s archlinux
+	#urxvtc -name rtv -fn "xft:PragmataPro:style=Regular:pixelsize=12, \
+	#xft:Inconsolata for Powerline:pixelsize=11,xft:SauceCodePro NF,xft:FontAwesome" \
+	#-e rtv -s linux
+	#urxvtc -name rtv -fn "xft:PragmataPro:style=Regular:pixelsize=12, \
+	#xft:Inconsolata for Powerline:pixelsize=11,xft:SauceCodePro NF,xft:FontAwesome" \
+	#-e rtv -s unixporn
+	#urxvtc -name rtv -fn "xft:PragmataPro:style=Regular:pixelsize=12, \
+	#xft:Inconsolata for Powerline:pixelsize=11,xft:SauceCodePro NF,xft:FontAwesome" \
+	#-e rtv -s archlinux
+	uxterm -class Rtv -T rtv -fa 'xft:PragmataPro Nerd Font:style=Regular;pixelsize=10' -e rtv -s linux &
+	uxterm -class Rtv -T rtv -fa 'xft:PragmataPro Nerd Font:style=Regular:pixelsize=10' -e rtv -s unixporn &
+	uxterm -class Rtv -T rtv -fa 'xft:PragmataPro:style=Regular:pixelsize=10' -e rtv -s archlinux &
 }
 
 ## Madonctl on Workspace 9
@@ -62,10 +66,8 @@ desktop9() {
 desktop1 &
 desktop2 &
 desktop3 &
-#desktop4 &
-#desktop5 &
-#desktop6 &
+desktop4 &
+desktop5 &
+desktop6 &
 #sleep 5 && desktop9 &
 }
-
-

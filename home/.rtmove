@@ -3,10 +3,12 @@
 ## Where the files are located
 file_dir="$HOME/.cache/rtorrent/incomplete"
 
+#1="${1:l}"
+
 sleep 2
 
 echo "\n$(date +'[%y%m%d-%T]')" >> rtorrent.log
-echo "1:$1" >> rtorrent.log
+echo "1: $1" >> rtorrent.log
 
 ## Function for moving files to either ~/Documents, ~/Videos or ~/Downloads depending on file extension
 function move_files() {
@@ -29,6 +31,7 @@ if [ -d $1 ]; then
 	video_file="$(file -F' ' --mime-encoding $1/*(^-oL[1])|awk '/binary/{print $1}')"
 	echo "video_file: $video_file" >> rtorrent.log
 	if [ "$(file -b --mime-encoding $1/*(^-oL[1])|grep -o 'binary')" = "binary" ]; then
+#		video_file=${video_file:l}
 		mv -vu $video_file $file_dir >> rtorrent.log
 		ln -vs $file_dir/$(basename $video_file) $1 >> rtorrent.log
 		1="$file_dir/$(basename $video_file)"

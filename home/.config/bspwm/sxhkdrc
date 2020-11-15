@@ -198,8 +198,14 @@ Print
 shift + Print
 	sleep 1 && /usr/bin/scrot -s ~/Pictures/scrots/'scrot_%Y%m%d-%H%M%S_$wx$h.png' -e 'curl -F c=@$f https://ptpb.pw/?u=1|xclip'
 
+ctrl + shift + Print
+	sleep 1 && /usr/bin/scrot ~/Pictures/scrots/'scrot_%Y%m%d-%H%M%S_$wx$h.png' -e 'printf $f|xclip'
+
 mode_switch + Print
 	sleep 1 && /usr/bin/scrot -s ~/Pictures/scrots/'scrot_%Y%m%d-%H%M%S_$wx$h.png' -e 'lp -d Lexmark_International_Lexmark_CS317dn_ -o fit-to-page -o media=A4 $f'
+
+XF86Calculator
+	bluetooth-autoconnect
 
 ## Media keys
 XF86AudioRaiseVolume
@@ -212,3 +218,4 @@ XF86AudioMute
 	amixer -q set Master toggle
 
 # vim: set ft=sxhkdrc:
+

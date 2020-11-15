@@ -11,19 +11,14 @@ Xft.lcdfilter: lcddefault
 !! https://wiki.archlinux.org/index.php/Rxvt-unicode
 
 URxvt*font: \
-    xft:PragmataPro:pixelsize=11:antialias=true,xft:Inconsolata for Powerline:pixelsize=11:antialias=true,\
-    xft:SauceCodePro NF:pixelsize=9, \
+    xft:PragmataPro:pixelsize=11:antialias=true, \
+    xft:Inconsolata for Powerline:pixelsize=11:antialias=true, \
+    xft:SauceCodePro NF:pixelsize=10, \
     xft:FontAwesome:size=8, \
-    xft:Symbola:size=9,\
-URxvt*boldFont: xft:SauceCodePro NF:size=9:antialias=true
+    xft:Symbola:size=10
 
-!!    xft:DejaVuSansMono:size=11,\
-!!    xft:DroidSansMono:size=11,\
-!!    xft:Inconsolata:size=12,\
-
-
+URxvt*boldFont: xft:PragmataPro:style=Bold:pixelsize=11,xft:SauceCodePro NF:size=9:antialias=true
 URxvt*letterSpace: 0
-
 URxvt*saveLines: 10000
 !!URxvt*transparent: true
 URxvt*depth: 32
@@ -39,8 +34,6 @@ URxvt*urgentOnBell: True
 
 !! #URxvt*perl-ext: default,url-select,keyboard-select,clipboard,vtwheel
 URxvt*perl-ext: default,matcher,keyboard-select
-!! #!!URxvt*perl-ext: default,keyboard-select,matcher,clipboard,vtwheel
-!! #URxvt*clipboard.autocopy: true
 URxvt*url-launcher: /usr/bin/firefox-beta
 URxvt*url-select.underline: true
 URxvt*matcher.button: 2
@@ -60,31 +53,18 @@ URxvt*keysym.M-C-2: command:\033]710;xft:SauceCodePro NF:pixelsize=10:antialias=
 
 xterm*termName: xterm-256color
 xterm*saveLines: 4096
-!!xterm*vt100.locale: true
+!! #xterm*vt100.locale: true
+!! #xterm*scaleHeight: 0.95
+!! #xterm*vt100.autoWrap: false
 xterm*utf8: true
-!!xterm*vt100.autoWrap: false
 xterm*vt100.metaSendsEscape: true
 xterm*alternateScroll: true
-!!xterm*scaleHeight: 0.95
 xterm*faceName:SauceCodePro NF:pixelsize=10
 
 !! For libsixel support
 xterm*decTerminalID: vt340
 xterm*allowWindowOps      : False
 xterm*disallowedWindowOps : 1,2,3,4,5,6,7,8,9,11,13,18,19,20,21,GetSelection,SetSelection,SetWinLines,SetXprop
-
-
-!! Rofi Colors bg,fg,albg,hlbg,hlfg (rofi -dump-Xresources)
-rofi*color-enabled: true
-rofi*color-window: #2a2a29, #ac7311, #ac7311
-rofi*color-normal: #2a2a29, #cccccc, #353535, #ac7311, #2a2a29
-rofi*color-active: #2a2a29, #268bd2, #353535, #268bd2, #ffffff
-rofi*color-urgent: #2a2a29, #dc322f, #353535, #dc322f, #ffffff
-rofi*font: PragmataPro NF 9
-rofi*bw: 1
-rofi*opacity: 90
-rofi*width: 50
-
 xterm*foreground: rgb:b2/b2/b2
 xterm*background: rgb:08/08/08
 
