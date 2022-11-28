@@ -46,7 +46,7 @@ init_desktop() {
 #	ipfs daemon &
 	clipmenud &
 #	/usr/bin/xcmenu &
-	offlineimap -c ~/.mutt/offlineimaprc -l ~/.offlineimap.log 2>&1 /dev/null &
+#	offlineimap -c ~/.mutt/offlineimaprc -l ~/.offlineimap.log 2>&1 /dev/null &
 	bluetoothctl power on &
 #        [ -e $HOME/.cache/rtorrent/session/rtorrent.lock ] && rm $HOME/.cache/rtorrent/session/rtorrent.lock;
 }

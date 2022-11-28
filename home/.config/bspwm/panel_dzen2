@@ -39,11 +39,11 @@ while read -r line ; do
     case $line in
         C*)
             # system informations
-            sys_clock="${PADDING}^fn(FontAwesome:size=10)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)${PADDING}${line#?}${PADDING}^fg()^bg()${PADDING}"
+            sys_clock="${PADDING}^fn(FontAwesome:size=10)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)${PADDING}${line#?}${PADDING}${PADDING}^fg()^bg()"
             ;;
         D*)
             # system informations
-            sys_date="${PADDING}^fn(FontAwesome:size=8)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)${PADDING}${line#?}${PADDING}^fg()^bg()${PADDING}"
+            sys_date="^fn(FontAwesome:size=8)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)${PADDING}${line#?}^fg()^bg()"
             ;;
         #V*)
         #    set -- ${line#?}
@@ -67,16 +67,16 @@ while read -r line ; do
         #    esac
         #    sys_volume="^fg($FG)^bg($COLOR_STATUS_BG)${PADDING}^fn(${icons_font_family}:pixelsize=${icons_font_size})${icon_state}^fn()${PADDING}^fg()^bg()"
         #    ;;
-     	F*)
-            weather_infos="^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, uxterm -geometry 125x41 -e sh -c \"bspc node -t floating;curl -s 'wttr.in/kiruna';read -p ' '\")${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}${PADDING}"
-			;;
+#     	F*)
+#            weather_infos="^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, uxterm -geometry 125x41 -e sh -c \"bspc node -t floating;curl -s 'wttr.in/kiruna';read -p ' '\")${PADDING}${line#?}${PADDING}^ca()^fg()^bg()${PADDING}${PADDING}"
+#			;;
      	G*)
-            inbox="^fn(FontAwesome:size=8)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc desktop -f ^4)${line#?}${PADDING}^ca()^fg()^bg()${PADDING}${PADDING}"
+            inbox="^fn(FontAwesome:size=8)^fn()^fg($COLOR_STATUS_ACTIVE_FG)^bg($COLOR_STATUS_BG)^ca(1, bspc desktop -f ^4)${line#?}${PADDING}^ca()^fg()^bg()"
 			;;
 	T*)
             # focused window title
 #            title="^fg($COLOR_TITLE_FG)^bg($COLOR_TITLE_BG)^ca(1, bspc window -t floating)^ca(2, bspc window -t locked)^ca(3, bspc window -c)${PADDING}${line#?}${PADDING}^ca()^ca()^ca()"
-            title="^fg($COLOR_TITLE_FG)^bg($COLOR_TITLE_BG)${PADDING}${line#?}${PADDING}"
+            title="^fg($COLOR_TITLE_FG)^bg($COLOR_TITLE_BG)${PADDING}${line#?}"
             ;;
         W*)
             wm_infos="$PADDING"
@@ -94,10 +94,10 @@ while read -r line ; do
                                 BG=$COLOR_FOCUSED_OCCUPIED_BG
                                 #font_style=Bold
                                 ;;
-                            F*)
-                                FG=$COLOR_FOCUSED_FREE_FG
-                                BG=$COLOR_FOCUSED_FREE_BG
-                                ;;
+ #                           F*)
+ #                               FG=$COLOR_FOCUSED_FREE_FG
+ #                               BG=$COLOR_FOCUSED_FREE_BG
+ #                               ;;
                             U*)
                                 FG=$COLOR_FOCUSED_URGENT_FG
                                 BG=$COLOR_FOCUSED_URGENT_BG
@@ -119,7 +119,7 @@ while read -r line ; do
                                 ;;
                         esac
 #                        wm_infos="${wm_infos}^fg(${FG})^bg(${BG})^ca(1, bspc desktop -f ${name})${PADDING}^fn(${font_family}:pixelsize=${font_size}:style=${font_style})${name}^fn()${PADDING}^ca()"
-                        wm_infos="${wm_infos}^fg(${FG})^bg(${BG})^ca(1, bspc desktop -f ${name})${PADDING}^fn(FontAwesome:pixelsize=${font_size}:style=${font_style})${name}^fn()${PADDING}^ca()"
+                        wm_infos="${wm_infos}^fg(${FG})^bg(${BG})^ca(1, bspc desktop -f ${name})${PADDING}^fn(FontAwesome:pixelsize=${font_size}:style=${font_style})${name}^fn()^ca()${PADDING}"
                         ;;
                     L*)
                         case $name in
@@ -130,7 +130,7 @@ while read -r line ; do
                                 icon_state=M
                                 ;;
                         esac
-                        wm_infos="${wm_infos}^fg()^bg()${PADDING}${PADDING}^fg($COLOR_LAYOUT_FG)^bg($COLOR_LAYOUT_BG)${PADDING}^fn(${icons_font_family}:pixelsize=${icons_font_size})${icon_state}^fn()^fg()^bg()"
+                        wm_infos="${wm_infos}^fg()^bg()${PADDING}${PADDING}^fg($COLOR_LAYOUT_FG)^bg($COLOR_LAYOUT_BG)^fn(${icons_font_family}:pixelsize=${icons_font_size})${icon_state}^fn()^fg()^bg()${PADDING}"
                         ;;
                 esac
                 shift
@@ -139,7 +139,7 @@ while read -r line ; do
             ;;
     esac
 
-    sys_infos="${PADDING}${weather_infos}${inbox}${sys_date}${sys_clock}"
+    sys_infos="${inbox}${sys_date}${sys_clock}${PADDING}${PADDING}"
    # sys_infos="${weather_infos}${sys_volume}${sys_clock}${PADDING}"
     set -- $(printf '%s\0%s\0%s' "$wm_infos" "$title" "$sys_infos" | sed 's/\^fn()/\\)/g; s/\^fn([^)]\+)/\\(/g; s/\^[a-z]\+([^)]*)//g' | xargs -0 txtw -f "$font_family" -s "$font_size" -F "FontAwesome" -S "14")
     left_width=$1

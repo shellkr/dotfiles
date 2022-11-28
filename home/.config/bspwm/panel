@@ -25,14 +25,14 @@ function gmail() {
 	done
 }
 
-function weather() {
-	while true
-	do
-		weather_stat=$($HOME/.config/scripts/./weather-yr.sh)
-		echo "F^fn(Meiryo:size=7)$weather_stat^fn()"
-		sleep 900
-	done
-}
+#function weather() {
+#	while true
+#	do
+#		weather_stat=$($HOME/.config/scripts/./weather-yr.sh)
+#		echo "F^fn(Meiryo:size=7)$weather_stat^fn()"
+#		sleep 900
+#	done
+#}
 
 function tid() {
 	while true
@@ -55,7 +55,7 @@ function datum() {
 
 bspc subscribe report > "$PANEL_FIFO" &
 xtitle -sf "T%s\n" > "$PANEL_FIFO" &
-weather > "$PANEL_FIFO" &
+#weather > "$PANEL_FIFO" &
 gmail > "$PANEL_FIFO" &
 tid > "$PANEL_FIFO" &
 datum > "$PANEL_FIFO" &
